@@ -1,95 +1,168 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+import Image from 'next/image'
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
 
-      <div className={styles.center}>
+  const Header = () => (
+    <header className={styles.main}>
+      <div className={styles.wrapper}>
+        <h2 className={styles.homeText}>
+          O ecossistema do bem-estar pet <br />
+          <span className={styles.bolder}>na palma da sua mão</span>
+        </h2>
+        <p className={styles.homeParagraph}>
+          Através da tecnologia, conectamos <br />
+          tutores, veterinários, petshops, <br />
+          estabelecimentos e profissionais <br />
+          em uma rede de cuidado pet,<br />
+          centralizando o histórico de vida<br />
+          do pet em um único lugar
+        </p>
+      </div>
+    </header>
+  );
+
+  const Section = ({ children, isBlue, middleSection }: { children: any, isBlue?: boolean, middleSection?: boolean }) => {
+    const minHeightValue = middleSection ? "30vh !important" : ''
+
+    return (<div
+      className={`${styles.wrapper} ${styles.main} ${styles.wrapperAlignSections} ${isBlue ? styles.backgroundBlueMiau : ''}`}
+      style={{ minHeight: minHeightValue }}
+
+    >
+      {children}
+    </div>)
+  };
+
+  const FeatureBox = (
+    { iconSrc, alt, title, children, isBlueBox }: { iconSrc: string, alt: string, title: string, children: any, isBlueBox: boolean }
+  ) => (
+    <div className={`${styles.containerBox} ${isBlueBox ? styles.containerBoxBlue : ''}`}>
+      <div className={`${styles.microBoxIconContainer} ${isBlueBox ? '' : styles.microBoxMarginInRight}`}>
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
+          src={iconSrc}
+          alt={alt}
+          width={40}
+          height={40}
           priority
         />
+        <h3 className={`${styles.boxTitle} ${isBlueBox ? '' : styles.blueBoxTitle}`}>{title}</h3>
       </div>
+      <p className={`${styles.boxParagraph} ${isBlueBox ? '' : styles.grayParagraphColor}`}>
+        {children}
+      </p>
+    </div>
+  );
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+  const LoveCareBox = ({ text, description, src, alt }: { text: string, description: string, src: string, alt: string }) => (
+    <div className={styles.loveCareContainer} >
+      <div >
+        <Image
+          src={src}
+          alt={alt}
+          width={200}
+          height={200}
+          priority
+          className={styles.imageBottomGap}
+        />
       </div>
-    </main>
+      <h3 >{text}</h3>
+      <p>{description}</p>
+    </div >
+  )
+
+  return (
+    <main >
+      <Header />
+      <Section>
+        <h2>
+          <span className={styles.bolder}>Tecnologia em prol do bem-estar pet</span>
+        </h2>
+        <div className={styles.wrapperContainerSecondSection}>
+          <div className={styles.rowWrapper}>
+            <FeatureBox
+              iconSrc="/icons/scan.svg"
+              alt="MiAu Logo"
+              title="PET ID"
+              isBlueBox={true}
+            >
+              Com nossa tecnologia biométrica via fucinho, o PET ID identifica seu pet instantaneamente, centraliza dados vitais e histórico médico, otimizando a segurança e o cuidado.
+            </FeatureBox>
+            <FeatureBox
+              iconSrc="/icons/dashboard.svg"
+              alt="historic"
+              title="Histórico Conectado"
+              isBlueBox={false}>
+              Todo histórico de saúde do seu(s) pet(s), como: consultas, laudos, medição, tratamento em um único lugar. Chega de pastas, papéis e arquivos pdf.
+            </FeatureBox>
+          </div>
+          <div className={styles.rowWrapper}>
+            <FeatureBox
+              iconSrc="/icons/world.svg"
+              alt="More than an app, an environment"
+              title="Muito mais que um app"
+              isBlueBox={false}
+            >
+              Somos a maneira mais eficiente e integrada de gerenciar a saúde e bem-estar dos pets, com acesso fácil a serviços, produtos, locais, profissionais pet e muito mais. Mais facilidades para todos, que amam seus pets.            </FeatureBox>
+            <FeatureBox
+              iconSrc="/icons/arrow-up.svg"
+              alt="Arrow Up Inovation"
+              title="Inovação contínua"
+              isBlueBox={false}
+            >
+              Através da tecnologia, potencializamos todos envolvidos na jornada pet, desde de veterinários até prestadores de serviços.
+            </FeatureBox>
+          </div>
+        </div>
+      </Section>
+      <Section isBlue>
+        <h2>
+          <span className={`${styles.bolder} ${styles.whiteColor}`}>Transformamos o amor em cuidado</span>
+        </h2>
+        <div className={styles.rowWrapper}>
+          <LoveCareBox
+            src=""
+            alt=""
+            text={`Explore o universo\nMiAu Club`}
+            description="Descubra como nosso ecossistema revoluciona o cuidado com seu pet, integrando todos os aspectos da vida do seu animal em um só lugar"
+          />
+          <LoveCareBox
+            src="/imgs/pet-dogs/cat-with-family.png"
+            alt="Cat with human family"
+            text={`Cuidado total para\nseu pet`}
+            description="Recursos únicos, que facilitam a gestão da saúde e bem-estar do seu pet, desde lembretes de vacinação até profissionais especializados perto de você."
+
+          />
+          <LoveCareBox
+            src="/imgs/pet-dogs/dog-eyeglasses.png"
+            alt="Dog with eye-glasses"
+            text={`Insights que mudam\nvidas`}
+            description="O MiAu Club pode expandir seu negócio, conectando-o a uma ampla rede de tutores e fornecendo dados e insights valiosos para melhorar seus serviços."
+
+          />
+        </div>
+      </Section>
+      <Section middleSection >
+        <div className={styles.firstTester}>
+          <div>
+            <h2>SEJA O PRIMEIRO A TESTAR</h2>
+            <p>o app que irá revolucionar o cuidado com
+              a saúde e o bem-estar pet</p>
+          </div>
+          <Image
+            className={styles.mockupMobileImg}
+            src={'/imgs/mobile-mockups/mobile-mockup-home.png'}
+            alt={'Mockup mobile home screen'}
+            width={450}
+            height={350}
+            priority
+          />
+        </div>
+      </Section>
+      <Section >
+
+      </Section>
+    </main >
+
   );
 }
