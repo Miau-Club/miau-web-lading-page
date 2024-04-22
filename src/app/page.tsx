@@ -182,6 +182,7 @@ export default function Home() {
             <p>o app que irá revolucionar o cuidado com
               a saúde e o bem-estar pet</p>
           </div>
+          <div>
           <Image
             className={styles.mockupMobileImg}
             src={'/imgs/mobile-mockups/mobile-mockup-home.png'}
@@ -190,6 +191,9 @@ export default function Home() {
             height={350}
             priority
           />
+
+          </div>
+
         </div>
       </Section>
       {/* <Section isBlue>

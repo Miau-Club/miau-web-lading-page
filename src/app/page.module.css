@@ -280,7 +280,8 @@
   .homeText {
     text-align: center;
     font-size: 2rem;
-    margin-top: 2rem;
+    max-width: 20ch;
+    margin-top: 4rem;
   }
 
   .homeSectionOneRow {
@@ -289,6 +290,7 @@
 
   .homeParagraph {
     font-size: 1rem;
+    margin-bottom: 2rem;
     max-width: 55ch;
     text-align: center;
   }
@@ -331,15 +333,16 @@
   }
 
   .firstTester {
+    padding: 1rem 0;
     justify-content: center;
-    /* padding-bottom: 30%; */
     align-items: flex-end;
     overflow: visible;
   }
 
   .firstTester h2 {
     text-align: center;
-    font-size: 2rem;
+    font-weight: 700;
+    font-size: 1.8rem;
   }
 
   .firstTester p {
@@ -348,13 +351,15 @@
 
   .firstTester div {
     width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
   }
 
   .mockupMobileImg {
     position: relative;
-    top: 2rem;
+    margin-right: 12%;
+    /* top: 2rem; */
   }
 
   .wrapperEvidences p {
