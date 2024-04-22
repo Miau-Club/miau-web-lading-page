@@ -11,6 +11,13 @@
   font-weight: 700;
 }
 
+.homeParagraphWrapper {
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: 2.5rem;
+}
+
 .bolder {
   font-weight: 700;
 }
@@ -251,6 +258,7 @@
 .partnersTxtWrapper h2 {
   color: var(--blanco-miau);
   font-weight: 700;
+  z-index: 10;
 }
 
 .partnersTxtWrapper p {
@@ -261,13 +269,14 @@
 
 .partnersTxtWrapper {
   flex-direction: column;
-  justify-content: space-evenly;
-  text-align: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .mockupPartners {
   position: relative;
   width: 150%;
+  z-index: 5;
   max-width: 900px;
   aspect-ratio: 70/70;
 }
@@ -282,6 +291,10 @@
     font-size: 2rem;
     max-width: 20ch;
     margin-top: 4rem;
+  }
+
+  #registerButton {
+    display: none;
   }
 
   .homeSectionOneRow {
@@ -369,15 +382,17 @@
   }
 
   .partnersTxtWrapper {
-    justify-content: flex-start;
+    margin-bottom: 90%;
     text-align: center;
   }
 
   .mockupPartners {
     position: absolute;
-    width: 100%;
-    max-width: 400px;
-    left: 0;
+    width: 80%;
+    /* max-width: 400px; */
+    /* left: 10; */
+    margin-top: 20rem;
+
     aspect-ratio: 70/70;
   }
 

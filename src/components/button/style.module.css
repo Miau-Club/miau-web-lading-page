@@ -3,11 +3,12 @@
     border-radius: 6px;
     cursor: pointer;
     transition: padding 0.3s ease;
+    padding: 0.8rem 0;
     border-color: var(--blanco-miau);
     font-family: '__approach_af6358';
 }
 
 
 .customButton:hover {
-    padding: 0.6rem 1.2rem !important;   
+    padding: 1rem 1rem !important;
 }

@@ -1,3 +1,4 @@
+import { Button } from "@/components/button";
 import styles from "./page.module.css";
 import Image from 'next/image'
 
@@ -14,13 +15,18 @@ export default function Home() {
         </div>
         <div className={styles.homeSectionOneRow}>
 
-          <p className={styles.homeParagraph}>
-            Através da tecnologia, conectamos
-            tutores, veterinários, petshops,
-            estabelecimentos e profissionais<br />
-            em uma rede de cuidado pet,
-            centralizando o histórico de vida  pet em um único lugar.
-          </p>
+          <div className={styles.homeParagraphWrapper}>
+            <p className={styles.homeParagraph}>
+              Através da tecnologia, conectamos
+              tutores, veterinários, petshops,
+              estabelecimentos e profissionais<br />
+              em uma rede de cuidado pet,
+              centralizando o histórico de vida  pet em um único lugar.
+            </p>
+
+            <Button id={styles.registerButton} text="Inscreva-se" size="lg" style="dark" />
+          </div>
+
           <div className={styles.homeSectionRowImg}>
             <Image
               src={'/imgs/mobile-mockups/environment-miau.png'}
@@ -183,14 +189,14 @@ export default function Home() {
               a saúde e o bem-estar pet</p>
           </div>
           <div>
-          <Image
-            className={styles.mockupMobileImg}
-            src={'/imgs/mobile-mockups/mobile-mockup-home.png'}
-            alt={'Mockup mobile home screen'}
-            width={450}
-            height={350}
-            priority
-          />
+            <Image
+              className={styles.mockupMobileImg}
+              src={'/imgs/mobile-mockups/mobile-mockup-home.png'}
+              alt={'Mockup mobile home screen'}
+              width={450}
+              height={350}
+              priority
+            />
 
           </div>
 
@@ -221,9 +227,11 @@ export default function Home() {
           <div className={styles.partnersTxtWrapper}>
             <h2>MiAu Club para parceiros</h2>
             <p>O Ecossitema mais completo para você profissional da área pet. Conectamos você a milhares de tutores e pets, através da nossa API única em que conseguimos transformar dados brutos em insigths valiosos prontos para alavancar seus négocios e forncer o cuidado e bem-estar para os pets.</p>
+            <Button text="Inscreva-se" size="regular" style="light" />
           </div>
           <div className={styles.mockupPartners}>
             <Image
+            
               src={'/imgs/mobile-mockups/partner-mobile-mockup.png'}
               alt={'Mockup mobile home screen'}
               fill
