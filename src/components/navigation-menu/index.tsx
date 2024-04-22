@@ -23,8 +23,9 @@ const NavigationMenu = (props: any) => {
             <Image
                 src="/miau/logo.svg"
                 alt="MiAu Logo"
-                width={180}
-                height={40}
+                width={70}
+                height={80}
+                quality={100}
                 priority
             />
             <div className={styles.linkContainer}>

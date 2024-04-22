@@ -10,14 +10,25 @@ export default function Home() {
           O ecossistema do bem-estar pet <br />
           <span className={styles.bolder}>na palma da sua mão</span>
         </h2>
-        <p className={styles.homeParagraph}>
-          Através da tecnologia, conectamos <br />
-          tutores, veterinários, petshops, <br />
-          estabelecimentos e profissionais <br />
-          em uma rede de cuidado pet,<br />
-          centralizando o histórico de vida<br />
-          do pet em um único lugar
-        </p>
+        <div className={styles.homeSectionOneRow}>
+
+          <p className={styles.homeParagraph}>
+            Através da tecnologia, conectamos
+            tutores, veterinários, petshops,
+            estabelecimentos e profissionais<br />
+            em uma rede de cuidado pet,
+            centralizando o histórico de vida  pet em um único lugar.
+          </p>
+          <div className={styles.homeSectionRowImg}>
+            <Image
+              src={'/imgs/mobile-mockups/environment-miau.png'}
+              alt={'Mockup mobile home screen'}
+              fill
+              quality={100}
+            />
+          </div>
+        </div>
+
       </div>
     </header>
   );
@@ -61,7 +72,7 @@ export default function Home() {
           src={src}
           alt={alt}
           width={200}
-          height={200}
+          height={215}
           priority
           className={styles.imageBottomGap}
         />
@@ -70,6 +81,20 @@ export default function Home() {
       <p>{description}</p>
     </div >
   )
+
+  function Evidences({ evidence, name, subtitle }: { evidence: string, name: string, subtitle: string }) {
+
+    return (
+      <div className={styles.evidences}>
+        {/* estreals */}
+        <p>{evidence}</p>
+        <div className={styles.evidencesRowImage}>
+          <h3>{name}</h3>
+          <p>{subtitle}</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <main >
@@ -121,8 +146,8 @@ export default function Home() {
         </h2>
         <div className={styles.rowWrapper}>
           <LoveCareBox
-            src=""
-            alt=""
+            src="/imgs/pet-dogs/cat-see.png"
+            alt="Cat dreaming"
             text={`Explore o universo\nMiAu Club`}
             description="Descubra como nosso ecossistema revoluciona o cuidado com seu pet, integrando todos os aspectos da vida do seu animal em um só lugar"
           />
@@ -159,7 +184,27 @@ export default function Home() {
           />
         </div>
       </Section>
-      <Section >
+      <Section isBlue>
+        <div className={styles.wrapperEvidences}>
+          <p>O que dizem sobre a importâcia de um ecossistema como o MiAu Club</p>
+          <h2>Depoimentos</h2>
+          <div className={styles.wrapperEvidencesRow}>
+            <Evidences
+              subtitle="Tutora, 2 gatos"
+              name="Mariana Martins"
+              evidence="Não consigo mais imaginar a minha vida sem esse app!" />
+            <Evidences
+              subtitle="Tutora, Gatos"
+              name="Marcela Gomes"
+              evidence="O MiAu Club é incrível! Eu sempre encontro os melhores produtos para o meu gato. " />
+            <Evidences
+              subtitle="Tutor, cachorro"
+              name="Hélio Santos"
+              evidence="Cuidados personalizados e conveniência em um só lugar." />
+          </div>
+        </div>
+      </Section>
+      <Section>
         <></>
       </Section>
     </main >

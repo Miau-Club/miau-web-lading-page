@@ -13,7 +13,6 @@ const Button = ({ text, size = 'regular', style = 'light' }:
             padding: sizeCustom,
             backgroundColor: backgroundColor,
             color: textColor,
-            borderColor: "white"
         }}
         className={styles.customButton}>
         {text}

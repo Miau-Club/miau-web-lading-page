@@ -20,14 +20,29 @@
 
 .homeParagraph {
   letter-spacing: 0.05rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  padding-bottom: 20%;
 }
 
 .wrapper {
   min-height: 85vh;
-  display: flex;
+
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+.homeSectionOneRow {
+
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homeSectionRowImg {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 65/45;
 }
 
 .wrapperAlignSections {
@@ -37,7 +52,7 @@
 .wrapperContainerSecondSection {
   width: 100%;
   height: 45vh;
-  display: flex;
+
   flex-direction: column;
   justify-content: space-evenly;
   border-radius: var(--md-radius);
@@ -45,7 +60,7 @@
 }
 
 .rowWrapper {
-  display: flex;
+
   flex-direction: row;
   justify-content: space-evenly;
   column-gap: 1rem;
@@ -53,7 +68,7 @@
 
 
 .microBoxIconContainer {
-  display: flex;
+
   flex-direction: row;
   column-gap: 1rem;
   justify-content: flex-start;
@@ -67,7 +82,7 @@
 }
 
 .containerBox {
-  display: flex;
+
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
@@ -103,7 +118,7 @@
 }
 
 .loveCareContainer {
-  display: flex;
+
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
@@ -140,7 +155,7 @@
 }
 
 .firstTester {
-  display: flex;
+
   flex: 1;
   width: 100%;
   flex-direction: column;
@@ -160,7 +175,7 @@
 }
 
 .firstTester div {
-  display: flex;
+
   flex-direction: column;
   align-items: flex-start;
 }
@@ -173,16 +188,67 @@
   transform: translateX(-50%)
 }
 
+.wrapperEvidences {
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+  /* height: 100%; */
+}
 
+.wrapperEvidences h2 {
+  font-weight: 600;
+  color: var(--blanco-miau);
+}
+
+.wrapperEvidences p {
+  font-weight: 200;
+  color: var(--blanco-miau);
+}
+
+.wrapperEvidencesRow {
+  flex-direction: row;
+  column-gap: 3rem;
+}
+
+.evidences {
+  padding: 1rem 1rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 350px;
+  height: 150px;
+  background-color: var(--blanco-miau);
+  border-radius: var(--min-radius);
+}
+
+.evidencesRowImage {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.evidences p {
+  font-weight: 400;
+  color: var(--azul-escuro-miau);
+}
+
+.evidencesRowImage h3 {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--azul-escuro-miau);
+}
+
+.evidencesRowImage p {
+  font-weight: 200;
+  font-size: 0.8rem;
+  color: var(--azul-escuro-miau);
+}
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
-}
+@media (min-width: 701px) and (max-width: 1120px) {}
 
 /* Mobile */
-@media (max-width: 700px) {
-
-}
+@media (max-width: 700px) {}
 
 
 .card span {

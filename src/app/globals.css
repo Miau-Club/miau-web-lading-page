@@ -44,6 +44,11 @@ main {
   background-color: var(--azul-claro-miau);
 }
 
+
+div {
+  display: flex;
+}
+
 a {
   color: inherit;
   text-decoration: none;

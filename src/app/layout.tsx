@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from 'next/font/local'
 import "./globals.css";
 import { NavigationMenu } from "@/components/navigation-menu";
+import { BottomMenu } from "@/components/bottom-menu";
 
 const approach = localFont({
   src: [
@@ -47,6 +48,7 @@ export default function RootLayout({
       <body className={approach.className}>
         <NavigationMenu />
         {children}
+        <BottomMenu />
       </body>
     </html>
   );
