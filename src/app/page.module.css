@@ -6,8 +6,9 @@
   background-color: var(--blue-miau);
 }
 
-.whiteColor {
-  color: var(--blanco-miau)
+.loveCareTitle {
+  color: var(--blanco-miau);
+  font-weight: 700;
 }
 
 .bolder {
@@ -32,10 +33,13 @@
 }
 
 .homeSectionOneRow {
-
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.techTitle {
+  font-weight: 700;
 }
 
 .homeSectionRowImg {
@@ -52,7 +56,6 @@
 .wrapperContainerSecondSection {
   width: 100%;
   height: 45vh;
-
   flex-direction: column;
   justify-content: space-evenly;
   border-radius: var(--md-radius);
@@ -60,7 +63,6 @@
 }
 
 .rowWrapper {
-
   flex-direction: row;
   justify-content: space-evenly;
   column-gap: 1rem;
@@ -68,7 +70,6 @@
 
 
 .microBoxIconContainer {
-
   flex-direction: row;
   column-gap: 1rem;
   justify-content: flex-start;
@@ -82,7 +83,6 @@
 }
 
 .containerBox {
-
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
@@ -248,39 +248,56 @@
 @media (min-width: 701px) and (max-width: 1120px) {}
 
 /* Mobile */
-@media (max-width: 700px) {}
-
-
-.card span {
-  display: inline-block;
-  transition: transform 200ms;
-}
-
-.card h2 {
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-}
-
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  .card:hover {
-    background: rgba(var(--card-rgb), 0.1);
-    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+@media (max-width: 700px) {
+  .homeText {
+    text-align: center;
+    font-size: 2rem;
   }
 
-  .card:hover span {
-    transform: translateX(4px);
-  }
-}
-
-
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
+  .homeSectionOneRow {
+    flex-direction: column;
   }
 
-  to {
-    transform: rotate(0deg);
+  .homeParagraph {
+    font-size: 0.5rem;
+    max-width: 55ch;
+    text-align: center;
+  }
+
+  .techTitle {
+    max-width: 18ch;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .rowWrapper {
+    flex-direction: column;
+  }
+
+  .wrapperContainerSecondSection {
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+    height: 20%;
+    background-color: var(--blanco-miau);
+  }
+
+  .containerBox {
+    align-items: normal;
+    width: 100%;
+  }
+
+  .microBoxIconContainer {
+    justify-content: center;
+  }
+
+  .boxParagraph {
+    text-align: center;
+  }
+
+  .loveCareTitle {
+    font-size: 1.5rem;
+    max-width: 18ch;
+    text-align: center;
+    margin-bottom: 5rem;
   }
 }

@@ -100,8 +100,8 @@ export default function Home() {
     <main >
       <Header />
       <Section>
-        <h2>
-          <span className={styles.bolder}>Tecnologia em prol do bem-estar pet</span>
+        <h2 className={styles.techTitle}>
+          <span >Tecnologia em prol do bem-estar pet</span>
         </h2>
         <div className={styles.wrapperContainerSecondSection}>
           <div className={styles.rowWrapper}>
@@ -141,8 +141,8 @@ export default function Home() {
         </div>
       </Section>
       <Section isBlue>
-        <h2>
-          <span className={`${styles.bolder} ${styles.whiteColor}`}>Transformamos o amor em cuidado</span>
+        <h2 className={styles.loveCareTitle}>
+          Transformamos o amor em cuidado
         </h2>
         <div className={styles.rowWrapper}>
           <LoveCareBox

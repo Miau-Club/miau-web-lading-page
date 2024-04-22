@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import "./globals.css";
 import { NavigationMenu } from "@/components/navigation-menu";
 import { BottomMenu } from "@/components/bottom-menu";
+import { Analytics } from '@vercel/analytics/react';
 
 const approach = localFont({
   src: [
@@ -49,6 +50,7 @@ export default function RootLayout({
         <NavigationMenu />
         {children}
         <BottomMenu />
+        <Analytics />
       </body>
     </html>
   );
