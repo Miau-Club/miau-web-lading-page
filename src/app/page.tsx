@@ -6,10 +6,12 @@ export default function Home() {
   const Header = () => (
     <header className={styles.main}>
       <div className={styles.wrapper}>
-        <h2 className={styles.homeText}>
-          O ecossistema do bem-estar pet <br />
-          <span className={styles.bolder}>na palma da sua mão</span>
-        </h2>
+        <div>
+          <h2 className={styles.homeText}>
+            O ecossistema do bem-estar pet <br />
+            <span className={styles.bolder}>na palma da sua mão</span>
+          </h2>
+        </div>
         <div className={styles.homeSectionOneRow}>
 
           <p className={styles.homeParagraph}>
@@ -33,11 +35,17 @@ export default function Home() {
     </header>
   );
 
-  const Section = ({ children, isBlue, middleSection }: { children: any, isBlue?: boolean, middleSection?: boolean }) => {
+  const Section = ({ children, isBlue, middleSection, darkBlue }: { children: any, isBlue?: boolean, middleSection?: boolean, darkBlue?: boolean }) => {
     const minHeightValue = middleSection ? "30vh !important" : ''
 
     return (<div
-      className={`${styles.wrapper} ${styles.main} ${styles.wrapperAlignSections} ${isBlue ? styles.backgroundBlueMiau : ''}`}
+      className={`
+      ${styles.wrapper} 
+      ${styles.main} 
+      ${styles.wrapperAlignSections}
+      ${isBlue && styles.backgroundBlueMiau}
+      ${darkBlue && styles.darkBlueBackground}
+      `}
       style={{ minHeight: minHeightValue }}
 
     >
@@ -144,7 +152,7 @@ export default function Home() {
         <h2 className={styles.loveCareTitle}>
           Transformamos o amor em cuidado
         </h2>
-        <div className={styles.rowWrapper}>
+        <div className={styles.wrapperLoveCare}>
           <LoveCareBox
             src="/imgs/pet-dogs/cat-see.png"
             alt="Cat dreaming"
@@ -184,7 +192,7 @@ export default function Home() {
           />
         </div>
       </Section>
-      <Section isBlue>
+      {/* <Section isBlue>
         <div className={styles.wrapperEvidences}>
           <p>O que dizem sobre a importâcia de um ecossistema como o MiAu Club</p>
           <h2>Depoimentos</h2>
@@ -203,9 +211,22 @@ export default function Home() {
               evidence="Cuidados personalizados e conveniência em um só lugar." />
           </div>
         </div>
-      </Section>
-      <Section>
-        <></>
+      </Section> */}
+      <Section darkBlue>
+        <div className={styles.rowWrapper}>
+          <div className={styles.partnersTxtWrapper}>
+            <h2>MiAu Club para parceiros</h2>
+            <p>O Ecossitema mais completo para você profissional da área pet. Conectamos você a milhares de tutores e pets, através da nossa API única em que conseguimos transformar dados brutos em insigths valiosos prontos para alavancar seus négocios e forncer o cuidado e bem-estar para os pets.</p>
+          </div>
+          <div className={styles.mockupPartners}>
+            <Image
+              src={'/imgs/mobile-mockups/partner-mobile-mockup.png'}
+              alt={'Mockup mobile home screen'}
+              fill
+              priority
+            />
+          </div>
+        </div>
       </Section>
     </main >
 

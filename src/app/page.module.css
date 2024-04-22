@@ -21,21 +21,21 @@
 
 .homeParagraph {
   letter-spacing: 0.05rem;
-  font-size: 1.2rem;
-  padding-bottom: 20%;
+  font-size: 1.1rem;
+  max-width: 50ch;
+  margin-top: 10%;
 }
 
 .wrapper {
   min-height: 85vh;
 
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .homeSectionOneRow {
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
 }
 
 .techTitle {
@@ -155,7 +155,6 @@
 }
 
 .firstTester {
-
   flex: 1;
   width: 100%;
   flex-direction: column;
@@ -165,17 +164,13 @@
   overflow: hidden;
 }
 
-.firstTester div {
-  width: 46%;
-}
-
 .firstTester h2 {
   font-weight: 600;
   font-size: 2.5rem;
 }
 
 .firstTester div {
-
+  width: 46%;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -193,7 +188,7 @@
   flex: 1;
   justify-content: space-evenly;
   align-items: center;
-  /* height: 100%; */
+  width: 100%;
 }
 
 .wrapperEvidences h2 {
@@ -238,10 +233,43 @@
   color: var(--azul-escuro-miau);
 }
 
+.wrapperLoveCare {
+  flex-direction: row;
+  gap: 2rem;
+}
+
 .evidencesRowImage p {
   font-weight: 200;
   font-size: 0.8rem;
   color: var(--azul-escuro-miau);
+}
+
+.darkBlueBackground {
+  background-color: var(--azul-escuro-miau);
+}
+
+.partnersTxtWrapper h2 {
+  color: var(--blanco-miau);
+  font-weight: 700;
+}
+
+.partnersTxtWrapper p {
+  color: var(--blanco-miau);
+  max-width: 90ch;
+  font-weight: 200;
+}
+
+.partnersTxtWrapper {
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.mockupPartners {
+  position: relative;
+  width: 150%;
+  max-width: 900px;
+  aspect-ratio: 70/70;
 }
 
 /* Tablet and Smaller Desktop */
@@ -252,6 +280,7 @@
   .homeText {
     text-align: center;
     font-size: 2rem;
+    margin-top: 2rem;
   }
 
   .homeSectionOneRow {
@@ -259,7 +288,7 @@
   }
 
   .homeParagraph {
-    font-size: 0.5rem;
+    font-size: 1rem;
     max-width: 55ch;
     text-align: center;
   }
@@ -300,4 +329,51 @@
     text-align: center;
     margin-bottom: 5rem;
   }
+
+  .firstTester {
+    justify-content: center;
+    /* padding-bottom: 30%; */
+    align-items: flex-end;
+    overflow: visible;
+  }
+
+  .firstTester h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .firstTester p {
+    text-align: center;
+  }
+
+  .firstTester div {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mockupMobileImg {
+    position: relative;
+    top: 2rem;
+  }
+
+  .wrapperEvidences p {
+    font-size: 0.9rem;
+    max-width: 40ch;
+    text-align: center;
+  }
+
+  .partnersTxtWrapper {
+    justify-content: flex-start;
+    text-align: center;
+  }
+
+  .mockupPartners {
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    left: 0;
+    aspect-ratio: 70/70;
+  }
+
 }
