@@ -59,6 +59,7 @@ export default function Home() {
     <div className={`${styles.containerBox} ${isBlueBox ? styles.containerBoxBlue : ''}`}>
       <div className={`${styles.microBoxIconContainer} ${isBlueBox ? '' : styles.microBoxMarginInRight}`}>
         <Image
+          className={isBlueBox ? styles.pulse : ""}
           src={iconSrc}
           alt={alt}
           width={40}

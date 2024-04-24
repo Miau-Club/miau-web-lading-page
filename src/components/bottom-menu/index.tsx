@@ -12,10 +12,10 @@ const BottomMenu: React.FC = () => {
             </div>
             <div className={styles.containerSectionTop}>
                 <Image
-                    src="/miau/logo.svg"
+                    src="/miau/logo.png"
                     alt="MiAu Logo"
                     width={50}
-                    height={50}
+                    height={40}
                     quality={100}
                     priority
                 />

@@ -22,7 +22,6 @@ const NavigationMenu = (props: any) => {
 
     function showNav() {
         setNavOn(!navOn)
-
     }
 
 
@@ -30,9 +29,9 @@ const NavigationMenu = (props: any) => {
         <header className={`${styles.main} ${navOn ? styles.responsiveNav : ''}`
         }>
             <Image
-                src="/miau/logo.svg"
+                src="/miau/logo.png"
                 alt="MiAu Logo"
-                width={60}
+                width={50}
                 height={40}
                 quality={100}
                 priority
@@ -70,7 +69,7 @@ const NavigationMenu = (props: any) => {
                 </nav>
                 <nav className={styles.socialContainer}>
                     {[
-                        { src: "/imgs/instagram.svg", alt: "Instagram", href: "https://www.instagram.com/miauclubapp/" },
+                        { src: "/imgs/instagram.png", alt: "Instagram", href: "https://www.instagram.com/miauclubapp/" },
                         { src: "/imgs/tik-tok.svg", alt: "TikTok", href: "https://www.tiktok.com/@miauclubapp" }
                     ].map(({ src, alt, href }) => {
                         return (
@@ -81,6 +80,7 @@ const NavigationMenu = (props: any) => {
                                     alt={alt}
                                     width={20}
                                     height={20}
+                                    quality={100}
                                     priority
                                 />
                             </a>
@@ -101,7 +101,6 @@ const NavigationMenu = (props: any) => {
                     quality={100}
                 />
                 }
-
                 {!navOn && <Image
                     onClick={showNav}
                     src="/icons/menu.svg"

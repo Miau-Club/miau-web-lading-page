@@ -111,8 +111,8 @@
 .containerBoxBlue {
   background-color: var(--blue-miau);
   bottom: 4rem;
+  position: relative;
 }
-
 
 .boxParagraph {
   font-weight: 200;
@@ -130,6 +130,18 @@
 
 .blueBoxTitle {
   color: var(--azul-escuro-miau);
+}
+
+.pulse {
+  animation: pulseAnimate 2s ease-out infinite;
+  opacity: 1;
+}
+
+@keyframes pulseAnimate {
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
 }
 
 .loveCareContainer {
@@ -249,7 +261,7 @@
 }
 
 .wrapperLoveCare {
-  padding: 0   0 2rem 0;
+  padding: 0 0 2rem 0;
   justify-content: center;
   gap: 2rem;
 }
@@ -402,14 +414,11 @@
   .mockupPartners {
     position: absolute;
     width: 80%;
-    /* max-width: 400px; */
-    /* left: 10; */
     margin-top: 20rem;
-
     aspect-ratio: 70/70;
   }
 
-  .homeSectionRowImg{
+  .homeSectionRowImg {
     bottom: 0;
   }
 
