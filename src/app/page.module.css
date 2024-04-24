@@ -35,14 +35,21 @@
 
 .wrapper {
   min-height: 85vh;
-
+  padding: 0rem 2rem;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 5rem;
 }
 
 .homeSectionOneRow {
   flex-direction: row;
-  justify-content: space-between;
+  width: 80%;
+  justify-content: space-evenly;
+}
+
+.headerWrapperTitle {
+  width: 80%;
 }
 
 .techTitle {
@@ -54,6 +61,7 @@
   width: 100%;
   max-width: 900px;
   aspect-ratio: 65/45;
+  bottom: 4rem;
 }
 
 .wrapperAlignSections {
@@ -241,7 +249,8 @@
 }
 
 .wrapperLoveCare {
-  flex-direction: row;
+  padding: 0   0 2rem 0;
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -290,7 +299,7 @@
     text-align: center;
     font-size: 2rem;
     max-width: 20ch;
-    margin-top: 4rem;
+    /* margin-top: 15%; */
   }
 
   #registerButton {
@@ -336,6 +345,10 @@
 
   .boxParagraph {
     text-align: center;
+  }
+
+  .wrapperLoveCare {
+    flex-direction: column;
   }
 
   .loveCareTitle {
@@ -394,6 +407,10 @@
     margin-top: 20rem;
 
     aspect-ratio: 70/70;
+  }
+
+  .homeSectionRowImg{
+    bottom: 0;
   }
 
 }

@@ -5,40 +5,34 @@ import Image from 'next/image'
 export default function Home() {
 
   const Header = () => (
-    <header className={styles.main}>
-      <div className={styles.wrapper}>
-        <div>
-          <h2 className={styles.homeText}>
-            O ecossistema do bem-estar pet <br />
-            <span className={styles.bolder}>na palma da sua mão</span>
-          </h2>
-        </div>
-        <div className={styles.homeSectionOneRow}>
-
-          <div className={styles.homeParagraphWrapper}>
-            <p className={styles.homeParagraph}>
-              Através da tecnologia, conectamos
-              tutores, veterinários, petshops,
-              estabelecimentos e profissionais<br />
-              em uma rede de cuidado pet,
-              centralizando o histórico de vida  pet em um único lugar.
-            </p>
-
-            <Button id={styles.registerButton} text="Inscreva-se" size="lg" style="dark" />
-          </div>
-
-          <div className={styles.homeSectionRowImg}>
-            <Image
-              src={'/imgs/mobile-mockups/environment-miau.png'}
-              alt={'Mockup mobile home screen'}
-              fill
-              quality={100}
-            />
-          </div>
-        </div>
-
+    <div className={styles.wrapper}>
+      <div className={styles.headerWrapperTitle}>
+        <h2 className={styles.homeText}>
+          O ecossistema do bem-estar pet <br />
+          <span className={styles.bolder}>na palma da sua mão</span>
+        </h2>
       </div>
-    </header>
+      <div className={styles.homeSectionOneRow}>
+        <div className={styles.homeParagraphWrapper}>
+          <p className={styles.homeParagraph}>
+            Através da tecnologia, conectamos
+            tutores, veterinários, petshops,
+            estabelecimentos e profissionais<br />
+            em uma rede de cuidado pet,
+            centralizando o histórico de vida  pet em um único lugar.
+          </p>
+          <Button id={styles.registerButton} text="Inscreva-se" size="lg" style="dark" />
+        </div>
+        <div className={styles.homeSectionRowImg}>
+          <Image
+            src={'/imgs/mobile-mockups/environment-miau.png'}
+            alt={'Mockup mobile home screen'}
+            fill
+            quality={100}
+          />
+        </div>
+      </div>
+    </div>
   );
 
   const Section = ({ children, isBlue, middleSection, darkBlue }: { children: any, isBlue?: boolean, middleSection?: boolean, darkBlue?: boolean }) => {
@@ -226,12 +220,12 @@ export default function Home() {
         <div className={styles.rowWrapper}>
           <div className={styles.partnersTxtWrapper}>
             <h2>MiAu Club para parceiros</h2>
-            <p>O Ecossitema mais completo para você profissional da área pet. Conectamos você a milhares de tutores e pets, através da nossa API única em que conseguimos transformar dados brutos em insigths valiosos prontos para alavancar seus négocios e forncer o cuidado e bem-estar para os pets.</p>
+            <p>O Ecossitema mais completo para você profissional da área pet. Conectamos você a milhares de tutores e pets, através da nossa API única onde conseguimos transformar dados brutos em insigths valiosos prontos para alavancar seus négocios e forncer o cuidado e bem-estar para os pets.</p>
             <Button text="Inscreva-se" size="regular" style="light" />
           </div>
           <div className={styles.mockupPartners}>
             <Image
-            
+
               src={'/imgs/mobile-mockups/partner-mobile-mockup.png'}
               alt={'Mockup mobile home screen'}
               fill

@@ -24,7 +24,7 @@
 .storeButtonWrapper {
     border: none;
     border-radius: var(--min-radius);
-    padding: 5px 10px;
+    padding: 1px 15px;
     cursor: pointer;
     border: 0.10rem solid var(--blanco-miau);
     background-color: transparent;
