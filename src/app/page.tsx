@@ -1,5 +1,5 @@
 import { Button } from "@/components/button";
-import styles from "./page.module.css";
+import styles from "./styles.module.css";
 import Image from 'next/image'
 
 export default function Home() {
@@ -183,7 +183,7 @@ export default function Home() {
             <p>o app que irá revolucionar o cuidado com
               a saúde e o bem-estar pet</p>
           </div>
-          <div>
+          {/* <div > */}
             <Image
               className={styles.mockupMobileImg}
               src={'/imgs/mobile-mockups/mobile-mockup-home.png'}
@@ -193,7 +193,7 @@ export default function Home() {
               priority
             />
 
-          </div>
+          {/* </div> */}
 
         </div>
       </Section>

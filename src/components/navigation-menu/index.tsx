@@ -10,8 +10,8 @@ import { useRef, useState } from "react";
 const LINK_PATHS = [
     { href: '/', name: 'Home' },
     { href: '/tutors', name: 'Para Tutores' },
-    { href: '/partners', name: 'Para Parceiros' },
-    { href: '/about', name: 'Sobre' }
+    // { href: '/partners', name: 'Para Parceiros' },
+    // { href: '/about', name: 'Sobre' }
 ]
 
 const NavigationMenu = (props: any) => {
