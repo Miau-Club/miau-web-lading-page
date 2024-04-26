@@ -197,18 +197,13 @@
 }
 
 .firstTester div {
-  /* width: 46%; */
   flex-direction: column;
   align-items: flex-start;
 }
 
 
 .mockupMobileImg {
-  margin-right: 2%;
-  /* position: absolute;
-  top: -1.2rem;
-  left: 70%; */
-  /* transform: translateX(-50%) */
+  /* right: 3.5%; */
 }
 
 .wrapperEvidences {
@@ -373,6 +368,7 @@
 
   .firstTester {
     flex-direction: column;
+    padding-bottom: 20%;
     overflow: visible;
   }
 
@@ -386,8 +382,8 @@
     text-align: center;
   }
 
-  .firstTester div {
-    width: 100%;
+  .mockupMobileImg {
+    margin-right: 10%;
   }
 
 
