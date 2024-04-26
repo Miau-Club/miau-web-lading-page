@@ -50,6 +50,29 @@ const TutorsPage = () => {
         )
     }
 
+    function StoryContainerSection({ title, subtitle, src }: { title: string, subtitle: string, src: string }) {
+        return (
+            <div className={styles.storyContainerWrapper}>
+                <div className={styles.storyContainerTexts}>
+                    <h2>{title}</h2>
+                    <p>{subtitle}</p>
+                </div>
+                <div>
+                    <Image
+                        className={styles.storyImgMockup}
+                        src={src}
+                        alt={'Total Care Mockup'}
+                        layout='responsive'
+                        width={0}
+                        height={0}
+                        priority
+                        quality={100}
+                    />
+                </div>
+            </div>
+        )
+    }
+
     return (
         <main>
             <MainSection >
@@ -99,7 +122,18 @@ const TutorsPage = () => {
                 </div>
             </MainSection>
             <MainSection>
-                <div></div>
+                <StoryContainerSection
+                    src='/imgs/mobile-mockups/total-care-mockup.png'
+                    title='Cuidado total para seu pet'
+                    subtitle='Com o  app MiAu Club você tem todas as informações do seu pet centralizadas em um único lugar! Desde consultas até vacinas, exames e prescrições médicas.'
+                />
+            </MainSection>
+            <MainSection>
+                <StoryContainerSection
+                    src='/imgs/mobile-mockups/easy-for-tutors-mockup.png'
+                    title='Praticidade para você, tutor'
+                    subtitle='Esqueça a confusão de vários apps. No MiAu Club, você gerencia a saúde e o bem-estar do seu pet, além de acessar serviços e produtos essenciais, tudo em um só lugar!'
+                />
             </MainSection>
         </main>
     )
