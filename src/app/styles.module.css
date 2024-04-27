@@ -18,6 +18,14 @@
   gap: 2.5rem;
 }
 
+.containerTechnologyPetLife {
+  width: 100%;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .bolder {
   font-weight: 700;
 }
@@ -60,8 +68,8 @@
 .homeSectionRowImg {
   position: relative;
   width: 100%;
-  max-width: 900px;
-  aspect-ratio: 65/45;
+  max-width: 1000px;
+  aspect-ratio: 100/75;
   bottom: 4rem;
 }
 
@@ -71,9 +79,10 @@
 
 .wrapperContainerSecondSection {
   width: 100%;
-  height: 45vh;
+  height: 100%;
   flex-direction: column;
-  justify-content: space-evenly;
+  padding: 2rem 0;
+  row-gap: 5rem;
   border-radius: var(--md-radius);
   background-color: var(--blanco-miau);
 }
@@ -81,7 +90,7 @@
 .rowWrapper {
   flex-direction: row;
   justify-content: space-evenly;
-  column-gap: 1rem;
+  column-gap: 10rem;
 }
 
 
@@ -94,7 +103,7 @@
   width: 100%;
 }
 
-.microBoxMarginInRight {
+.microBoxIconContainer.marginRight {
   margin-right: 7.1rem;
 }
 
@@ -106,13 +115,10 @@
   width: 16rem;
   height: 10rem;
   border-radius: var(--md-radius);
-  position: relative;
 }
 
-.containerBoxBlue {
+.containerBox.blueBox {
   background-color: var(--blue-miau);
-  bottom: 4rem;
-  position: relative;
 }
 
 .boxParagraph {
@@ -121,7 +127,7 @@
   color: var(--paragraph-light-blue);
 }
 
-.grayParagraphColor {
+.boxParagraph.grayColor {
   color: var(--paragraph-light-gray) !important;
 }
 
@@ -307,7 +313,6 @@
     text-align: center;
     font-size: 2rem;
     max-width: 20ch;
-    /* margin-top: 15%; */
   }
 
   #registerButton {
@@ -333,18 +338,19 @@
 
   .rowWrapper {
     flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
   }
 
   .wrapperContainerSecondSection {
-    margin-top: 10rem;
-    margin-bottom: 5rem;
-    height: 20%;
-    background-color: var(--blanco-miau);
+    row-gap: 1rem;
   }
 
   .containerBox {
     align-items: normal;
-    width: 100%;
+    justify-content: space-around;
+    padding: 0rem 0.5rem;
+    width: 85%;
   }
 
   .microBoxIconContainer {
@@ -407,6 +413,12 @@
 
   .homeSectionRowImg {
     bottom: 0;
+    width: 100%;
+    aspect-ratio: 140/95;
+  }
+
+  .containerTechnologyPetLife {
+    margin-bottom: 2rem;
   }
 
 }

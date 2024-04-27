@@ -6,8 +6,8 @@ import Image from 'next/image'
 const TutorsPage = () => {
 
     const MainSection = (
-        { children, isBlue, waves, height }:
-            { children: any, isBlue?: boolean, waves?: boolean, height?: number }
+        { children, isBlue, waves, center }:
+            { children: any, isBlue?: boolean, waves?: boolean, center?: boolean }
     ) => {
 
         return (
@@ -16,7 +16,7 @@ const TutorsPage = () => {
                     style={{
                         backgroundColor: isBlue ? 'var(--blue-miau)' : ''
                     }}
-                    className={styles.mainSectionWrapper}>
+                    className={`${styles.mainSectionWrapper} ${center && styles.center}`}>
                     {children}
                 </div>
                 {
@@ -50,16 +50,16 @@ const TutorsPage = () => {
         )
     }
 
-    function StoryContainerSection({ title, subtitle, src }: { title: string, subtitle: string, src: string }) {
+    function StoryContainerSection({ title, subtitle, src, reverse }: { title: string, subtitle: React.JSX.Element, src: string, reverse?: boolean }) {
         return (
-            <div className={styles.storyContainerWrapper}>
+            <div className={`${styles.storyContainerWrapper} ${reverse ? styles.reverse : ''}`}>
                 <div className={styles.storyContainerTexts}>
                     <h2>{title}</h2>
-                    <p>{subtitle}</p>
+                    {subtitle}
                 </div>
                 <div>
                     <Image
-                        className={styles.storyImgMockup}
+                        className={`${styles.storyImgMockup} ${reverse ? styles.reverse : ''}`}
                         src={src}
                         alt={'Total Care Mockup'}
                         layout='responsive'
@@ -69,6 +69,23 @@ const TutorsPage = () => {
                         quality={100}
                     />
                 </div>
+            </div>
+        )
+    }
+
+    function WeAreUniqueContainer({ icon, title, subtitle, white }: { icon: string, title: string, subtitle: string, white?: boolean }) {
+
+        return (
+            <div className={`${styles.uniqueContainerItem} ${white && styles.whiteBg}`}>
+                <Image
+                    src={`/icons/${icon}.svg`}
+                    alt={icon}
+                    width={30}
+                    height={30}
+                    priority
+                />
+                <h3>{title}</h3>
+                <p>{subtitle}</p>
             </div>
         )
     }
@@ -125,15 +142,78 @@ const TutorsPage = () => {
                 <StoryContainerSection
                     src='/imgs/mobile-mockups/total-care-mockup.png'
                     title='Cuidado total para seu pet'
-                    subtitle='Com o  app MiAu Club você tem todas as informações do seu pet centralizadas em um único lugar! Desde consultas até vacinas, exames e prescrições médicas.'
+                    subtitle={(
+                        <p>Com o <span>app MiAu Club </span> você tem todas as informações do seu pet centralizadas em um único lugar! Desde consultas até vacinas, exames e prescrições médicas.</p>
+                    )}
                 />
             </MainSection>
             <MainSection>
                 <StoryContainerSection
+                    reverse
                     src='/imgs/mobile-mockups/easy-for-tutors-mockup.png'
                     title='Praticidade para você, tutor'
-                    subtitle='Esqueça a confusão de vários apps. No MiAu Club, você gerencia a saúde e o bem-estar do seu pet, além de acessar serviços e produtos essenciais, tudo em um só lugar!'
+                    subtitle={(
+                        <p>Esqueça a confusão de vários apps. No <span>MiAu Club</span>, você gerencia a saúde e o bem-estar do seu pet, além de acessar serviços e produtos essenciais,  <span>tudo em um só lugar!</span></p>
+                    )}
                 />
+            </MainSection>
+            <MainSection>
+                <StoryContainerSection
+                    src='/imgs/mobile-mockups/profile-pet-mockup.png'
+                    title='Pet ID, um compromisso com a VIDA do seu animal'
+                    subtitle={(
+                        <p>A nossa tecnologia de <span>reconhecimento biométrico</span>, garante a identificação imediata do seu pet.
+                            O PET ID centraliza dados vitais e histórico médico, simplificando consultas veterinárias e aumentando a segurança em casos de emergência.</p>
+                    )}
+                />
+            </MainSection>
+            <MainSection>
+                <StoryContainerSection
+                    reverse
+                    src='/imgs/mobile-mockups/mia-tech-mockup.png'
+                    title='Tecnologia a serviço da vida'
+                    subtitle={(
+                        <p>A inteligência artificial do <span>MiAu Club</span> trabalha para entender e prever as necessidades do seu pet, <span>oferecendo recomendações</span>, que fazem a diferença no dia a dia.</p>
+                    )}
+                />
+            </MainSection>
+            <MainSection isBlue center>
+                <h3 className={styles.whyUnique}>E por que somos únicos</h3>
+                <div className={styles.uniqueGridContainer}>
+                    <WeAreUniqueContainer
+                        icon='currency-dolar'
+                        title='Somos totalmente gratuitos'
+                        subtitle='Acesso gratuito a recursos essenciais para o cuidado diário do seu pet.'
+                    />
+                    <WeAreUniqueContainer
+                        white
+                        icon='heart'
+                        title='Conexões diretas com profissionais pet'
+                        subtitle='Tornamos mais simples a jornada de todos envolvidos para o cuidado e bem-estar pet.'
+                    />
+                    <WeAreUniqueContainer
+                        icon='air-plane'
+                        title='Praticidade e Conveniência'
+                        subtitle='Conectamos tutores a uma ampla gama de serviços pet, garantindo conforto e conveniência.'
+                    />
+                    <WeAreUniqueContainer
+                        white
+                        icon='paper'
+                        title='Adeus, Papelada, downlods e uploads'
+                        subtitle='Todo o histórico do seu pet seguro e acessível com um toque conectado a um ecossistema único.'
+                    />
+                    <WeAreUniqueContainer
+                        icon='up'
+                        title='Feedback e Suporte Contínuo'
+                        subtitle='Suporte para o cuidado do seu pet, assegurando que cada decisão seja informada e voltada para o bem-estar do animal."'
+                    />
+                    <WeAreUniqueContainer
+                        white
+                        icon='home'
+                        title='Adoção pet'
+                        subtitle='Apoiamos e acreditamos nessa causa. mesmo que você já tenha seu pet pode ajudar os milhares de pets a encontrar um lar.'
+                    />
+                </div>
             </MainSection>
         </main>
     )
