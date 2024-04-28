@@ -18,6 +18,7 @@
   gap: 2.5rem;
 }
 
+
 .containerTechnologyPetLife {
   width: 100%;
   flex: 1;
@@ -204,7 +205,8 @@
 
 .firstTester div {
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 1rem;
 }
 
 
@@ -374,9 +376,9 @@
 
   .firstTester {
     flex-direction: column;
-    padding-bottom: 20%;
     overflow: visible;
   }
+
 
   .firstTester h2 {
     text-align: center;
@@ -384,12 +386,19 @@
     font-size: 1.8rem;
   }
 
+  .overflowHidden {
+    overflow: hidden;
+  }
+
   .firstTester p {
     text-align: center;
   }
 
   .mockupMobileImg {
-    margin-right: 10%;
+    top: 10rem;
+    margin-right: 8%;
+    position: relative;
+    align-self: center;
   }
 
 

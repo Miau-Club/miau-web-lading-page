@@ -43,6 +43,7 @@
 .primaryContainerRight {
     justify-content: flex-start;
     flex-direction: row;
+
     flex: 2;
 }
 
@@ -232,9 +233,9 @@
 @media (max-width: 700px) {
 
     .primaryContainerWrapper {
-        flex-direction: column-reverse;
+        flex-direction: column;
         flex: 1;
-        gap: 10rem;
+        margin-top: 2rem;
         min-height: 100vh;
     }
 
@@ -243,18 +244,32 @@
     }
 
 
+    .primaryContainerRight {
+        justify-content: center;
+        flex-direction: column;
+        flex: 4;
+    }
+
     .primaryContainer {
         flex: 5;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         padding-left: 0;
-        gap: 2rem;
+        gap: 1rem;
     }
 
     .primaryContainer h2 {
         font-size: 2rem;
+        text-align: center;
     }
 
+    .primaryContainer h3 {
+        text-align: center;
+    }
+
+    .primaryContainer p {
+        text-align: center;
+    }
 
     .tutorMockup {
         max-width: 490px;

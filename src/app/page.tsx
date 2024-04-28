@@ -193,19 +193,18 @@ export default function Home() {
             <h2>SEJA O PRIMEIRO A TESTAR</h2>
             <p>o app que irá revolucionar o cuidado com
               a saúde e o bem-estar pet</p>
+            <Button text="Inscreva-se agora" style="dark" />
           </div>
-          {/* <div > */}
-          <Image
-            className={styles.mockupMobileImg}
-            src={'/imgs/mobile-mockups/mobile-mockup-home.png'}
-            alt={'Mockup mobile home screen'}
-            width={450}
-            height={350}
-            priority
-          />
-
-          {/* </div> */}
-
+          <div className={styles.overflowHidden}>
+            <Image
+              className={styles.mockupMobileImg}
+              src={'/imgs/mobile-mockups/mobile-mockup-home.png'}
+              alt={'Mockup mobile home screen'}
+              width={450}
+              height={350}
+              priority
+            />
+          </div>
         </div>
       </Section>
       {/* <Section isBlue>

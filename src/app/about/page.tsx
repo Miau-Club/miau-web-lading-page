@@ -2,6 +2,7 @@ import { BoxDialogue } from '@/components/box-dialogue';
 import styles from './styles.module.css'
 import Image from 'next/image'
 import { Section } from '@/components/section';
+import { Button } from '@/components/button';
 
 
 const AboutPage = () => {
@@ -81,6 +82,7 @@ const AboutPage = () => {
                             <br /><br /><span>Programas de Adoção e Conscientização:</span> Trabalhamos para conectar pets a tutores amorosos, promovendo a adoção de animais em abrigos e resgatados. Além disso, investimos em campanhas de conscientização sobre a importância do cuidado responsável, buscando educar e inspirar uma mudança positiva na sociedade.
                             <br /><br /><span>Apoio a Eventos de Bem-Estar Animal:</span> O MiAu Club é um participante ativo em eventos locais e nacionais dedicados ao bem-estar animal. Desde feiras de adoção até conferências sobre saúde pet, nosso apoio e participação visam fortalecer a rede de cuidado animal, promovendo o conhecimento e a colaboração entre tutores, profissionais e entusiastas.
                             <br /><br /><span>Parcerias com Organizações Sem Fins Lucrativos:</span>s Colaboramos estreitamente com ONGs e instituições que trabalham incansavelmente pela causa animal. Através de doações, voluntariado e suporte tecnológico, fortalecemos essas organizações, ampliando seu impacto e ajudando-as a atender mais efetivamente às necessidades dos animais que cuidam.
+                            <br /><br /> <Button text='Fale Conosco' style='dark' />
                         </p>}
                 />
             </div>
