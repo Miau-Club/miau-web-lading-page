@@ -1,0 +1,187 @@
+.welcomeWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerWelcomeWrapper1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-content: center;
+}
+
+
+.welcomeParagraphWrapper {
+    flex-direction: column;
+    align-items: flex-end;
+
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.welcomeParagraphWrapper p {
+    color: var(--azul-escuro-miau);
+    font-size: 1.2rem;
+    text-align: end;
+}
+
+.welcomeParagraphWrapper h3 {
+    color: var(--blue-miau);
+    font-weight: 200;
+    font-size: 1rem;
+    text-align: end;
+
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.environmentBg {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 90/40;
+}
+
+.welcomePetImg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 25/45;
+}
+
+.welcomeWrapper {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.missionVision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    margin-top: 10rem;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+}
+
+.missionVision div {
+    justify-content: center;
+}
+
+.fundamentals {
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 2rem;
+    justify-content: center;
+}
+
+.fundamentals h2 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--blanco-miau);
+}
+
+.dialogueFundamentals {
+    flex-direction: row;
+    padding: 2rem 2rem;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--blanco-miau);
+    border-radius: var(--min-radius);
+    width: 100%;
+    height: 100%;
+}
+
+.dialogueFundamentals div {
+    background-color: var(--blue-miau);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+}
+
+.dialogueFundamentals p {
+    font-weight: 400;
+    color: var(--azul-escuro-miau);
+}
+
+.dialogueFundamentals p span {
+    font-weight: 600;
+    color: var(--azul-escuro-miau);
+}
+
+.community {
+    margin-bottom: 10rem;
+    padding-top: 2rem;
+    flex-direction: row;
+    width: 100%;
+    align-self: center;
+}
+
+@media (min-width: 1800px) {
+    .community {
+        width: 50vw;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1120px) {
+    .missionVision {
+        grid-template-columns: 1fr;
+        margin-top: 5rem;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .welcomeWrapper {
+        margin-top: 2rem;
+    }
+
+    .mainSectionWrapper {
+        height: 100%;
+    }
+
+    .welcomePetImg {
+        width: 100%;
+        max-width: 11rem;
+        bottom: 20%;
+        aspect-ratio: 25/45;
+    }
+
+    .welcomeParagraphWrapper p {
+        min-width: 18ch;
+        font-size: 0.9rem;
+    }
+
+    .welcomeParagraphWrapper h3 {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+
+    .missionVision {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+    }
+
+    .fundamentals h2 {
+        font-size: 1.8rem
+    }
+
+    .dialogueFundamentals p {
+        font-size: 0.9rem
+    }
+
+
+    .dialogueFundamentals div {
+        width: 1.2rem;
+        height: 0.5rem;
+        border-radius: 0.25rem;
+    }
+
+}
