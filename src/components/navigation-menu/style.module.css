@@ -8,11 +8,7 @@
    background-color: var(--blue-miau);
    transition: height 0.25s ease-in;
  }
- .teste {
-  position: absolute;
-  width: 10%;
-  aspect-ratio: 20/20;
-}
+
  #navIcon {
    display: none;
  }

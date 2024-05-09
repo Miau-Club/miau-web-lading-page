@@ -8,27 +8,27 @@ import { Analytics } from '@vercel/analytics/react';
 const approach = localFont({
   src: [
     {
-      path: '../fonts/Approach-Light.ttf',
+      path: '../fonts/Urbanist-Light.ttf',
       weight: '200',
       style: 'normal',
     },
     {
-      path: '../fonts/Approach-Regular.ttf',
+      path: '../fonts/Urbanist-Regular.ttf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../fonts/Approach-Medium.ttf',
+      path: '../fonts/Urbanist-Medium.ttf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../fonts/Approach-SemiBold.ttf',
+      path: '../fonts/Urbanist-SemiBold.ttf',
       weight: '600',
       style: 'normal',
     },
     {
-      path: '../fonts/Approach-Bold.ttf',
+      path: '../fonts/Urbanist-Bold.ttf',
       weight: '700',
       style: 'normal',
     }
