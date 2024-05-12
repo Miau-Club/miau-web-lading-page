@@ -3,6 +3,9 @@ import styles from './style.module.css';
 import Image from 'next/image';
 
 const BottomMenu: React.FC = () => {
+
+    return <></>
+
     return (
         <div className={styles.wrapper}>
             <div className={styles["custom-shape-divider-bottom-1713745262"]}>

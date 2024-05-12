@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import localFont from 'next/font/local'
 import "./globals.css";
-import { NavigationMenu } from "@/components/navigation-menu";
+import { NavigationMenu } from "@/components/navigationMenu";
 import { BottomMenu } from "@/components/bottom-menu";
 import { Analytics } from '@vercel/analytics/react';
 
-const approach = localFont({
+const urbanist = localFont({
   src: [
     {
       path: '../fonts/Urbanist-Light.ttf',
@@ -46,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={approach.className}>
+      <body className={urbanist.className}>
         <NavigationMenu />
         {children}
         <BottomMenu />
