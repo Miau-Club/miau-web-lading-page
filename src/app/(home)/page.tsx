@@ -5,7 +5,7 @@ import React from 'react';
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-gradient-to-br from-bgBlue to-bgWhite w-full h-screen pt-20">
+    <div className="bg-gradient-to-b from-bgBlue to-bgWhite w-full h-screen pt-20">
       <GridsBG />
     </div>
   )

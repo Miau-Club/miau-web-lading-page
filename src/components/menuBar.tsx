@@ -12,7 +12,7 @@ export const MiauMenuBar = ({ items, menuBarClassname, onClick }: { items: { ite
                 (
                     <MenubarMenu >
                         <Link href={href}>
-                            <MenubarTrigger className="bg-transparent text-miau-white data-[state=open]:bg-miau-yellow data-[state=open]:text-miau-yellowDark text-xs sm:text-sm">{item}</MenubarTrigger>
+                            <MenubarTrigger className="bg-transparent text-miau-white data-[state=open]:bg-miau-yellow data-[state=open]:text-miau-yellowDark text-xs sm:text-sm font-medium">{item}</MenubarTrigger>
                         </Link>
                     </MenubarMenu>
                 )
