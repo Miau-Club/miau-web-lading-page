@@ -38,7 +38,7 @@ const NavigationMenu = (props: any) => {
                     ]}
                 />
 
-                <nav className={twMerge("flex-row items-center flex gap-4 ", enabled && 'flex flex-col gap-8')}>
+                <nav className={twMerge("flex-row items-center hidden gap-4 sm:flex ", enabled && 'flex flex-col gap-8')}>
                     {[
                         { src: "/imgs/instagram.svg", alt: "Instagram", href: "https://www.instagram.com/miauclubapp/" },
                         { src: "/imgs/tik-tok.svg", alt: "TikTok", href: "https://www.tiktok.com/@miauclubapp" }

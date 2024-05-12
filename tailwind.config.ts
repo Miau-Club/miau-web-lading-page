@@ -27,6 +27,8 @@ const config = {
           yellowDark: "#9D8513",
         },
         navigationBar: "#A1B0EE",
+        bgBlue: "#395ADB",
+        bgWhite : "#E3EFF7",
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

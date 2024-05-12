@@ -1,9 +1,14 @@
+import { GridsBG } from '@/components/gridsBG';
 import React from 'react';
 
 // import { Container } from './styles';
 
 const Home: React.FC = () => {
-  return <h1>Ta na hora do papa</h1>;
+  return (
+    <div className="bg-gradient-to-br from-bgBlue to-bgWhite w-full h-screen pt-20">
+      <GridsBG />
+    </div>
+  )
 }
 
 export default Home
