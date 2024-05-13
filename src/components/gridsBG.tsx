@@ -1,9 +1,12 @@
-export const GridsBG = () => {
+export const GridsBG = ({ countCols, countRows }: { countCols: number, countRows: number }) => {
+
     return (
-        <div className="grid grid-cols-10 gap-0" style={{ width: "29.8rem" }}>
-            <div className="border border-gray-100 border-opacity-20 text-center w-40 h-40 rounded-tl-sm">1</div>
-            <div className="border border-gray-100 border-opacity-20 text-center w-40 h-40">5</div>
-            <div className="border border-gray-100 border-opacity-20 text-center w-40 h-40  rounded-br-sm">6</div>
+        <div className={`grid grid-cols-5 sm:grid-cols-10 absolute inset-0 z-0 top-16`} >
+            {
+                Array.from(Array(60).keys()).map(x => {
+                    return (<div key={x} className="border border-miau-white/5 rounded-tl-sm"></div>)
+                })
+            }
         </div>
     )
 }

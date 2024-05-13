@@ -9,7 +9,7 @@ const urbanist = localFont({
   src: [
     {
       path: '../fonts/Urbanist-Light.ttf',
-      weight: '200',
+      weight: '300',
       style: 'normal',
     },
     {
@@ -36,7 +36,7 @@ const urbanist = localFont({
 })
 export const metadata: Metadata = {
   title: "Miau Club",
-  description: "Tudo para o seu PET, na palma da mão.",
+  description: "Tudo para o seu PET, na palma da mão."
 };
 
 export default function RootLayout({

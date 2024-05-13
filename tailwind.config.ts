@@ -22,13 +22,14 @@ const config = {
         miau: {
           branding: "#365EFC",
           blueLight: "#7792F1",
+          blueContrast: "#7D97F1",
           white: "#F7F7F7",
           yellow: "#EFC708",
           yellowDark: "#9D8513",
         },
         navigationBar: "#A1B0EE",
         bgBlue: "#395ADB",
-        bgWhite : "#E3EFF7",
+        bgWhite: "#E3EFF7",
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
