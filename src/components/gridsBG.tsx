@@ -1,10 +1,14 @@
-export const GridsBG = ({ countCols, countRows }: { countCols: number, countRows: number }) => {
+import { twMerge } from "tailwind-merge"
+
+// classname='absolute inset-0 z-0 top-16'
+export const GridsBG = ({ classname, gridClass, countGrids = 60 }:
+    { classname?: string, gridClass?: string, countGrids?: number }) => {
 
     return (
-        <div className={`grid grid-cols-5 sm:grid-cols-10 absolute inset-0 z-0 top-16`} >
+        <div className={twMerge(`grid grid-cols-5 sm:grid-cols-10`, classname)} >
             {
-                Array.from(Array(60).keys()).map(x => {
-                    return (<div key={x} className="border border-miau-white/5 rounded-tl-sm"></div>)
+                Array.from(Array(countGrids).keys()).map(x => {
+                    return (<div key={x} className={twMerge("border", gridClass)} />)
                 })
             }
         </div>
