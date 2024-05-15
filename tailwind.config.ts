@@ -31,6 +31,10 @@ const config = {
         bgBlue: "#395ADB",
         bgWhite: "#E3EFF7",
 
+        blueCardOneHome: "#5B70BA",
+        blueCardTwoHome: "#697BC2",
+        blueCardThreeHome: "#7289DB",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
