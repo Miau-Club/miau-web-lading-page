@@ -26,6 +26,8 @@ const config = {
           white: "#F7F7F7",
           yellow: "#EFC708",
           yellowDark: "#9D8513",
+          black: "#434343",
+          grayDark: "#B8C2C9",
         },
         navigationBar: "#A1B0EE",
         bgBlue: "#395ADB",

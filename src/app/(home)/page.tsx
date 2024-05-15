@@ -97,7 +97,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className='bg-gradient-to-b from-bgBlue to-miau-blueContrast'>
+      <div className='bg-gradient-to-b from-bgBlue to-white'>
         <div className=' w-full h-[100%] px-4'>
           <div className='grid grid-cols-1 grid-rows-5 sm:grid-cols-4 sm:grid-rows-2 gap-y-8'>
             <div className='flex justify-center items-center flex-col gap-2 px-2 sm:col-span-4'>
@@ -146,10 +146,16 @@ const Home: React.FC = () => {
             </div>
           </BGDots>
         </div>
-        <div className='w-full h-[130vh] sm:h-[50vh] mt-28'>
-        </div>
+        <div className='w-full h-screen flex flex-col sm:flex-row '>
+          <div className='flex flex-col w-[100%] justify-center items-center sm:items-start text-center sm:text-start gap-8'>
+            <H1 className='text-miau-black text-2xl max-w-[200px] sm:max-w-[250px]'>SEJA O PRIMEIRO A TESTAR</H1>
+            <p className='text-miau-grayDark font-normal text-sm max-w-[320px]'>o app que irá revolucionar o cuidado com a saúde e o bem-estar pet</p>
+            <Button text='Inscreva-se' onClick={() => { }} />
+          </div>
+          <div>
 
-        <div className='w-full h-[130vh] sm:h-[50vh] mt-28'></div>
+          </div>
+        </div>
       </div>
 
       <GridsBG classname='absolute inset-0 z-0 top-16' gridClass='border-miau-white/5' />
