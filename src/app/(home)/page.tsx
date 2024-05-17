@@ -9,6 +9,7 @@ import { BGDots } from '@/components/bg-dots';
 import { twMerge } from 'tailwind-merge';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { SelectCustom, SelectCustomItem } from '@/components/select';
+import { cn } from '@/lib/utils';
 
 // import { Container } from './styles';
 // to-bgWhite  -> COlocar no contraste final                                                    
@@ -175,7 +176,8 @@ const Home: React.FC = () => {
                 <SelectCustomItem value='partners' description='Parceiros' />
               </SelectCustom>
             </div>
-            <div className="h-[35rem] w-[85%] ml-[10%] sm:ml-0 sm:h-[65%] sm:w-[40rem] relative ">
+            <div className={cn("transition-height duration-500 h-[35rem] w-[85%] ml-[10%] sm:ml-0 sm:h-[65%] sm:w-[40rem] relative",
+              srcOverview === "web-overview-home" && "ml-[3%] w-[95%] sm:w-[60rem]")}>
               <Image
                 src={`/imgs/stuffs/${srcOverview}.png`}
                 alt="Mobile overview"
