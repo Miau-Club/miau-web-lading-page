@@ -2,34 +2,36 @@
 
 import { Button } from '@/components/button';
 import { GridsBG } from '@/components/gridsBG';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image'
 import { H1 } from '@/components/h1';
 import { BGDots } from '@/components/bg-dots';
-import { cn } from '@/lib/utils';
 import { twMerge } from 'tailwind-merge';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
+import { SelectCustom, SelectCustomItem } from '@/components/select';
 
 // import { Container } from './styles';
 // to-bgWhite  -> COlocar no contraste final                                                    
 const Home: React.FC = () => {
 
+  const [srcOverview, setSrcOverview] = useState('mobile-overview-home')
+
   const TechCard = ({ children, title, srcIcon }:
     { children: any, title: string, srcIcon: string }) => {
 
     return (
-      <div className='flex flex-col '>
-        <Image
-          className='ml-[1.1rem] mb-4'
+      <div className='flex flex-col items-center'>
+        {/* <Image
+          className='ml-[3rem] mb-4 self-start'
           src={srcIcon}
-          alt="Miau Home Image"
+          alt="Icon"
           width={40}
           height={40}
-        />
+        /> */}
         <Image
-          className='mb-4'
-          src={`/imgs/stuffs/small-line-t.png`}
-          alt="Miau Home Image"
+          className='mb-4 hidden sm:block'
+          src={`/imgs/stuffs/small-line-t-${srcIcon}.png`}
+          alt="Tech cards lines"
           width={300}
           height={0} />
         <h3 className='font-bold text-miau-white text-base sm:text-lg'>{title}</h3>
@@ -69,6 +71,15 @@ const Home: React.FC = () => {
     </div>)
   }
 
+  function onOverviewChange(e: 'tutor' | 'partners') {
+    if (e === 'partners') {
+      setSrcOverview("web-overview-home")
+      return
+    }
+
+    setSrcOverview('mobile-overview-home')
+  }
+
   return (
     <div >
       <div className='bg-bgBlue w-full h-screen pt-16 px-4 overflow-hidden flex justify-center flex-col items-start gap-10 sm:pl-[20%] sm:px-0'>
@@ -99,26 +110,28 @@ const Home: React.FC = () => {
       </div>
       <div className='bg-gradient-to-b from-bgBlue to-white'>
         <div className=' w-full h-[100%] px-4'>
-          <div className='grid grid-cols-1 grid-rows-5 sm:grid-cols-4 sm:grid-rows-2 gap-y-8'>
-            <div className='flex justify-center items-center flex-col gap-2 px-2 sm:col-span-4'>
+          <div className='grid grid-cols-1 grid-rows-5 sm:grid-cols-3 sm:grid-rows-2'>
+            <div className='flex justify-center items-center flex-col gap-2 px-2 sm:col-span-3'>
               <H1>Tecnologia em prol do bem-estar pet</H1>
               <h3 className='text-miau-blueContrast text-sm text-center font-normal sm:text-base'>todas as funcionalidades pensadas para quem nos dá carinho e amor diariamente.</h3>
             </div>
-            <TechCard title='Pet ID' srcIcon="/icons/scan.svg">
-              <p className='font-normal text-miau-white text-sm sm:text-sm z-10'>Com nossa tecnologia biométrica via fucinho, o PET ID identifica seu pet instantaneamente, centraliza dados vitais e histórico médico, otimizando a segurança e o cuidado.</p>
-            </TechCard>
+            <div className='sm:col-span-3 pb-8'>
+              <TechCard title='Pet ID' srcIcon="scan">
+                <p className='font-normal text-miau-white text-sm sm:text-sm z-10'>Com nossa tecnologia biométrica via fucinho, o PET ID identifica seu pet instantaneamente, centraliza dados vitais e histórico médico, otimizando a segurança e o cuidado.</p>
+              </TechCard>
 
-            <TechCard title='Histórico Conectado' srcIcon="/icons/dashboard.svg">
+            </div>
+            <TechCard title='Histórico Conectado' srcIcon="dashboard">
               <p className='font-normal text-miau-white text-sm sm:text-sm'>Todo histórico de sáude do seu(s) pet(s), como: consultas, laudos, medição, tratamento em um único lugar. Chega de pastas, papeis e arquivos pdf.</p>
             </TechCard>
-
-            <TechCard title='Muito mais que um app' srcIcon="/icons/world.svg">
+            <TechCard title='Muito mais que um app' srcIcon="world">
               <p className='font-normal text-miau-white text-sm sm:text-sm'>Somos a maneira mais eficiente e integrada de gerenciar a saúde e bem-estar dos pets, com fácil a serviços, produtos, locais, profissionais pet e muito mais. Facilidade para todos, que amam seus pets.</p>
             </TechCard>
 
-            <TechCard title='Inovação Contínua' srcIcon="/icons/arrow-up.svg" >
+            <TechCard title='Inovação Contínua' srcIcon="arrow-up" >
               <p className='font-normal text-miau-white text-sm sm:text-sm'>Através da tecnologia, potencializamos todos envolvidos na jornada pet, desde veterinários até prestadores de serviços.</p>
             </TechCard>
+
           </div>
         </div>
         <div className='w-full h-[130vh] sm:h-[50vh] mt-28'>
@@ -146,14 +159,30 @@ const Home: React.FC = () => {
             </div>
           </BGDots>
         </div>
-        <div className='w-full h-screen flex flex-col sm:flex-row '>
-          <div className='flex flex-col w-[100%] justify-center items-center sm:items-start text-center sm:text-start gap-8'>
-            <H1 className='text-miau-black text-2xl max-w-[200px] sm:max-w-[250px]'>SEJA O PRIMEIRO A TESTAR</H1>
+        <div className='w-full h-[150vh] flex flex-col sm:flex-row'>
+          <div className=' flex  flex-col justify-center items-center sm:items-start sm:pl-[10%] sm:text-start gap-8'>
+            <H1 className='text-miau-black text-2xl '>SEJA O PRIMEIRO A TESTAR</H1>
             <p className='text-miau-grayDark font-normal text-sm max-w-[320px]'>o app que irá revolucionar o cuidado com a saúde e o bem-estar pet</p>
             <Button text='Inscreva-se' onClick={() => { }} />
           </div>
-          <div>
-
+          <div className='flex flex-col justify-center mt-20 overflow-hidden sm:flex-1 sm:mt-0 sm:items-center'>
+            <div className='w-full flex justify-center'>
+              <SelectCustom
+                onChange={(e) => onOverviewChange(e as any)}
+                defaultValue='tutor'
+                className='sm:mr-[10%]'>
+                <SelectCustomItem value='tutor' description='Tutores' />
+                <SelectCustomItem value='partners' description='Parceiros' />
+              </SelectCustom>
+            </div>
+            <div className="h-[35rem] w-[85%] ml-[10%] sm:ml-0 sm:h-[65%] sm:w-[40rem] relative ">
+              <Image
+                src={`/imgs/stuffs/${srcOverview}.png`}
+                alt="Mobile overview"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
           </div>
         </div>
       </div>
