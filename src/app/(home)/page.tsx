@@ -84,12 +84,12 @@ const Home: React.FC = () => {
   return (
     <div >
       <div className='bg-bgBlue w-full h-screen pt-16 px-4 overflow-hidden flex justify-center flex-col items-start gap-10 sm:pl-[20%] sm:px-0'>
-        <div className='grid grid-cols-3 grid-rows-3 gap-10'>
+        <div className='grid grid-cols-3 grid-rows-3 gap-10 z-10'>
           <div className='row-span-2 col-span-3 sm:col-span-2 flex flex-col justify-end '>
             <H1 className='text-2xl'>O ecossistema do bem-estar pet, <br /><span className='font-normal'>na palma da sua mão.</span></H1>
             <p className='max-w-[405px] text-miau-blueContrast text-base mt-2'>Nossa tecnologia conecta tutores, veterinários, petshops e profissionais em uma rede de cuidado pet, centralizando o histórico de vida do animal em um único lugar.</p>
           </div>
-          <div className="h-[35rem] w-[35rem] relative row-span-4 col-span-1 hidden sm:block right-60 z-10">
+          <div className="h-[35rem] w-[35rem] relative row-span-4 col-span-1 hidden sm:block right-60 z-10 animate-bounce">
             <Image
               src="/imgs/bg/homeDraw.png"
               alt="Miau Home Image"

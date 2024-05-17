@@ -76,3 +76,23 @@
     background-color: #365EFC;
   }
 }
+
+::selection {
+  background-color: #7792F1;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-1px) translateX(1px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
