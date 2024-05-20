@@ -75,6 +75,10 @@
     @apply bg-background text-foreground;
     background-color: #365EFC;
   }
+
+  html {
+    /* font-size: 17px */
+  }
 }
 
 ::selection {

@@ -29,13 +29,24 @@ const config = {
           black: "#434343",
           grayDark: "#B8C2C9",
         },
-        navigationBar: "#A1B0EE",
-        bgBlue: "#395ADB",
+        blue: {
+          bg: "#395ADB",
+          bgEnd: "#8DA9F4",
+          bgTutors: "#3966DB",
+          bgTutorsSquare: "#295AD7",
+          navigationBar: "#A1B0EE",
+          blueCardOneHome: "#5B70BA",
+          blueCardTwoHome: "#697BC2",
+          blueCardThreeHome: "#7289DB",
+        },
+        green: {
+          light: "#EEFFFE",
+          dark: "#648987",
+        },
+        yellow: {
+          light: "#F5F3E3",
+        },
         bgWhite: "#E3EFF7",
-
-        blueCardOneHome: "#5B70BA",
-        blueCardTwoHome: "#697BC2",
-        blueCardThreeHome: "#7289DB",
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

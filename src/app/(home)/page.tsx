@@ -65,8 +65,8 @@ const Home: React.FC = () => {
 
         </div>
         <div className='z-10'>
-          <h3 className='font-bold text-miau-white'>{title}</h3>
-          <p className='font-normal text-miau-white sm:text-sm'>{subtitle}</p>
+          <h3 className='font-bold text-miau-white z-10'>{title}</h3>
+          <p className='font-normal text-miau-white text-sm z-10'>{subtitle}</p>
         </div>
       </BGDots>
     </div>)
@@ -83,10 +83,10 @@ const Home: React.FC = () => {
 
   return (
     <div >
-      <div className='bg-bgBlue w-full h-screen pt-16 px-4 overflow-hidden flex justify-center flex-col items-start gap-10 sm:pl-[20%] sm:px-0'>
+      <div className='bg-blue-bg w-full h-screen pt-16 px-4 overflow-hidden flex justify-center flex-col items-start gap-10 sm:pl-[20%] sm:px-0'>
         <div className='grid grid-cols-3 grid-rows-3 gap-10 z-10'>
           <div className='row-span-2 col-span-3 sm:col-span-2 flex flex-col justify-end '>
-            <H1 className='text-2xl'>O ecossistema do bem-estar pet, <br /><span className='font-normal'>na palma da sua mão.</span></H1>
+            <H1 className='text-xl'>O ecossistema do bem-estar pet, <br /><span className='font-normal'>na palma da sua mão.</span></H1>
             <p className='max-w-[405px] text-miau-blueContrast text-base mt-2'>Nossa tecnologia conecta tutores, veterinários, petshops e profissionais em uma rede de cuidado pet, centralizando o histórico de vida do animal em um único lugar.</p>
           </div>
           <div className="h-[35rem] w-[35rem] relative row-span-4 col-span-1 hidden sm:block right-60 z-10 animate-bounce">
@@ -109,12 +109,12 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className='bg-gradient-to-b from-bgBlue to-white'>
+      <div className='bg-gradient-to-b from-blue-bg to-white'>
         <div className=' w-full h-[100%] px-4'>
           <div className='grid grid-cols-1 grid-rows-5 sm:grid-cols-3 sm:grid-rows-2'>
-            <div className='flex justify-center items-center flex-col gap-2 px-2 sm:col-span-3'>
-              <H1>Tecnologia em prol do bem-estar pet</H1>
-              <h3 className='text-miau-blueContrast text-sm text-center font-normal sm:text-base'>todas as funcionalidades pensadas para quem nos dá carinho e amor diariamente.</h3>
+            <div className='flex justify-center items-center flex-col gap-2 sm:col-span-3'>
+              <H1 className='text-xl'>Tecnologia em prol do bem-estar pet</H1>
+              <h3 className='text-miau-blueContrast text-base text-center font-normal sm:text-base'>todas as funcionalidades pensadas para quem nos dá carinho e amor diariamente.</h3>
             </div>
             <div className='sm:col-span-3 pb-8'>
               <TechCard title='Pet ID' srcIcon="scan">
@@ -126,11 +126,11 @@ const Home: React.FC = () => {
               <p className='font-normal text-miau-white text-sm sm:text-sm'>Todo histórico de sáude do seu(s) pet(s), como: consultas, laudos, medição, tratamento em um único lugar. Chega de pastas, papeis e arquivos pdf.</p>
             </TechCard>
             <TechCard title='Muito mais que um app' srcIcon="world">
-              <p className='font-normal text-miau-white text-sm sm:text-sm'>Somos a maneira mais eficiente e integrada de gerenciar a saúde e bem-estar dos pets, com fácil a serviços, produtos, locais, profissionais pet e muito mais. Facilidade para todos, que amam seus pets.</p>
+              <p className='font-normal text-miau-white text-sm'>Somos a maneira mais eficiente e integrada de gerenciar a saúde e bem-estar dos pets, com fácil a serviços, produtos, locais, profissionais pet e muito mais. Facilidade para todos, que amam seus pets.</p>
             </TechCard>
 
             <TechCard title='Inovação Contínua' srcIcon="arrow-up" >
-              <p className='font-normal text-miau-white text-sm sm:text-sm'>Através da tecnologia, potencializamos todos envolvidos na jornada pet, desde veterinários até prestadores de serviços.</p>
+              <p className='font-normal text-miau-white text-sm'>Através da tecnologia, potencializamos todos envolvidos na jornada pet, desde veterinários até prestadores de serviços.</p>
             </TechCard>
 
           </div>
@@ -142,19 +142,19 @@ const Home: React.FC = () => {
               <TransformCard
                 srcIcons="/imgs/stuffs/icons-card-one-home.png"
                 srcImg='/imgs/pet-dogs/cat-img-home.png'
-                color='bg-blueCardOneHome'
+                color='bg-blue-blueCardOneHome'
                 title='Explore o ecossistema Miau Club'
                 subtitle='Descubra como nosso ecossistema revoluciona o cuidado com seu pet, integrando todos os aspectos da vida do seu animal em um só lugar' />
               <TransformCard
                 srcIcons="/imgs/stuffs/icons-card-two-home.png"
                 srcImg='/imgs/pet-dogs/dog-hands-home.png'
-                color='bg-blueCardTwoHome'
+                color='bg-blue-blueCardTwoHome'
                 title='Cuidado total para o seu pet'
                 subtitle='Recursos únicos, que facilitam a gestão da saúde e bem-estar do seu pet, desde lembretes de vacinação até profissionais especializados perto de você.' />
               <TransformCard
                 srcIcons="/imgs/stuffs/icons-card-three-home.png"
                 srcImg='/imgs/stuffs/insights-dark-home.png'
-                color='bg-blueCardThreeHome'
+                color='bg-blue-blueCardThreeHome'
                 title='Insights que mudam vidas'
                 subtitle='O MiAu Club pode expandir seu negócio, conectando-o a uma ampla rede de tutores e fornecendo dados e insights valiosos para melhorar seus serviços.' />
             </div>

@@ -11,7 +11,7 @@ const NavigationMenu = (props: any) => {
     const [enabled, setEnabled] = useState(false)
 
     return (
-        <div className={twMerge("flex transition-height duration-500 items-center bg-navigationBar/15 px-8 justify-between h-16 flex-row z-50 absolute right-0 top-0 w-screen", enabled && 'justify-evenly h-screen gap-8 flex-col overflow-hidden bg-navigationBar')}
+        <div className={twMerge("flex transition-height duration-500 items-center bg-blue-navigationBar/15 px-8 justify-between h-16 flex-row z-50 absolute right-0 top-0 w-screen", enabled && 'justify-evenly h-screen gap-8 flex-col overflow-hidden bg-blue-navigationBar')}
         >
             <div className="h-12 w-12 relative ">
                 <Image
