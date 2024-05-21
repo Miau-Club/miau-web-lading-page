@@ -29,21 +29,34 @@ const Tutors: React.FC = () => {
         )
     }
 
-    // InfoCard.jsx
-    const GridCards = ({ title, text, bgColor, textColor, borderColor }: any) => (
-        <div className={`h-80 flex flex-col items-start justify-start sm:justify-center gap-4 ${bgColor} border-2 ${borderColor} rounded-sm p-4 w-[48%]`}>
+    const GridItem = ({
+        title,
+        description,
+        text,
+        bgColor,
+        textColor,
+        borderColor,
+        className,
+        children,
+        isHeader
+    }: any) => (
+        <div className={twMerge(`relative flex flex-col h-48 sm:h-80 items-start justify-center gap-4 sm:gap-10 border-2 rounded-sm px-4 sm:px-12`, isHeader ? 'col-span-3 row-span-1' : 'w-[48%]', bgColor, borderColor, className)}>
             <H1 className={`${textColor} sm:text-xl text-base`}>{title}</H1>
-            <p className={`${textColor} font-normal text-sm sm:text-base`}>{text}</p>
-        </div>
-    );
-
-    const GridHeader = ({ title, description, className, children }: any) => (
-        <div className={twMerge(`flex flex-col h-48 sm:h-80  items-start justify-center gap-4 sm:gap-10 col-span-3 row-span-1 bg-green-light border-2 border-green-dark/120 rounded-sm px-8 `, className)}>
-            <H1 className='text-green-dark sm:text-xl text-base'>{title}</H1>
-            <p className='text-green-dark font-normal text-sm sm:text-base'>{description}</p>
+            <p className={`${textColor} font-normal text-sm sm:text-lg`}>{description || text}</p>
             {children}
         </div>
     );
+
+    function SealGridIcon({ color, iconSrc }: { color: string, iconSrc: string }) {
+        return (<div className={twMerge('flex flex-col justify-center items-center absolute top-0 h-12 w-16 rounded-b-sm rounded-t-none left-12', color)}>
+            <Image
+                src={iconSrc}
+                alt="Icon cards"
+                width="25"
+                height="25"
+            />
+        </div>)
+    }
 
     return (
         <div >
@@ -78,70 +91,103 @@ const Tutors: React.FC = () => {
                 />
             </div>
 
-            <div className='h-full bg-gradient-to-b from-blue-bgTutors to-miau-blueContrast flex justify-center'>
+            <div className='h-screen bg-gradient-to-b from-blue-bgTutors to-miau-blueContrast flex justify-center items-center'>
 
                 <div className='grid grid-cols-3 grid-rows-3 gap-4 px-8 sm:w-[90rem]'>
-                    <GridHeader
+                    <GridItem
+                        isHeader
                         title='SOMOS TOTALMENTE GRATUITOS'
-                        description='Acesso gratuito a recursos essenciais para o cuidado diário do seu pet.'
+                        text='Acesso gratuito a recursos essenciais para o cuidado diário do seu pet.'
+                        bgColor='bg-green-light'
+                        textColor='text-green-dark'
+                        borderColor='border-green-dark/40'
                     >
+                        <SealGridIcon color={'bg-green-dark'} iconSrc='/icons/currency-dolar.svg' />
                         <Button onClick={() => { }} classname='bg-green-dark hover:bg-green-dark/90' text={'Baixar agora'} />
-                    </GridHeader >
+                    </GridItem>
 
                     <div className='flex flex-row justify-between col-span-3 row-span-2 sm:row-span-1 '>
-                        <GridCards
+                        <GridItem
                             title='Conexões diretas com profissionais pets'
                             text='Tornamos mais simples a jornada de todos envolvidos para o cuidado e bem-estar pet.'
                             bgColor='bg-yellow-light'
                             textColor='text-miau-yellowDark'
-                            borderColor='border-miau-yellowDark/5'
-                        />
-                        <GridCards
+                            borderColor='border-miau-yellowDark/40'
+                            className="w-[49.5%]"
+                        >
+                            <SealGridIcon color={'bg-miau-yellowDark/40'} iconSrc='/icons/loader.svg' />
+                        </GridItem>
+                        <GridItem
                             title='Praticidade e Conveniência'
                             text='Conectamos tutores a uma ampla gama de serviços pet, garantindo conforto e conveniência.'
                             bgColor='bg-miau-blueLight'
                             textColor='text-miau-black/70'
-                            borderColor='border-miau-white/5'
-                        />
+                            borderColor='border-miau-white/20'
+                            className="w-[49.5%]"
+                        >
+                            <SealGridIcon color={'bg-miau-white/20'} iconSrc='/icons/grid.svg' />
+                        </GridItem>
                     </div>
 
-                    <GridHeader
-                        title='Adeus, Papelada, downlods e uploads'
-                        description='Tornamos mais simples a jornada de todos envolvidos para o cuidado e bem -estar pet.'
-                        className={'sm:col-span-1'}
-                    />
-
+                    <GridItem
+                        isHeader
+                        title='Adeus, Papelada, downloads e uploads'
+                        text='Tornamos mais simples a jornada de todos envolvidos para o cuidado e bem-estar pet.'
+                        className='sm:col-span-1'
+                        bgColor='bg-green-light'
+                        textColor='text-green-dark'
+                        borderColor='border-green-dark/40'
+                    >
+                        <SealGridIcon color={'bg-green-dark'} iconSrc='/icons/file-close.svg' />
+                    </GridItem>
 
                     {/* Web view */}
-                    <div className={`hidden sm:flex flex-col h-48 sm:h-80 items-start justify-center gap-4 sm:gap-10 col-span-1 bg-yellow-light border-2 border-miau-yellowDark/5 rounded-sm px-8 `}>
-                        <H1 className={`text-miau-yellowDark sm:text-xl`}>Feedback e Suporte Contínuo</H1>
-                        <p className={`text-miau-yellowDark font-normal text-sm sm:text-base`}>Suporte para o cuidado do seu pet, assegurando que cada decisão seja informada e voltada para o bem-estar do animal.</p>
-                    </div>
-                    <div className={`hidden sm:flex flex-col h-48 sm:h-80 items-start justify-center gap-4 sm:gap-10 col-span-1 bg-miau-blueLight border-2 border-miau-white/5 rounded-sm px-8 `}>
-                        <H1 className={`text-miau-black/70 sm:text-xl`}>Adoção pet</H1>
-                        <p className={`text-miau-black/70 font-normal text-sm sm:text-base`}>Apoiamos e acreditamos nessa causa. mesmo que você já tenha seu pet pode ajudar os milhares de pets a encontrar um lar.</p>
-                    </div>
+                    <GridItem
+                        title='Feedback e Suporte Contínuo'
+                        text='Suporte para o cuidado do seu pet, assegurando que cada decisão seja informada e voltada para o bem-estar do animal.'
+                        bgColor='bg-yellow-light'
+                        textColor='text-miau-yellowDark'
+                        borderColor='border-miau-yellowDark/40'
+                        className='relative hidden sm:flex flex-col col-span-1 px-8 w-full'
+                    >
+                        <SealGridIcon color={'bg-miau-yellowDark/40'} iconSrc='/icons/activity.svg' />
+                    </GridItem>
+                    <GridItem
+                        title='Adoção pet'
+                        text='Apoiamos e acreditamos nessa causa. mesmo que você já tenha seu pet pode ajudar os milhares de pets a encontrar um lar.'
+                        bgColor='bg-miau-blueLight'
+                        textColor='text-miau-black/70'
+                        borderColor='border-miau-white/20'
+                        className='relative hidden sm:flex flex-col col-span-1 px-8 w-full'
+                    >
+                        <SealGridIcon color={'bg-miau-white/20'} iconSrc='/icons/cake.svg' />
+                    </GridItem>
+
                     {/* Mobile view */}
-                    <div className='col-span-3 sm:hidden flex flex-row justify-between '>
-                        <GridCards
+                    <div className='col-span-3 sm:hidden flex flex-row justify-between'>
+                        <GridItem
                             title='Feedback e Suporte Contínuo'
                             text='Suporte para o cuidado do seu pet, assegurando que cada decisão seja informada e voltada para o bem-estar do animal.'
                             bgColor='bg-yellow-light'
                             textColor='text-miau-yellowDark'
                             borderColor='border-miau-yellowDark/5'
-                        />
-                        <GridCards
+                        >
+                            <SealGridIcon color={'bg-miau-yellowDark/40'} iconSrc='/icons/activity.svg' />
+                        </GridItem>
+                        <GridItem
                             title='Adoção pet'
                             text='Apoiamos e acreditamos nessa causa. mesmo que você já tenha seu pet pode ajudar os milhares de pets a encontrar um lar.'
                             bgColor='bg-miau-blueLight'
                             textColor='text-miau-black/70'
                             borderColor='border-miau-white/5'
-                        />
+                        >
+                            <SealGridIcon color={'bg-miau-white/20'} iconSrc='/icons/cake.svg' />
+                        </GridItem>
                     </div>
                 </div>
             </div>
 
-        </div>
+        </div >
     );
 }
 
