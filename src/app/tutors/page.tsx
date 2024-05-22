@@ -3,12 +3,36 @@
 import { Button } from '@/components/button';
 import { H1 } from '@/components/h1';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 // import { Container } from './styles';
 
 const Tutors: React.FC = () => {
+    const [selectedItems, setSelectedItems] = useState(0);
+
+    const handleItemClick = (index: number) => {
+        setSelectedItems(index);
+    };
+
+    const items = [
+        {
+            title: "Cuidado total para o seu pet",
+            description: "Com o app MiAu Club você tem todas as informações do seu pet centralizadas em um único lugar! Desde consultas até vacinas, exames e prescrições médicas."
+        },
+        {
+            title: "Praticidade para você, tutor",
+            description: "Esqueça a confusão de vários apps. No MiAu Club, você gerencia a saúde e o bem-estar do seu pet, além de acessar serviços e produtos essenciais, tudo em um só lugar!"
+        },
+        {
+            title: "Pet ID, um compromisso com a vida do seu animal",
+            description: "A nossa tecnologia de reconhecimento biométrico, garante a identificação imediata do seu pet. O PET ID centraliza dados vitais e histórico médico, simplificando consultas veterinárias e aumentando a segurança em casos de emergência."
+        },
+        {
+            title: "Tecnologia a serviço da vida",
+            description: "Tecnologia a serviço da vida. A inteligência artificial do MiAu Club trabalha para entender e prever as necessidades do seu pet, oferecendo recomendações que fazem a diferença no dia a dia."
+        }
+    ];
 
     function CardIcons({ subtitle, src, color }: { subtitle: String, src: string, color: string }) {
 
@@ -40,20 +64,20 @@ const Tutors: React.FC = () => {
         children,
         isHeader
     }: any) => (
-        <div className={twMerge(`relative flex flex-col h-48 sm:h-80 items-start justify-center gap-4 sm:gap-10 border-2 rounded-sm px-4 sm:px-12`, isHeader ? 'col-span-3 row-span-1' : 'w-[48%]', bgColor, borderColor, className)}>
-            <H1 className={`${textColor} sm:text-xl text-base`}>{title}</H1>
+        <div className={twMerge(`relative flex flex-col items-start justify-start pt-20 h-48 sm:h-80 gap-2 sm:gap-10 border-2 rounded-sm px-4 sm:px-12`, isHeader ? 'col-span-3 row-span-1' : 'w-[48%]', bgColor, borderColor, className)}>
+            <H1 className={`${textColor} sm:text-xl text-sm`}>{title}</H1>
             <p className={`${textColor} font-normal text-sm sm:text-lg`}>{description || text}</p>
             {children}
         </div>
     );
 
     function SealGridIcon({ color, iconSrc }: { color: string, iconSrc: string }) {
-        return (<div className={twMerge('flex flex-col justify-center items-center absolute top-0 h-12 w-16 rounded-b-sm rounded-t-none left-12', color)}>
+        return (<div className={twMerge('flex flex-col justify-center items-center absolute top-0 h-8 sm:h-12 w-16 rounded-b-sm rounded-t-none left-4 sm:left-12', color)}>
             <Image
                 src={iconSrc}
                 alt="Icon cards"
-                width="25"
-                height="25"
+                width="20"
+                height="20"
             />
         </div>)
     }
@@ -61,10 +85,10 @@ const Tutors: React.FC = () => {
     return (
         <div >
             <div className='h-screen w-full sm:px-40 flex flex-col items-center justify-center bg-blue-bgTutors '>
-                <h3 className='text-miau-yellow font-normal'>O maior ecossistema pet integrado</h3>
+                <h3 className='text-miau-yellow font-normal text-base'>O maior ecossistema pet integrado</h3>
                 <div className="flex flex-col text-center gap-4 pt-8 justify-start items-center relative h-[60%] w-full sm:w-[50%] bg-blue-bgTutors bg-[linear-gradient(to_right,#295AD7,transparent_2px),linear-gradient(to_bottom,#295AD7,transparent_2px)] bg-[size:6rem_4rem] rounded-sm">
                     <H1>Tudo para o seu pet na palma da mão</H1>
-                    <h2 className='text-miau-blueContrast font-normal text-base max-w-[22rem] sm:text-lg sm:max-w-[35rem]'>Mais praticidade para o tutor e o animal: saúde e bem-estar gerenciados sem complicações, apoiados pela inovação exclusiva do Pet ID, que facilita o acompanhamento completo e seguro.</h2>
+                    <h2 className='text-miau-blueContrast font-normal max-w-[22rem] text-base sm:text-xl sm:max-w-[35rem]'>Mais praticidade para o tutor e o animal: saúde e bem-estar gerenciados sem complicações, apoiados pela inovação exclusiva do Pet ID, que facilita o acompanhamento completo e seguro.</h2>
                 </div>
                 <div className="h-[35%] w-full absolute bottom-[5%] sm:h-[50%]">
                     <Image
@@ -75,7 +99,7 @@ const Tutors: React.FC = () => {
                     />
                 </div>
             </div>
-            <div className='flex flex-col sm:flex-row w-full h-[160vh] sm:h-screen bg-blue-bgTutors bg-[radial-gradient(#F7F7F710_1px,transparent_1px)] [background-size:16px_16px] justify-center items-center gap-24'>
+            <div className='flex flex-col sm:flex-row w-full h-[160vh] sm:h-[90vh] bg-blue-bgTutors bg-[radial-gradient(#F7F7F710_1px,transparent_1px)] [background-size:16px_16px] justify-center items-center gap-24'>
                 <CardIcons
                     color='bg-blue-blueLight bg-opacity-75'
                     src='/icons/download.svg'
@@ -91,18 +115,52 @@ const Tutors: React.FC = () => {
                 />
             </div>
 
-            <div className='h-screen bg-gradient-to-b from-blue-bgTutors to-miau-blueContrast flex justify-center items-center'>
+            <div className='flex 
+                justify-center
+                items-center 
+                px-4
+                sm:px-10 
+                h-screen
+                sm:h-[150vh]
+                w-full 
+                bg-blue-bgTutors 
+                bg-[linear-gradient(to_right,#F7F7F720,transparent_2px),linear-gradient(to_bottom,#F7F7F720,transparent_2px)] 
+                bg-[size:6rem_4rem] 
+                rounded-sm'
+            >
+                <div className='flex items-center pl-4 w-screen h-96 sm:pl-16 sm:h-[80vh] sm:w-[40vw] bg-miau-white/50 rounded-md'>
+                    <div className='relative w-[90%] h-[80%] sm:h-[70vh] sm:w-[15vw] bg-miau-branding rounded-sm py-4'>
+                        <div className="absolute top-[2rem] hidden sm:block left-[3.2rem] w-1 h-[85%] bg-miau-white rounded-md" />
+                        {items.map((item, index) => (
+                            <div
+                                key={index}
+                                className="flex flex-col items-start justify-center relative mb-10 cursor-pointer gap-4 pl-10"
+                                onClick={() => handleItemClick(index)}
+                            >
+                                <div className={twMerge("flex flex-row gap-4 w-[90%] rounded-sm h-10", `${selectedItems == index ? 'bg-miau-blueLight/15' : ''}`)}>
+                                    <div className={`rounded-full flex-shrink-0 w-6 h-6 outline outline-[0.3rem] outline-miau-white ${selectedItems == index ? 'bg-miau-yellow' : 'bg-miau-blueContrast'}`} />
+                                    <h2 className="text-sm sm:text-base text-miau-white font-bold max-w-[21rem]">{item.title}</h2>
+                                </div>
+                                <p className="text-miau-white hidden text-sm font-normal max-w-[21rem] ml-10">{item.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
 
-                <div className='grid grid-cols-3 grid-rows-3 gap-4 px-8 sm:w-[90rem]'>
+            <div className='h-full sm:h-[120vh] bg-gradient-to-b from-blue-bgTutors to-miau-blueContrast flex justify-center items-center'>
+
+                <div className='grid grid-cols-3 grid-rows-6 sm:grid-rows-3 gap-4 px-8 sm:w-[90rem]'>
                     <GridItem
                         isHeader
-                        title='SOMOS TOTALMENTE GRATUITOS'
-                        text='Acesso gratuito a recursos essenciais para o cuidado diário do seu pet.'
+                        title='ADEUS, PAPELADA, DOWNLOADS e UPLOADS'
+                        text='Tornamos mais simples a jornada de todos envolvidos para o cuidado e bem-estar pet.'
                         bgColor='bg-green-light'
                         textColor='text-green-dark'
                         borderColor='border-green-dark/40'
+                        className='pt-14 sm:pt-20'
                     >
-                        <SealGridIcon color={'bg-green-dark'} iconSrc='/icons/currency-dolar.svg' />
+                        <SealGridIcon color={'bg-green-dark/40'} iconSrc='/icons/file-close.svg' />
                         <Button onClick={() => { }} classname='bg-green-dark hover:bg-green-dark/90' text={'Baixar agora'} />
                     </GridItem>
 
@@ -113,7 +171,7 @@ const Tutors: React.FC = () => {
                             bgColor='bg-yellow-light'
                             textColor='text-miau-yellowDark'
                             borderColor='border-miau-yellowDark/40'
-                            className="w-[49.5%]"
+                            className="sm:w-[49.5%] h-[100%]"
                         >
                             <SealGridIcon color={'bg-miau-yellowDark/40'} iconSrc='/icons/loader.svg' />
                         </GridItem>
@@ -123,7 +181,7 @@ const Tutors: React.FC = () => {
                             bgColor='bg-miau-blueLight'
                             textColor='text-miau-black/70'
                             borderColor='border-miau-white/20'
-                            className="w-[49.5%]"
+                            className="sm:w-[49.5%] h-[100%]"
                         >
                             <SealGridIcon color={'bg-miau-white/20'} iconSrc='/icons/grid.svg' />
                         </GridItem>
@@ -131,14 +189,14 @@ const Tutors: React.FC = () => {
 
                     <GridItem
                         isHeader
-                        title='Adeus, Papelada, downloads e uploads'
-                        text='Tornamos mais simples a jornada de todos envolvidos para o cuidado e bem-estar pet.'
-                        className='sm:col-span-1'
+                        title='Somos Gratuitos'
+                        text='Acesso gratuito a recursos essenciais para o cuidado diário do seu pet.'
                         bgColor='bg-green-light'
                         textColor='text-green-dark'
                         borderColor='border-green-dark/40'
+                        className='sm:col-span-1 pt-14 sm:pt-20'
                     >
-                        <SealGridIcon color={'bg-green-dark'} iconSrc='/icons/file-close.svg' />
+                        <SealGridIcon color={'bg-green-dark/40'} iconSrc='/icons/currency-dolar.svg' />
                     </GridItem>
 
                     {/* Web view */}
@@ -164,13 +222,15 @@ const Tutors: React.FC = () => {
                     </GridItem>
 
                     {/* Mobile view */}
-                    <div className='col-span-3 sm:hidden flex flex-row justify-between'>
+                    <div className='flex flex-row justify-between col-span-3 row-span-2 sm:hidden'>
                         <GridItem
                             title='Feedback e Suporte Contínuo'
                             text='Suporte para o cuidado do seu pet, assegurando que cada decisão seja informada e voltada para o bem-estar do animal.'
                             bgColor='bg-yellow-light'
                             textColor='text-miau-yellowDark'
-                            borderColor='border-miau-yellowDark/5'
+                            borderColor='border-miau-yellowDark/40'
+                            className="h-[100%]"
+
                         >
                             <SealGridIcon color={'bg-miau-yellowDark/40'} iconSrc='/icons/activity.svg' />
                         </GridItem>
@@ -179,7 +239,9 @@ const Tutors: React.FC = () => {
                             text='Apoiamos e acreditamos nessa causa. mesmo que você já tenha seu pet pode ajudar os milhares de pets a encontrar um lar.'
                             bgColor='bg-miau-blueLight'
                             textColor='text-miau-black/70'
-                            borderColor='border-miau-white/5'
+                            borderColor='border-miau-white/20'
+                            className="h-[100%]"
+
                         >
                             <SealGridIcon color={'bg-miau-white/20'} iconSrc='/icons/cake.svg' />
                         </GridItem>
