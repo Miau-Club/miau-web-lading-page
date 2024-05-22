@@ -3,36 +3,73 @@
 import { Button } from '@/components/button';
 import { H1 } from '@/components/h1';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-// import { Container } from './styles';
+const SHOWCASE_ITEMS = [
+    {
+        title: "Cuidado total para o seu pet",
+        description: "Com o app MiAu Club você tem todas as informações do seu pet centralizadas em um único lugar! Desde consultas até vacinas, exames e prescrições médicas.",
+        srcImg: "/imgs/stuffs/mobile-home-showCase.png"
+    },
+    {
+        title: "Praticidade para você, tutor",
+        description: "Esqueça a confusão de vários apps. No MiAu Club, você gerencia a saúde e o bem-estar do seu pet, além de acessar serviços e produtos essenciais, tudo em um só lugar!",
+        srcImg: "/imgs/stuffs/mobile-marketplace-showcase.png"
+    },
+    {
+        title: "Pet ID, um compromisso com a vida do seu animal",
+        description: "A nossa tecnologia de reconhecimento biométrico, garante a identificação imediata do seu pet. O PET ID centraliza dados vitais e histórico médico, simplificando consultas veterinárias e aumentando a segurança em casos de emergência.",
+        srcImg: "/imgs/stuffs/mobile-pet-id-showcase.png"
+    },
+    {
+        title: "Tecnologia a serviço da vida",
+        description: "Tecnologia a serviço da vida. A inteligência artificial do MiAu Club trabalha para entender e prever as necessidades do seu pet, oferecendo recomendações que fazem a diferença no dia a dia.",
+        srcImg: "/imgs/stuffs/mobile-tech-showcase.png"
+    }
+];
 
 const Tutors: React.FC = () => {
     const [selectedItems, setSelectedItems] = useState(0);
 
+    const [animSlider, setAnimSlide] = useState('');
+    const [isVisible, setIsVisible] = useState(false);
+    const imageRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.isIntersecting);
+            },
+            { threshold: 0.5 }
+        );
+
+        if (imageRef.current) {
+            observer.observe(imageRef.current);
+        }
+
+        return () => {
+            if (imageRef.current) {
+                observer.unobserve(imageRef.current);
+            }
+        };
+    }, []);
+
+    useEffect(() => {
+
+        setAnimSlide('animate-left-slide');
+
+        const timer = setTimeout(() => {
+            setAnimSlide('');
+        }, 800);
+
+        return () => clearTimeout(timer);
+
+    }, [selectedItems, isVisible]);
+
     const handleItemClick = (index: number) => {
         setSelectedItems(index);
     };
-
-    const items = [
-        {
-            title: "Cuidado total para o seu pet",
-            description: "Com o app MiAu Club você tem todas as informações do seu pet centralizadas em um único lugar! Desde consultas até vacinas, exames e prescrições médicas."
-        },
-        {
-            title: "Praticidade para você, tutor",
-            description: "Esqueça a confusão de vários apps. No MiAu Club, você gerencia a saúde e o bem-estar do seu pet, além de acessar serviços e produtos essenciais, tudo em um só lugar!"
-        },
-        {
-            title: "Pet ID, um compromisso com a vida do seu animal",
-            description: "A nossa tecnologia de reconhecimento biométrico, garante a identificação imediata do seu pet. O PET ID centraliza dados vitais e histórico médico, simplificando consultas veterinárias e aumentando a segurança em casos de emergência."
-        },
-        {
-            title: "Tecnologia a serviço da vida",
-            description: "Tecnologia a serviço da vida. A inteligência artificial do MiAu Club trabalha para entender e prever as necessidades do seu pet, oferecendo recomendações que fazem a diferença no dia a dia."
-        }
-    ];
 
     function CardIcons({ subtitle, src, color }: { subtitle: String, src: string, color: string }) {
 
@@ -128,22 +165,40 @@ const Tutors: React.FC = () => {
                 bg-[size:6rem_4rem] 
                 rounded-sm'
             >
-                <div className='flex items-center pl-4 w-screen h-96 sm:pl-16 sm:h-[80vh] sm:w-[40vw] bg-miau-white/50 rounded-md'>
-                    <div className='relative w-[90%] h-[80%] sm:h-[70vh] sm:w-[15vw] bg-miau-branding rounded-sm py-4'>
+                <div className='flex items-center pl-4 w-screen h-96 sm:pl-16 sm:h-[80vh] sm:w-[40vw] bg-miau-white/50 rounded-md gap-8'>
+                    <div className='relative w-[90%] h-[80%] sm:h-[75vh] sm:w-[18vw] bg-miau-branding rounded-sm py-4'>
                         <div className="absolute top-[2rem] hidden sm:block left-[3.2rem] w-1 h-[85%] bg-miau-white rounded-md" />
-                        {items.map((item, index) => (
+                        {SHOWCASE_ITEMS.map((item, index) => (
                             <div
                                 key={index}
                                 className="flex flex-col items-start justify-center relative mb-10 cursor-pointer gap-4 pl-10"
                                 onClick={() => handleItemClick(index)}
                             >
-                                <div className={twMerge("flex flex-row gap-4 w-[90%] rounded-sm h-10", `${selectedItems == index ? 'bg-miau-blueLight/15' : ''}`)}>
-                                    <div className={`rounded-full flex-shrink-0 w-6 h-6 outline outline-[0.3rem] outline-miau-white ${selectedItems == index ? 'bg-miau-yellow' : 'bg-miau-blueContrast'}`} />
-                                    <h2 className="text-sm sm:text-base text-miau-white font-bold max-w-[21rem]">{item.title}</h2>
+                                <div className={twMerge("relative flex flex-row gap-4 w-[100%] rounded-sm h-10", `${selectedItems == index ? 'bg-miau-blueLight/15 py-8 px-10 items-center' : ''}`)}>
+                                    <div className={`transition-colors duration-600 rounded-full flex-shrink-0 w-6 h-6 outline outline-[0.3rem] outline-miau-white ${selectedItems == index ? 'bg-miau-yellow absolute left-0' : 'bg-miau-blueContrast'}`} />
+                                    <h2 className="text-sm sm:text-base text-miau-white font-bold max-w-[25rem]">{item.title}</h2>
                                 </div>
-                                <p className="text-miau-white hidden text-sm font-normal max-w-[21rem] ml-10">{item.description}</p>
+                                <p className="text-miau-white text-sm font-normal hidden sm:block max-w-[22rem] ml-10">{item.description}</p>
                             </div>
                         ))}
+                    </div>
+
+                    <div className='
+                        flex justify-center items-center
+                        h-[75vh]
+                        w-[15vw]
+                        bg-[linear-gradient(to_right,#E3EFF7,transparent_2px),linear-gradient(to_bottom,#E3EFF7,transparent_2px)] 
+                        bg-[size:6rem_4rem]'>
+                        <div
+                            ref={imageRef}
+                            className={twMerge('relative w-[100%] h-[90%]', animSlider)}>
+                            <Image
+                                src={SHOWCASE_ITEMS[selectedItems].srcImg}
+                                alt="Mobile Show Case Pet Scan"
+                                layout="fill"
+                                objectFit="contain"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -155,25 +210,25 @@ const Tutors: React.FC = () => {
                         isHeader
                         title='ADEUS, PAPELADA, DOWNLOADS e UPLOADS'
                         text='Tornamos mais simples a jornada de todos envolvidos para o cuidado e bem-estar pet.'
-                        bgColor='bg-green-light'
-                        textColor='text-green-dark'
-                        borderColor='border-green-dark/40'
+                        bgColor='bg-miau-white'
+                        textColor='text-miau-blueDark'
+                        borderColor='border-miau-blueDark/60'
                         className='pt-14 sm:pt-20'
                     >
-                        <SealGridIcon color={'bg-green-dark/40'} iconSrc='/icons/file-close.svg' />
-                        <Button onClick={() => { }} classname='bg-green-dark hover:bg-green-dark/90' text={'Baixar agora'} />
+                        <SealGridIcon color={'bg-miau-blueDark/60'} iconSrc='/icons/file-close.svg' />
+                        <Button onClick={() => { }} classname='bg-miau-blueDark hover:bg-miau-blueDark/90' text={'Baixar agora'} />
                     </GridItem>
 
                     <div className='flex flex-row justify-between col-span-3 row-span-2 sm:row-span-1 '>
                         <GridItem
                             title='Conexões diretas com profissionais pets'
                             text='Tornamos mais simples a jornada de todos envolvidos para o cuidado e bem-estar pet.'
-                            bgColor='bg-yellow-light'
-                            textColor='text-miau-yellowDark'
-                            borderColor='border-miau-yellowDark/40'
+                            bgColor='bg-miau-white'
+                            textColor='text-miau-blueDark'
+                            borderColor='border-miau-blueDark/60'
                             className="sm:w-[49.5%] h-[100%]"
                         >
-                            <SealGridIcon color={'bg-miau-yellowDark/40'} iconSrc='/icons/loader.svg' />
+                            <SealGridIcon color={'bg-miau-blueDark/60'} iconSrc='/icons/loader.svg' />
                         </GridItem>
                         <GridItem
                             title='Praticidade e Conveniência'
@@ -191,24 +246,24 @@ const Tutors: React.FC = () => {
                         isHeader
                         title='Somos Gratuitos'
                         text='Acesso gratuito a recursos essenciais para o cuidado diário do seu pet.'
-                        bgColor='bg-green-light'
-                        textColor='text-green-dark'
-                        borderColor='border-green-dark/40'
+                        bgColor='bg-miau-blueLight'
+                        textColor='text-miau-black/70'
+                        borderColor='border-miau-white/20'
                         className='sm:col-span-1 pt-14 sm:pt-20'
                     >
-                        <SealGridIcon color={'bg-green-dark/40'} iconSrc='/icons/currency-dolar.svg' />
+                        <SealGridIcon color={'bg-miau-white/20'} iconSrc='/icons/currency-dolar.svg' />
                     </GridItem>
 
                     {/* Web view */}
                     <GridItem
                         title='Feedback e Suporte Contínuo'
                         text='Suporte para o cuidado do seu pet, assegurando que cada decisão seja informada e voltada para o bem-estar do animal.'
-                        bgColor='bg-yellow-light'
-                        textColor='text-miau-yellowDark'
-                        borderColor='border-miau-yellowDark/40'
+                        bgColor='bg-miau-white'
+                        textColor='text-miau-blueDark'
+                        borderColor='border-miau-blueDark/60'
                         className='relative hidden sm:flex flex-col col-span-1 px-8 w-full'
                     >
-                        <SealGridIcon color={'bg-miau-yellowDark/40'} iconSrc='/icons/activity.svg' />
+                        <SealGridIcon color={'bg-miau-blueDark/60'} iconSrc='/icons/activity.svg' />
                     </GridItem>
                     <GridItem
                         title='Adoção pet'
@@ -226,13 +281,13 @@ const Tutors: React.FC = () => {
                         <GridItem
                             title='Feedback e Suporte Contínuo'
                             text='Suporte para o cuidado do seu pet, assegurando que cada decisão seja informada e voltada para o bem-estar do animal.'
-                            bgColor='bg-yellow-light'
-                            textColor='text-miau-yellowDark'
-                            borderColor='border-miau-yellowDark/40'
+                            bgColor='bg-miau-white'
+                            textColor='text-miau-blueDark'
+                            borderColor='border-miau-blueDark/60'
                             className="h-[100%]"
 
                         >
-                            <SealGridIcon color={'bg-miau-yellowDark/40'} iconSrc='/icons/activity.svg' />
+                            <SealGridIcon color={'bg-miau-blueDark/60'} iconSrc='/icons/activity.svg' />
                         </GridItem>
                         <GridItem
                             title='Adoção pet'

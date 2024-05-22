@@ -89,7 +89,7 @@ const Home: React.FC = () => {
             <H1 className='text-xl'>O ecossistema do bem-estar pet, <br /><span className='font-normal'>na palma da sua mão</span></H1>
             <p className='max-w-[405px] text-miau-blueContrast text-lg mt-2'>Nossa tecnologia conecta tutores, veterinários, petshops e profissionais em uma rede de cuidado pet, centralizando o histórico de vida do animal em um único lugar.</p>
           </div>
-          <div className="h-[35rem] w-[35rem] relative row-span-4 col-span-1 hidden sm:block right-60 z-10 animate-bounce">
+          <div className="h-[35rem] w-[35rem] relative row-span-4 col-span-1 hidden sm:block right-60 z-10 animate-bounce-home">
             <Image
               src="/imgs/bg/homeDraw.png"
               alt="Miau Home Image"

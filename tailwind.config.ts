@@ -22,6 +22,7 @@ const config = {
         miau: {
           branding: "#365EFC",
           blueLight: "#7792F1",
+          blueDark: "#576AAC",
           blueContrast: "#7D97F1",
           white: "#F7F7F7",
           yellow: "#EFC708",
@@ -96,10 +97,20 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "bounce-home": {
+          "0%, 100%": { transform: "translateY(0) translateX(0)" },
+          "50%": { transform: "translateY(-1px) translateX(1px)" },
+        },
+        "left-slide": {
+          from: { "margin-right": "-5rem" },
+          to: { "margin-right": "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "bounce-home": "bounce-home 1s ease-in-out infinite",
+        "left-slide": "left-slide 0.8s forwards",
       },
     },
   },
