@@ -103,7 +103,7 @@ const Tutors: React.FC = () => {
     }: any) => (
         <div className={twMerge(`relative flex flex-col items-start justify-start pt-20 h-48 sm:h-72 gap-2 sm:gap-10 border-2 rounded-sm px-4 sm:px-12`, isHeader ? 'col-span-3 row-span-1' : 'w-[48%]', bgColor, borderColor, className)}>
             <H1 className={`${textColor} sm:text-xl text-sm`}>{title}</H1>
-            <p className={`${textColor} font-normal text-sm sm:text-lg`}>{description || text}</p>
+            <p className={`${textColor} font-normal text-sm sm:text-base`}>{description || text}</p>
             {children}
         </div>
     );
@@ -125,7 +125,7 @@ const Tutors: React.FC = () => {
                 <h3 className='text-miau-yellow font-normal text-base'>O maior ecossistema pet integrado</h3>
                 <div className="flex flex-col text-center gap-4 pt-8 justify-start items-center relative h-[60%] w-full sm:w-[50%] bg-blue-bgTutors bg-[linear-gradient(to_right,#295AD7,transparent_2px),linear-gradient(to_bottom,#295AD7,transparent_2px)] bg-[size:6rem_4rem] rounded-sm">
                     <H1>Tudo para o seu pet na palma da mão</H1>
-                    <h2 className='text-miau-blueContrast font-normal max-w-[22rem] text-base sm:text-xl sm:max-w-[35rem]'>Mais praticidade para o tutor e o animal: saúde e bem-estar gerenciados sem complicações, apoiados pela inovação exclusiva do Pet ID, que facilita o acompanhamento completo e seguro.</h2>
+                    <h2 className='text-miau-blueContrast font-normal max-w-[22rem] ext-tbase sm:text-lg sm:max-w-[35rem]'>Mais praticidade para o tutor e o animal: saúde e bem-estar gerenciados sem complicações, apoiados pela inovação exclusiva do Pet ID, que facilita o acompanhamento completo e seguro.</h2>
                 </div>
                 <div className="h-[35%] w-full absolute bottom-[5%] sm:h-[50%]">
                     <Image
@@ -177,7 +177,7 @@ const Tutors: React.FC = () => {
                                     <div className={`transition-colors duration-600 rounded-full flex-shrink-0 w-6 h-6 outline outline-[0.15rem] sm:outline-[0.2rem] outline-miau-white ${selectedItems == index ? 'bg-miau-yellow absolute left-0' : 'bg-miau-blueContrast'}`} />
                                     <h2 className="text-sm sm:text-base text-miau-white font-bold max-w-[22rem]">{item.title}</h2>
                                 </div>
-                                <p className="text-miau-white text-sm font-normal hidden sm:block max-w-[22rem] ml-10">{item.description}</p>
+                                <p className={twMerge('transition-colors duration-700 text-miau-blueContrast text-sm font-normal hidden sm:block max-w-[22rem] ml-10',`${selectedItems == index ? 'text-miau-white' : 'text-miau-blueContrast'}`)}>{item.description}</p>
                             </div>
                         ))}
                     </div>

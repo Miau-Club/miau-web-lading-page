@@ -163,7 +163,7 @@ const Home: React.FC = () => {
         <div className='w-full h-[150vh] flex flex-col sm:flex-row'>
           <div className=' flex  flex-col justify-center items-center sm:items-start sm:pl-[10%] sm:text-start gap-8'>
             <H1 className='text-miau-black text-2xl '>SEJA O PRIMEIRO A TESTAR</H1>
-            <p className='text-miau-grayDark font-normal text-sm max-w-[320px]'>o app que irá revolucionar o cuidado com a saúde e o bem-estar pet</p>
+            <p className='text-miau-black/60 font-normal text-sm max-w-[320px]'>o app que irá revolucionar o cuidado com a saúde e o bem-estar pet</p>
             <Button text='Inscreva-se' onClick={() => { }} />
           </div>
           <div className='flex flex-col justify-center mt-20 overflow-hidden sm:flex-1 sm:mt-0 sm:items-center'>
