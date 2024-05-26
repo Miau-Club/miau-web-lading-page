@@ -157,36 +157,49 @@ const Tutors: React.FC = () => {
                 items-center 
                 px-4
                 sm:px-10 
-                h-screen
-                sm:h-[150vh]
+                h-[150vh]
                 w-full 
                 bg-blue-bgTutors 
                 bg-[linear-gradient(to_right,#F7F7F720,transparent_2px),linear-gradient(to_bottom,#F7F7F720,transparent_2px)] 
                 bg-[size:6rem_4rem] 
                 rounded-sm'
             >
-                <div className='flex items-center pl-4 w-screen h-96 sm:pl-16 sm:h-[80vh] sm:w-[40vw] bg-miau-white/50 rounded-md gap-8'>
-                    <div className='relative w-[90%] h-[80%] sm:h-[75vh] sm:w-[18vw] bg-miau-branding rounded-sm py-4'>
-                        <div className="absolute top-[2rem] hidden sm:block left-[3.2rem] w-1 h-[85%] bg-miau-white rounded-md" />
+                <div className='flex flex-col sm:flex-row items-center justify-center w-screen h-[120vh] sm:h-[80vh] sm:w-[40vw] bg-miau-white/50 rounded-md gap-8'>
+                    <div className='relative w-[90%] h-[45vh] px-5 sm:px-0 sm:h-[75vh] sm:w-[18vw] bg-miau-branding rounded-sm py-4'>
+                        <div className="absolute top-[2.5rem] hidden sm:block left-[3.2rem] w-1 h-[85%] bg-miau-white rounded-md" />
                         {SHOWCASE_ITEMS.map((item, index) => (
                             <div
                                 key={index}
-                                className="flex flex-col items-start justify-center relative mb-10 cursor-pointer gap-4 pl-10"
+                                className="flex flex-col items-start justify-center relative mb-10 cursor-pointer gap-4 sm:pl-10"
                                 onClick={() => handleItemClick(index)}
                             >
                                 <div className={twMerge("relative flex flex-row gap-4 w-[100%] rounded-sm h-10", `${selectedItems == index ? 'bg-miau-blueLight/15 py-8 px-10 items-center' : ''}`)}>
-                                    <div className={`transition-colors duration-600 rounded-full flex-shrink-0 w-6 h-6 outline outline-[0.3rem] outline-miau-white ${selectedItems == index ? 'bg-miau-yellow absolute left-0' : 'bg-miau-blueContrast'}`} />
-                                    <h2 className="text-sm sm:text-base text-miau-white font-bold max-w-[25rem]">{item.title}</h2>
+                                    <div className={`transition-colors duration-600 rounded-full flex-shrink-0 w-6 h-6 outline outline-[0.15rem] sm:outline-[0.2rem] outline-miau-white ${selectedItems == index ? 'bg-miau-yellow absolute left-0' : 'bg-miau-blueContrast'}`} />
+                                    <h2 className="text-sm sm:text-base text-miau-white font-bold max-w-[22rem]">{item.title}</h2>
                                 </div>
                                 <p className="text-miau-white text-sm font-normal hidden sm:block max-w-[22rem] ml-10">{item.description}</p>
                             </div>
                         ))}
                     </div>
 
+                    <div
+                        ref={imageRef}
+                        className={twMerge('relative w-80 h-80 sm:hidden', animSlider)}>
+                        <Image
+                            src={SHOWCASE_ITEMS[selectedItems].srcImg}
+                            alt="Mobile Show Case Pet Scan"
+                            layout="fill"
+                            objectFit="contain"
+                        />
+                    </div>
+
                     <div className='
-                        flex justify-center items-center
-                        h-[75vh]
-                        w-[15vw]
+                        hidden
+                        sm:flex
+                        justify-center items-center
+                        h-[10vh]
+                        sm:h-[75vh]
+                        sm:w-[15vw]
                         bg-[linear-gradient(to_right,#E3EFF7,transparent_2px),linear-gradient(to_bottom,#E3EFF7,transparent_2px)] 
                         bg-[size:6rem_4rem]'>
                         <div
