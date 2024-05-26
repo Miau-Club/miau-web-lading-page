@@ -34,7 +34,7 @@ const NavigationMenu = (props: any) => {
                         { href: '/', item: 'Home' },
                         { href: '/tutors', item: 'Para Tutores' },
                         { href: '/partners', item: 'Para Parceiros' },
-                        { href: '/about', item: 'Sobre' }
+                        // { href: '/about', item: 'Sobre' }
                     ]}
                 />
 
