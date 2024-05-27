@@ -45,6 +45,21 @@ const Partners: React.FC = () => {
     const visibleIndex = useOnScreen(refsArray);
 
 
+    function GridItem({ title, subtitle, src }: { title: string, subtitle: string, src: string }) {
+        return (
+            <div className='flex flex-col justify-start sm:h-44 col-span-1 gap-2  sm:pl-36'>
+                <Image
+                    src={`/icons/${src}`}
+                    alt={src}
+                    width="16"
+                    height="16"
+                />
+                <h3 className='text-miau-white font-bold text-base '>{title}</h3>
+                <p className='text-miau-white/80 font-normal text-base sm:max-w-44'>{subtitle}</p>
+            </div>
+        )
+    }
+
     return <div className='bg-gradient-to-b from-blue-bgPartners to-black-bgPartnersEnd flex flex-col items-center'>
         <div className=' h-screen w-full flex justify-center items-center'>
 
@@ -126,6 +141,15 @@ const Partners: React.FC = () => {
                 )
             })}
 
+        </div>
+
+        <div className='w-[60vw] gap-2 py-10 sm:py-0 h-full sm:h-screen grid grid-cols-1 grid-rows-6 sm:grid-cols-3 sm:grid-rows-2 items-center '>
+            <GridItem title='Inovação em Integração' src='coffee.svg' subtitle='Acesso gratuito a recursos essenciais para o cuidado diário do seu pet.' />
+            <GridItem title='Maior lake PET' src='database.svg' subtitle='Tornamos mais simples a jornada de todos envolvidos para o cuidado e bem -estar pet.' />
+            <GridItem title='IPaas' src='ipaas.svg' subtitle='Conectamos tutores a uma ampla gama de serviços pet, garantindo conforto e conveniência.' />
+            <GridItem title='IA Personalizada' src='ia.svg' subtitle='Todo o histórico do seu pet seguro e acessível com um toque conectado a um ecossistema único.' />
+            <GridItem title='Segurança de Dados' src='shield-check.svg' subtitle='A confidencialidade e integridade dos dados são a espinha dorsal do nosso ecossistema, de ponta a ponta, de modo totalmente criptografado.' />
+            <GridItem title='Soluções escaláveis' src='code-pen.svg' subtitle='Apoiamos e acreditamos nessa causa. mesmo que você já tenha seu pet pode ajudar os milhares de pets a encontrar um lar.' />
         </div>
 
     </div >;
