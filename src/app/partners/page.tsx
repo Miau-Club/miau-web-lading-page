@@ -152,6 +152,25 @@ const Partners: React.FC = () => {
             <GridItem title='Soluções escaláveis' src='code-pen.svg' subtitle='Apoiamos e acreditamos nessa causa. mesmo que você já tenha seu pet pode ajudar os milhares de pets a encontrar um lar.' />
         </div>
 
+        <div className='flex flex-col gap-8 justify-center items-center w-full h-screen mt-10'>
+
+            <H1 className='text-base'>Feito para os pets,pensado para os devs</H1>
+
+            <div className='w-full h-[50vh] sm:w-[45vw] sm:h-[85vh] bg-miau-white/5 rounded-sm flex justify-center items-center'>
+                <div className='flex items-center w-[90vw] h-[45vh] sm:w-[40vw] sm:h-[75vh] bg-miau-white/5 rounded-sm relative'>
+                    <div className='w-full h-[90%] relative'>
+                        <Image
+                            src="/imgs/stuffs/ipaas-web.png"
+                            alt="Tutors Environment"
+                            layout="fill"
+                            objectFit="contain"
+                        />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div >;
 }
 
