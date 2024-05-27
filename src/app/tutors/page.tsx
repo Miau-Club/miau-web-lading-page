@@ -164,8 +164,8 @@ const Tutors: React.FC = () => {
                 bg-[size:6rem_4rem] 
                 rounded-sm'
             >
-                <div className='flex flex-col sm:flex-row items-center justify-center w-screen h-[120vh] sm:h-[90vh] sm:w-[40vw] bg-miau-white/50 rounded-md gap-8'>
-                    <div className='relative w-[90%] h-[45vh] px-5 sm:px-0 sm:h-[80vh] sm:w-[18vw] bg-miau-branding rounded-sm py-4'>
+                <div className='flex flex-col sm:flex-row items-center justify-center w-screen h-[120vh] sm:h-[90vh] sm:w-[80vw] bg-miau-white/50 rounded-md gap-8'>
+                    <div className='overflow-hidden relative w-[90%] h-[45vh] px-5 sm:px-0 sm:h-[80vh] sm:w-[40vw] bg-miau-branding rounded-sm py-4'>
                         <div className="absolute top-[2.5rem] hidden sm:block left-[3.2rem] w-1 h-[85%] bg-miau-white rounded-md" />
                         {SHOWCASE_ITEMS.map((item, index) => (
                             <div
@@ -199,7 +199,7 @@ const Tutors: React.FC = () => {
                         justify-center items-center
                         h-[10vh]
                         sm:h-[75vh]
-                        sm:w-[15vw]
+                        sm:w-[20vw]
                         bg-[linear-gradient(to_right,#E3EFF7,transparent_2px),linear-gradient(to_bottom,#E3EFF7,transparent_2px)] 
                         bg-[size:6rem_4rem]'>
                         <div

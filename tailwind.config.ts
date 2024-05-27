@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      textShadow: {
+        "black": "4px 4x 4px rgba(0, 0, 0, 0.5)",
+      },
       colors: {
         miau: {
           branding: "#365EFC",
@@ -34,20 +37,16 @@ const config = {
           bg: "#395ADB",
           bgEnd: "#8DA9F4",
           bgTutors: "#3966DB",
+          bgPartners: "#021252",
           bgTutorsSquare: "#295AD7",
           navigationBar: "#A1B0EE",
           blueCardOneHome: "#5B70BA",
           blueCardTwoHome: "#697BC2",
           blueCardThreeHome: "#7289DB",
         },
-        green: {
-          light: "#EEFFFE",
-          dark: "#648987",
+        black: {
+          bgPartnersEnd: "#0B0B0B",
         },
-        yellow: {
-          light: "#F5F3E3",
-        },
-        bgWhite: "#E3EFF7",
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -105,16 +104,33 @@ const config = {
           from: { "margin-right": "-5rem" },
           to: { "margin-right": "0" },
         },
+        "scroll-x": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "scroll-to-top": {
+          "0%": { top: "0" },
+          "100%": { top: "1rem" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "bounce-home": "bounce-home 1s ease-in-out infinite",
         "left-slide": "left-slide 0.8s forwards",
+        "scroll-x": "scroll-x 100s linear infinite",
+        "scroll-to-top": "scroll-to-top 0.8s ease-out",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), function ({ addUtilities }: any) {
+    const newUtilities = {
+      ".text-shadow-black": {
+        textShadow: "4px 4px 4px rgba(0, 0, 0, 0.5)",
+      },
+    };
+    addUtilities(newUtilities, ["responsive", "hover"]);
+  }],
 } satisfies Config;
 
 export default config;
