@@ -3,12 +3,11 @@
 import { Button } from '@/components/button';
 import { H1 } from '@/components/h1';
 import { Input } from '@/components/ui/input';
-import { useOnScreen } from '@/lib/hooks';
+import { useOnViewIndexScreen } from '@/lib/hooks';
 import Image from 'next/image';
-import React, { RefObject, useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-// import { Container } from './styles';
 
 const SHOWCASE_PARTNERS = [{
     title: 'Médico Veterinário',
@@ -42,7 +41,7 @@ const SHOWCASE_PARTNERS = [{
 const Partners: React.FC = () => {
 
     const refsArray = Array.from({ length: SHOWCASE_PARTNERS.length }, () => useRef<HTMLDivElement>(null)); // Crie uma matriz de referências
-    const visibleIndex = useOnScreen(refsArray);
+    const visibleIndex = useOnViewIndexScreen(refsArray);
 
 
     function GridItem({ title, subtitle, src }: { title: string, subtitle: string, src: string }) {

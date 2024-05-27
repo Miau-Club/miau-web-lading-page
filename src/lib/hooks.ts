@@ -1,6 +1,6 @@
-import { RefObject, useEffect, useMemo, useState } from "react";
+import { RefObject, useEffect, useState } from "react";
 
-export function useOnScreen(refs: RefObject<HTMLElement>[]) {
+export function useOnViewIndexScreen(refs: RefObject<HTMLElement>[]) {
   const [visibleIndex, setVisibleIndex] = useState<number | null>(null);
 
   const calculateViewportCenter = () => {

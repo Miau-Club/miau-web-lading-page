@@ -11,37 +11,35 @@ import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { SelectCustom, SelectCustomItem } from '@/components/select';
 import { cn } from '@/lib/utils';
 
-// import { Container } from './styles';
-// to-bgWhite  -> COlocar no contraste final                                                    
+
 const Home: React.FC = () => {
 
   const [srcOverview, setSrcOverview] = useState('mobile-overview-home')
 
-  const TechCard = ({ children, title, srcIcon }:
-    { children: any, title: string, srcIcon: string }) => {
+  const TechCard = ({ children, title, srcIcon, srcIconMobile }:
+    { children: any, title: string, srcIcon: string, srcIconMobile: string }) => {
 
     return (
-      <div className='flex flex-col items-center'>
-        {/* <Image
-          className='ml-[3rem] mb-4 self-start'
-          src={srcIcon}
-          alt="Icon"
-          width={40}
-          height={40}
-        /> */}
+      <div className='flex flex-col items-center w-full gap-2 sm:gap-0'>
+        <Image
+          className='sm:hidden self-start'
+          src={`/icons/${srcIconMobile}.svg`}
+          alt="Icon Mobile"
+          width={25}
+          height={25}
+        />
         <Image
           className='mb-4 hidden sm:block'
           src={`/imgs/stuffs/small-line-t-${srcIcon}.png`}
           alt="Tech cards lines"
           width={300}
-          height={0} />
-        <h3 className='font-bold text-miau-white text-base sm:text-lg'>{title}</h3>
-        <div className='overflow-hidden w-[100%] sm:w-72 h-40 bg-miau-blueLight border-solid border-4 border-miau-blueContrast rounded-md'>
-          <div className='px-2 text-center flex items-center h-[100%]'>
+          height={0}
+        />
+        <h3 className='font-bold text-miau-white text-base sm:text-lg self-start sm:self-center'>{title}</h3>
+        <div className='overflow-hidden w-[100%] sm:w-72 h-40 bg-transparent sm:bg-miau-blueLight border-solid border-4 border-transparent sm:border-miau-blueContrast rounded-sm'>
+          <div className='sm:px-2 sm:text-center flex items-start sm:items-center h-[100%]'>
             {children}
           </div>
-          {/* TODO: Corrigir essa grid q n esta aparecendo */}
-          <GridsBG gridClass='w-18 h-10 border-miau-white/5' classname='top-0' countGrids={60} />
         </div>
       </div>
     )
@@ -117,20 +115,20 @@ const Home: React.FC = () => {
               <h3 className='text-miau-blueContrast text-base text-center font-normal sm:text-base'>todas as funcionalidades pensadas para quem nos dá carinho e amor diariamente.</h3>
             </div>
             <div className='sm:col-span-3 pb-8'>
-              <TechCard title='Pet ID' srcIcon="scan">
-                <p className='font-normal text-miau-white text-sm sm:text-sm z-10'>Com nossa tecnologia biométrica via fucinho, o PET ID identifica seu pet instantaneamente, centraliza dados vitais e histórico médico, otimizando a segurança e o cuidado.</p>
+              <TechCard title='Pet ID' srcIcon="scan" srcIconMobile='scan'>
+                <p className='font-normal text-miau-white/80 text-sm sm:text-sm z-10'>Com nossa tecnologia biométrica via fucinho, o PET ID identifica seu pet instantaneamente, centraliza dados vitais e histórico médico, otimizando a segurança e o cuidado.</p>
               </TechCard>
 
             </div>
-            <TechCard title='Histórico Conectado' srcIcon="dashboard">
-              <p className='font-normal text-miau-white text-sm sm:text-sm'>Todo histórico de sáude do seu(s) pet(s), como: consultas, laudos, medição, tratamento em um único lugar. Chega de pastas, papeis e arquivos pdf.</p>
+            <TechCard title='Histórico Conectado' srcIcon="dashboard" srcIconMobile='dashboard'>
+              <p className='font-normal text-miau-white/80 text-sm sm:text-sm'>Todo histórico de sáude do seu(s) pet(s), como: consultas, laudos, medição, tratamento em um único lugar. Chega de pastas, papeis e arquivos pdf.</p>
             </TechCard>
-            <TechCard title='Muito mais que um app' srcIcon="world">
-              <p className='font-normal text-miau-white text-sm'>Somos a maneira mais eficiente e integrada de gerenciar a saúde e bem-estar dos pets, com fácil a serviços, produtos, locais, profissionais pet e muito mais. Facilidade para todos, que amam seus pets.</p>
+            <TechCard title='Muito mais que um app' srcIcon="world" srcIconMobile='world'>
+              <p className='font-normal text-miau-white/80 text-sm'>Somos a maneira mais eficiente e integrada de gerenciar a saúde e bem-estar dos pets, com fácil a serviços, produtos, locais, profissionais pet e muito mais. Facilidade para todos, que amam seus pets.</p>
             </TechCard>
 
-            <TechCard title='Inovação Contínua' srcIcon="arrow-up" >
-              <p className='font-normal text-miau-white text-sm'>Através da tecnologia, potencializamos todos envolvidos na jornada pet, desde veterinários até prestadores de serviços.</p>
+            <TechCard title='Inovação Contínua' srcIcon="arrow-up" srcIconMobile='ipaas'>
+              <p className='font-normal text-miau-white/80 text-sm'>Através da tecnologia, potencializamos todos envolvidos na jornada pet, desde veterinários até prestadores de serviços.</p>
             </TechCard>
 
           </div>
@@ -164,7 +162,7 @@ const Home: React.FC = () => {
           <div className=' flex  flex-col justify-center items-center sm:items-start sm:pl-[10%] sm:text-start gap-8'>
             <H1 className='text-miau-black text-2xl '>SEJA O PRIMEIRO A TESTAR</H1>
             <p className='text-miau-black/60 font-normal text-sm max-w-[320px]'>o app que irá revolucionar o cuidado com a saúde e o bem-estar pet</p>
-            <Button text='Inscreva-se' onClick={() => { }} />
+            <Button text='Inscreva-se' classname='hidden sm:block' onClick={() => { }} />
           </div>
           <div className='flex flex-col justify-center mt-20 overflow-hidden sm:flex-1 sm:mt-0 sm:items-center'>
             <div className='w-full flex justify-center'>
