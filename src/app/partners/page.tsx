@@ -64,8 +64,8 @@ const Partners: React.FC = () => {
 
             <div className='overflow-hidden flex flex-col sm:flex-row items-center justify-center pl-4 h-[80vh] w-[90vw] sm:w-[80vw] bg-transparent bg-[linear-gradient(to_right,#F7F7F710,transparent_2px),linear-gradient(to_bottom,#F7F7F710,transparent_2px)] bg-[size:6rem_4rem] rounded-sm'>
                 <div className='gap-4 flex flex-col self-start sm:self-center pt-8 sm:pt-0'>
-                    <H1 className='max-w-[34rem] '>Construa Pet-Techs e serviçoes de dados PET , em tempo-real. Rápido .  </H1>
-                    <h3 className='text-miau-grayDark font-light text-base sm:max-w-[26rem]'>Configure , integre , use . Uma gama de serviços construídos e feito para os pets.</h3>
+                    <H1 className='max-w-[34rem] '>Construa Pet-techs e serviçoes de dados PET , em tempo-real. Rápido.</H1>
+                    <h3 className='text-miau-grayDark font-light text-base sm:max-w-[26rem]'>Configure, integre, use . Uma gama de serviços construídos e feito para os pets.</h3>
                     <div className='flex flex-row gap-2'>
                         <Input
                             type="email"
@@ -142,7 +142,7 @@ const Partners: React.FC = () => {
 
         </div>
 
-        <div className='w-[60vw] gap-2 py-10 sm:py-0 h-full sm:h-screen grid grid-cols-1 grid-rows-6 sm:grid-cols-3 sm:grid-rows-2 items-center '>
+        <div className='w-[65vw] py-10 sm:py-0 h-full sm:h-screen grid grid-cols-1 grid-rows-6 sm:grid-cols-3 sm:grid-rows-2 items-center '>
             <GridItem title='Inovação em Integração' src='coffee.svg' subtitle='Acesso gratuito a recursos essenciais para o cuidado diário do seu pet.' />
             <GridItem title='Maior lake PET' src='database.svg' subtitle='Tornamos mais simples a jornada de todos envolvidos para o cuidado e bem -estar pet.' />
             <GridItem title='IPaas' src='ipaas.svg' subtitle='Conectamos tutores a uma ampla gama de serviços pet, garantindo conforto e conveniência.' />
@@ -153,7 +153,7 @@ const Partners: React.FC = () => {
 
         <div className='flex flex-col gap-8 justify-center items-center w-full h-screen mt-10'>
 
-            <H1 className='text-base'>Feito para os pets,pensado para os devs</H1>
+            <H1 className='text-base'>Feito para os PETS, pensado para os devs</H1>
 
             <div className='w-full h-[50vh] sm:w-[45vw] sm:h-[85vh] bg-miau-white/5 rounded-sm flex justify-center items-center'>
                 <div className='flex items-center w-[90vw] h-[45vh] sm:w-[40vw] sm:h-[75vh] bg-miau-white/5 rounded-sm relative'>

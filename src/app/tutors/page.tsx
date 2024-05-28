@@ -75,7 +75,7 @@ const Tutors: React.FC = () => {
 
         return (
             <div className='flex flex-col justify-center items-center gap-10 text-center'>
-                <div className={twMerge('w-40 h-40 rounded-sm outline-[2rem] outline outline-[#F7F7F790] flex justify-center items-center', color)}>
+                <div className={twMerge('w-40 h-40 flex justify-center items-center')}>
                     <div className='relative w-12 h-12'>
                         <Image
                             src={src}
@@ -85,7 +85,7 @@ const Tutors: React.FC = () => {
                         />
                     </div>
                 </div>
-                <p className='text-miau-white font-normal text-base max-w-[22rem] sm:max-h-[5rem] sm:max-w-[25rem]'>{subtitle}</p>
+                <p className='text-miau-white font-normal text-base sm:text-lg max-w-[22rem] sm:max-h-[5rem] sm:max-w-[25rem]'>{subtitle}</p>
             </div>
         )
     }
@@ -125,7 +125,7 @@ const Tutors: React.FC = () => {
                 <h3 className='text-miau-yellow font-normal text-base'>O maior ecossistema pet integrado</h3>
                 <div className="flex flex-col text-center gap-4 pt-8 justify-start items-center relative h-[60%] w-full sm:w-[50%] bg-blue-bgTutors bg-[linear-gradient(to_right,#295AD7,transparent_2px),linear-gradient(to_bottom,#295AD7,transparent_2px)] bg-[size:6rem_4rem] rounded-sm">
                     <H1>Tudo para o seu pet na palma da mão</H1>
-                    <h2 className='text-miau-blueContrast font-normal max-w-[22rem] ext-tbase sm:text-lg sm:max-w-[35rem]'>Mais praticidade para o tutor e o animal: saúde e bem-estar gerenciados sem complicações, apoiados pela inovação exclusiva do Pet ID, que facilita o acompanhamento completo e seguro.</h2>
+                    <h2 className='text-miau-white/60 font-normal max-w-[22rem] text-base sm:text-lg sm:max-w-[35rem]'>Mais praticidade para o tutor e o animal: saúde e bem-estar gerenciados sem complicações, apoiados pela inovação exclusiva do Pet ID, que facilita o acompanhamento completo e seguro.</h2>
                 </div>
                 <div className="h-[35%] w-full absolute bottom-[5%] sm:h-[50%]">
                     <Image
@@ -229,7 +229,7 @@ const Tutors: React.FC = () => {
                         className='pt-14 sm:pt-20'
                     >
                         <SealGridIcon color={'bg-miau-blueDark/60'} iconSrc='/icons/file-close.svg' />
-                        <Button onClick={() => { }} classname='bg-miau-blueDark hover:bg-miau-blueDark/90' text={'Baixar agora'} />
+                        <Button onClick={() => { }} classname='bg-miau-blueDark hover:bg-miau-blueDark/90' text={'Inscreva-se'} />
                     </GridItem>
 
                     <div className='flex flex-row justify-between col-span-3 row-span-2 sm:row-span-1 '>

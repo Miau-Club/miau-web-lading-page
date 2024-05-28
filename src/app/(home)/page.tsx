@@ -36,8 +36,8 @@ const Home: React.FC = () => {
           height={0}
         />
         <h3 className='font-bold text-miau-white text-base sm:text-lg self-start sm:self-center'>{title}</h3>
-        <div className='overflow-hidden w-[100%] sm:w-72 h-40 bg-transparent sm:bg-miau-blueLight border-solid border-4 border-transparent sm:border-miau-blueContrast rounded-sm'>
-          <div className='sm:px-2 sm:text-center flex items-start sm:items-center h-[100%]'>
+        <div className='overflow-hidden w-[100%] sm:w-72 h-40 bg-transparent border-solid border-4 border-transparent  rounded-sm'>
+          <div className='sm:px-2 flex-col text-start flex items-start sm:items-center h-[100%]'>
             {children}
           </div>
         </div>
@@ -64,7 +64,7 @@ const Home: React.FC = () => {
         </div>
         <div className='z-10'>
           <h3 className='font-bold text-miau-white z-10'>{title}</h3>
-          <p className='font-normal text-miau-white text-sm z-10'>{subtitle}</p>
+          <p className='font-normal text-miau-white/80 text-sm sm:text-base z-10'>{subtitle}</p>
         </div>
       </BGDots>
     </div>)
@@ -85,7 +85,7 @@ const Home: React.FC = () => {
         <div className='grid grid-cols-3 grid-rows-3 gap-10 z-10'>
           <div className='row-span-2 col-span-3 sm:col-span-2 flex flex-col justify-end '>
             <H1 className='text-xl'>O ecossistema do bem-estar pet, <br /><span className='font-normal'>na palma da sua mão</span></H1>
-            <p className='max-w-[405px] text-miau-blueContrast text-lg mt-2'>Nossa tecnologia conecta tutores, veterinários, petshops e profissionais em uma rede de cuidado pet, centralizando o histórico de vida do animal em um único lugar.</p>
+            <p className='max-w-[405px] text-miau-white/50 text-lg mt-2'>Nossa tecnologia conecta tutores, veterinários, petshops e profissionais em uma rede de cuidado pet, centralizando o histórico de vida do animal em um único lugar.</p>
           </div>
           <div className="h-[35rem] w-[35rem] relative row-span-4 col-span-1 hidden sm:block right-60 z-10 animate-bounce-home">
             <Image
@@ -101,8 +101,8 @@ const Home: React.FC = () => {
           <div className='flex flex-col justify-center row-span-1  col-span-2'>
             <h3 className='text-miau-yellow font-bold'>PETS REGISTRADOS</h3>
             <div className='flex flex-row items-center gap-4'>
-              <div><p className='text-miau-white font-normal'>5.0 mil +</p> <p className='text-miau-blueContrast font-light'>CACHORROS</p></div>
-              <div><p className='text-miau-white font-normal'>2.2 mil +</p> <p className='text-miau-blueContrast font-light'>GATOS</p></div>
+              <div><p className='text-miau-white font-normal'>226 Pets +</p> <p className='text-miau-blueContrast font-light'>CACHORROS e GATOS</p></div>
+              {/* <div><p className='text-miau-white font-normal'>80 Pets +</p> <p className='text-miau-blueContrast font-light'>GATOS</p></div> */}
             </div>
           </div>
         </div>
@@ -112,23 +112,23 @@ const Home: React.FC = () => {
           <div className='grid grid-cols-1 grid-rows-5 sm:grid-cols-3 sm:grid-rows-2'>
             <div className='flex justify-center items-center flex-col gap-2 sm:col-span-3'>
               <H1 className='text-xl'>Tecnologia em prol do bem-estar pet</H1>
-              <h3 className='text-miau-blueContrast text-base text-center font-normal sm:text-base'>todas as funcionalidades pensadas para quem nos dá carinho e amor diariamente.</h3>
+              <h3 className='text-miau-white/50 text-base text-center  sm:text-lg'>todas as funcionalidades pensadas para quem nos dá carinho e amor diariamente.</h3>
             </div>
             <div className='sm:col-span-3 pb-8'>
               <TechCard title='Pet ID' srcIcon="scan" srcIconMobile='scan'>
-                <p className='font-normal text-miau-white/80 text-sm sm:text-sm z-10'>Com nossa tecnologia biométrica via fucinho, o PET ID identifica seu pet instantaneamente, centraliza dados vitais e histórico médico, otimizando a segurança e o cuidado.</p>
+                <p className='font-normal text-miau-white/60 text-base z-10'>Com nossa tecnologia biométrica via fucinho, o PET ID identifica seu pet instantaneamente, centraliza dados vitais e histórico médico, otimizando a segurança e o cuidado.</p>
               </TechCard>
 
             </div>
             <TechCard title='Histórico Conectado' srcIcon="dashboard" srcIconMobile='dashboard'>
-              <p className='font-normal text-miau-white/80 text-sm sm:text-sm'>Todo histórico de sáude do seu(s) pet(s), como: consultas, laudos, medição, tratamento em um único lugar. Chega de pastas, papeis e arquivos pdf.</p>
+              <p className='font-normal text-miau-white/60 text-base'>Todo histórico de sáude do seu(s) pet(s), como: consultas, laudos, medição, tratamento em um único lugar. Chega de pastas, papeis e arquivos pdf.</p>
             </TechCard>
             <TechCard title='Muito mais que um app' srcIcon="world" srcIconMobile='world'>
-              <p className='font-normal text-miau-white/80 text-sm'>Somos a maneira mais eficiente e integrada de gerenciar a saúde e bem-estar dos pets, com fácil a serviços, produtos, locais, profissionais pet e muito mais. Facilidade para todos, que amam seus pets.</p>
+              <p className='font-normal text-miau-white/60 text-base'>Somos a maneira mais eficiente e integrada de gerenciar a saúde e bem-estar dos pets, com fácil a serviços, produtos, locais, profissionais pet e muito mais. Facilidade para todos, que amam seus pets.</p>
             </TechCard>
 
             <TechCard title='Inovação Contínua' srcIcon="arrow-up" srcIconMobile='ipaas'>
-              <p className='font-normal text-miau-white/80 text-sm'>Através da tecnologia, potencializamos todos envolvidos na jornada pet, desde veterinários até prestadores de serviços.</p>
+              <p className='font-normal text-miau-white/60 text-base'>Através da tecnologia, potencializamos todos envolvidos na jornada pet, desde veterinários até prestadores de serviços.</p>
             </TechCard>
 
           </div>
@@ -159,9 +159,9 @@ const Home: React.FC = () => {
           </BGDots>
         </div>
         <div className='w-full h-[150vh] flex flex-col sm:flex-row'>
-          <div className=' flex  flex-col justify-center items-center sm:items-start sm:pl-[10%] sm:text-start gap-8'>
+          <div className=' flex  flex-col justify-center items-center sm:items-start sm:pl-[10%] sm:text-start gap-4'>
             <H1 className='text-miau-black text-2xl '>SEJA O PRIMEIRO A TESTAR</H1>
-            <p className='text-miau-black/60 font-normal text-sm max-w-[320px]'>o app que irá revolucionar o cuidado com a saúde e o bem-estar pet</p>
+            <p className='text-miau-black/60 font-normal sm:text-base text-sm max-w-[320px]'>o app que irá revolucionar o cuidado com a saúde e o bem-estar pet</p>
             <Button text='Inscreva-se' classname='hidden sm:block' onClick={() => { }} />
           </div>
           <div className='flex flex-col justify-center mt-20 overflow-hidden sm:flex-1 sm:mt-0 sm:items-center'>
