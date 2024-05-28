@@ -236,22 +236,22 @@ const Tutors: React.FC = () => {
                         <GridItem
                             title='Conexões diretas com profissionais pets'
                             text='Tornamos mais simples a jornada de todos envolvidos para o cuidado e bem-estar pet.'
-                            bgColor='bg-miau-white'
-                            textColor='text-miau-blueDark'
-                            borderColor='border-miau-blueDark/60'
+                            bgColor='bg-miau-blueLight'
+                            textColor='text-miau-white'
+                            borderColor='border-miau-white/50'
                             className="sm:w-[49.5%] h-[100%]"
                         >
-                            <SealGridIcon color={'bg-miau-blueDark/60'} iconSrc='/icons/loader.svg' />
+                            <SealGridIcon color={'bg-miau-white/50'} iconSrc='/icons/loader.svg' />
                         </GridItem>
                         <GridItem
                             title='Praticidade e Conveniência'
                             text='Conectamos tutores a uma ampla gama de serviços pet, garantindo conforto e conveniência.'
                             bgColor='bg-miau-blueLight'
-                            textColor='text-miau-black/70'
-                            borderColor='border-miau-white/20'
+                            textColor='text-miau-white'
+                            borderColor='border-miau-white/50'
                             className="sm:w-[49.5%] h-[100%]"
                         >
-                            <SealGridIcon color={'bg-miau-white/20'} iconSrc='/icons/grid.svg' />
+                            <SealGridIcon color={'bg-miau-white/50'} iconSrc='/icons/grid.svg' />
                         </GridItem>
                     </div>
 
@@ -259,34 +259,34 @@ const Tutors: React.FC = () => {
                         isHeader
                         title='Somos Gratuitos'
                         text='Acesso gratuito a recursos essenciais para o cuidado diário do seu pet.'
-                        bgColor='bg-miau-blueLight'
-                        textColor='text-miau-black/70'
-                        borderColor='border-miau-white/20'
+                        bgColor='bg-miau-white'
+                        textColor='text-miau-blueDark'
+                        borderColor='border-miau-blueDark/60'
                         className='sm:col-span-1 pt-14 sm:pt-20'
                     >
-                        <SealGridIcon color={'bg-miau-white/20'} iconSrc='/icons/currency-dolar.svg' />
+                        <SealGridIcon color={'bg-miau-blueDark/60'} iconSrc='/icons/currency-dolar.svg' />
                     </GridItem>
 
                     {/* Web view */}
                     <GridItem
                         title='Feedback e Suporte Contínuo'
                         text='Suporte para o cuidado do seu pet, assegurando que cada decisão seja informada e voltada para o bem-estar do animal.'
-                        bgColor='bg-miau-white'
-                        textColor='text-miau-blueDark'
-                        borderColor='border-miau-blueDark/60'
+                        bgColor='bg-miau-blueLight'
+                        textColor='text-miau-white'
+                        borderColor='border-miau-white/50'
                         className='relative hidden sm:flex flex-col col-span-1 px-8 w-full'
                     >
-                        <SealGridIcon color={'bg-miau-blueDark/60'} iconSrc='/icons/activity.svg' />
+                        <SealGridIcon color={'bg-miau-white/50'} iconSrc='/icons/activity.svg' />
                     </GridItem>
                     <GridItem
                         title='Adoção pet'
                         text='Apoiamos e acreditamos nessa causa. mesmo que você já tenha seu pet pode ajudar os milhares de pets a encontrar um lar.'
                         bgColor='bg-miau-blueLight'
-                        textColor='text-miau-black/70'
-                        borderColor='border-miau-white/20'
+                        textColor='text-miau-white'
+                        borderColor='border-miau-white/50'
                         className='relative hidden sm:flex flex-col col-span-1 px-8 w-full'
                     >
-                        <SealGridIcon color={'bg-miau-white/20'} iconSrc='/icons/cake.svg' />
+                        <SealGridIcon color={'bg-miau-white/50'} iconSrc='/icons/cake.svg' />
                     </GridItem>
 
                     {/* Mobile view */}
