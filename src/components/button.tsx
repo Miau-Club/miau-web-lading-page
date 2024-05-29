@@ -6,7 +6,7 @@ export const Button = ({ text, variant = 'default', onClick, classname, size }: 
 
     const variantCustoms = {
         'default': 'bg-miau-branding hover:bg-miau-branding/90 font-bold',
-        'secondary': 'bg-miau-yellow hover:bg-miau-yellow/90 font-bold text-miau-white'
+        'secondary': 'bg-miau-yellow hover:bg-miau-yellow/90 font-bold text-miau-yellowDark'
     }
 
     return (<ButtonUi onClick={onClick} size={size} variant={variant} className={cn(variantCustoms[variant], classname)}>{text}</ButtonUi>)

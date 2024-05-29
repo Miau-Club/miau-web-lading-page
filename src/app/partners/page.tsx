@@ -2,10 +2,11 @@
 
 import { Button } from '@/components/button';
 import { H1 } from '@/components/h1';
+import { RegisterModal } from '@/components/register-modal';
 import { Input } from '@/components/ui/input';
 import { useOnViewIndexScreen } from '@/lib/hooks';
 import Image from 'next/image';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 
@@ -43,6 +44,7 @@ const Partners: React.FC = () => {
     const refsArray = Array.from({ length: SHOWCASE_PARTNERS.length }, () => useRef<HTMLDivElement>(null)); // Crie uma matriz de referências
     const visibleIndex = useOnViewIndexScreen(refsArray);
 
+    const [mailPartner, setMailPartner] = useState('')
 
     function GridItem({ title, subtitle, src }: { title: string, subtitle: string, src: string }) {
         return (
@@ -69,9 +71,12 @@ const Partners: React.FC = () => {
                     <div className='flex flex-row gap-2'>
                         <Input
                             type="email"
+                            onChangeCapture={e => setMailPartner(e.currentTarget.value)}
                             placeholder="Quero fazer parte"
                             className='bg-white text-miau-black w-40 sm:w-60' />
-                        <Button text='Inscreva-se' variant='secondary' onClick={() => { console.log('adoleta') }} />
+                        <RegisterModal >
+                            <Button text='Inscreva-se' variant='secondary' onClick={() => { }} />
+                        </RegisterModal>
                     </div>
 
                 </div>

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button } from "./button";
 import { MiauMenuBar } from "./menuBar";
 import { twMerge } from 'tailwind-merge';
+import { RegisterModal } from './register-modal';
 
 const NavigationMenu = (props: any) => {
 
@@ -58,7 +59,9 @@ const NavigationMenu = (props: any) => {
                     })}
 
                 </nav>
-                <Button text="Inscreva-se" onClick={() => { }}  />
+                <RegisterModal >
+                    <Button text='Inscreva-se' onClick={() => { }} />
+                </RegisterModal>
 
                 <div className={"w-4 h-4 relative sm:hidden"} onClick={() => setEnabled(!enabled)}>
                     {!enabled &&

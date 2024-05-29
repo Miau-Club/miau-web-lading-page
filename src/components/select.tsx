@@ -1,11 +1,11 @@
 import { twMerge } from "tailwind-merge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
 
-const SelectCustom = ({ className, children, defaultValue, onChange }:
-    { className?: string, children: any, defaultValue: string, onChange: (e: string) => void }) => {
+const SelectCustom = ({ className, children, defaultValue, onChange, id }:
+    { id?: string, className?: string, children: any, defaultValue: string, onChange: (e: string) => void }) => {
 
     return (
-        <Select onValueChange={onChange} defaultValue={defaultValue} >
+        <Select key={id} onValueChange={onChange} defaultValue={defaultValue} >
             <SelectTrigger className={twMerge("w-26 bg-miau-branding text-miau-white justify-center gap-4 border-transparent", className)}>
                 <SelectValue />
             </SelectTrigger>

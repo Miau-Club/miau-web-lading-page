@@ -4,6 +4,7 @@ import "./globals.css";
 import { NavigationMenu } from "@/components/navigationMenu";
 import { BottomMenu } from "@/components/bottom-menu";
 import { Analytics } from '@vercel/analytics/react';
+import { Toaster } from "@/components/ui/toaster";
 
 const urbanist = localFont({
   src: [
@@ -49,6 +50,7 @@ export default function RootLayout({
       <body className={urbanist.className}>
         <NavigationMenu />
         {children}
+        <Toaster />
         <BottomMenu />
         <Analytics />
       </body>

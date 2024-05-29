@@ -10,6 +10,7 @@ import { twMerge } from 'tailwind-merge';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { SelectCustom, SelectCustomItem } from '@/components/select';
 import { cn } from '@/lib/utils';
+import { RegisterModal } from '@/components/register-modal';
 
 
 const Home: React.FC = () => {
@@ -96,7 +97,9 @@ const Home: React.FC = () => {
             />
           </div>
           <div className='row-span-1 col-span-2 flex items-center'>
-            <Button text='Inscreva-se' classname='z-10 ' onClick={() => { console.log("") }} />
+            <RegisterModal >
+              <Button text='Inscreva-se' onClick={() => { }} />
+            </RegisterModal>
           </div>
           <div className='flex flex-col justify-center row-span-1  col-span-2'>
             <h3 className='text-miau-yellow font-bold'>PETS REGISTRADOS</h3>
@@ -162,7 +165,9 @@ const Home: React.FC = () => {
           <div className=' flex  flex-col justify-center items-center sm:items-start sm:pl-[10%] sm:text-start gap-4'>
             <H1 className='text-miau-black text-2xl '>SEJA O PRIMEIRO A TESTAR</H1>
             <p className='text-miau-black/60 font-normal sm:text-base text-sm max-w-[320px]'>o app que irá revolucionar o cuidado com a saúde e o bem-estar pet</p>
-            <Button text='Inscreva-se' classname='hidden sm:block' onClick={() => { }} />
+            <RegisterModal >
+              <Button text='Inscreva-se' onClick={() => { }} classname='hidden sm:block' />
+            </RegisterModal>
           </div>
           <div className='flex flex-col justify-center mt-20 overflow-hidden sm:flex-1 sm:mt-0 sm:items-center'>
             <div className='w-full flex justify-center'>
