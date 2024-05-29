@@ -44,14 +44,28 @@ const RegisterModal: React.FC<{ children: any, initMail?: string }> = ({ childre
                 body: JSON.stringify({ mail: form.mail, type: form.type }),
             });
 
+            if (response.status > 400) {
+                throw response.status;
+            }
+
             const { referral, id }: { referral: string, id: number } = await response.json();
+
 
             setForm({ ...form, id: id, referral: referral })
         } catch (error) {
-            toast({
-                title: "⚡ Problemas no Servidor",
-                description: "O dog encontrou o fio do servidor. Estamos corrigindo!",
-            });
+
+            if (error === 422) {
+                toast({
+                    title: "⚠️ e-mail, cadê você?",
+                    description: "Seu e-mail escapou da coleira! Pode adicioná-lo?",
+                });
+            } else {
+                toast({
+                    title: "⚡ Problemas no Servidor",
+                    description: "O dog encontrou o fio do servidor. Estamos corrigindo!",
+                });
+            }
+
         } finally {
             setLoading(false);
         }
