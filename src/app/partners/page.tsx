@@ -125,7 +125,7 @@ const Partners: React.FC = () => {
                     <div
                         ref={refsArray[index]}
                         className={twMerge('h-[50%] transition-all duration-1000 w-[80vw] sm:w-[22rem] flex flex-col justify-center gap-8',
-                            visibleIndex == index ? 'blur-0' : 'blur-sm'
+                            visibleIndex == index ? 'blur-0' : 'blur-md'
                         )}>
                         {items.insights.map(ins => {
                             return (
