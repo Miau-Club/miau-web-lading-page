@@ -82,11 +82,11 @@ const Home: React.FC = () => {
 
   return (
     <div >
-      <div className='bg-blue-bg w-full h-screen pt-16 px-4 overflow-hidden flex justify-center flex-col items-start gap-10 sm:pl-[20%] sm:px-0'>
-        <div className='grid grid-cols-3 grid-rows-3 gap-10 z-10'>
-          <div className='row-span-2 col-span-3 sm:col-span-2 flex flex-col justify-end '>
+      <div className='bg-blue-bg w-full h-[100vh] sm:h-screen pt-56 sm:pt-16 overflow-hidden flex justify-center flex-col items-start gap-10 sm:pl-[20%] px-4 sm:px-0'>
+        <div className='grid grid-cols-3 grid-rows-[1fr_1fr_auto_auto_1fr] sm:grid-rows-3 gap-10 z-10 '>
+          <div className='row-span-2 col-span-3 sm:row-span-2 sm:col-span-2 flex flex-col justify-end  '>
             <H1 className='text-xl'>O ecossistema do bem-estar pet, <br /><span className='font-normal'>na palma da sua mão</span></H1>
-            <p className='max-w-[405px] text-miau-white/50 text-lg mt-2'>Nossa tecnologia conecta tutores, veterinários, petshops e profissionais em uma rede de cuidado pet, centralizando o histórico de vida do animal em um único lugar.</p>
+            <p className='max-w-[405px] text-miau-white/50 text-base sm:text-lg mt-2'>Nossa tecnologia conecta tutores, veterinários, petshops e profissionais em uma rede de cuidado pet, centralizando o histórico de vida do animal em um único lugar.</p>
           </div>
           <div className="h-[35rem] w-[35rem] relative row-span-4 col-span-1 hidden sm:block right-60 z-10 animate-bounce-home">
             <Image
@@ -96,22 +96,29 @@ const Home: React.FC = () => {
               objectFit="contain"
             />
           </div>
-          <div className='row-span-1 col-span-2 flex items-center'>
+          <div className='row-span-1 col-span-1 sm:col-span-2   grid-tem flex items-center'>
             <RegisterModal >
               <Button text='Inscreva-se' onClick={() => { }} />
             </RegisterModal>
           </div>
-          <div className='flex flex-col justify-center row-span-1  col-span-2'>
-            <h3 className='text-miau-yellow font-bold'>PETS REGISTRADOS</h3>
+          <div className='row-span-1 col-span-2 flex flex-col justify-center pl-[22%] sm:pl-0'>
+            <h3 className='text-miau-yellow font-bold text-sm sm:text-base'>PETS REGISTRADOS</h3>
             <div className='flex flex-row items-center gap-4'>
-              <div><p className='text-miau-white font-normal'>226 Pets +</p> <p className='text-miau-blueContrast font-light'>CACHORROS e GATOS</p></div>
-              {/* <div><p className='text-miau-white font-normal'>80 Pets +</p> <p className='text-miau-blueContrast font-light'>GATOS</p></div> */}
+              <span><p className='text-miau-white font-normal text-sm sm:text-base'>226 Pets +</p> <p className='text-miau-blueContrast font-light text-sm sm:text-base'>CACHORROS e GATOS</p></span>
             </div>
+          </div>
+          <div className="h-[20rem] w-full relative row-span-1 col-span-3 sm:hidden z-10 animate-bounce-home">
+            <Image
+              src="/imgs/bg/homeDraw.png"
+              alt="Miau Home Image"
+              layout="fill"
+              objectFit="contain"
+            />
           </div>
         </div>
       </div>
       <div className='bg-gradient-to-b from-blue-bg to-white'>
-        <div className=' w-full h-[100%] px-4'>
+        <div className='w-full h-[100%] px-4 '>
           <div className='grid grid-cols-1 grid-rows-5 sm:grid-cols-3 sm:grid-rows-2'>
             <div className='flex justify-center items-center flex-col gap-2 sm:col-span-3'>
               <H1 className='text-xl'>Tecnologia em prol do bem-estar pet</H1>

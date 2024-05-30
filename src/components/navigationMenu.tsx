@@ -15,12 +15,14 @@ const NavigationMenu = (props: any) => {
         <div className={twMerge("flex transition-height duration-500 items-center bg-blue-navigationBar/15 px-8 justify-between h-16 flex-row z-50 absolute right-0 top-0 w-screen", enabled && 'justify-evenly h-screen gap-8 flex-col overflow-hidden bg-blue-navigationBar')}
         >
             <div className="h-12 w-12 relative ">
-                <Image
-                    src="/miau/logo.png"
-                    alt="MiAu Logo"
-                    layout="fill"
-                    objectFit="contain"
-                />
+                <a href={'/'}>
+                    <Image
+                        src="/miau/logo.png"
+                        alt="MiAu Logo"
+                        layout="fill"
+                        objectFit="contain"
+                    />
+                </a>
             </div>
             <div className={twMerge("flex gap-8 justify-center items-center ", enabled ? 'flex-col' : 'flex-row')}>
                 <MiauMenuBar
