@@ -136,7 +136,7 @@ const Tutors: React.FC = () => {
                     />
                 </div>
             </div>
-            <div className='flex flex-col justify-start items-center sm:flex-row w-full h-[150vh] sm:h-[90vh] bg-blue-bgTutors bg-[radial-gradient(#F7F7F710_1px,transparent_1px)] [background-size:16px_16px] gap-24'>
+            <div className='flex flex-col justify-start sm:justify-center items-center sm:flex-row w-full h-[150vh] sm:h-[90vh] bg-blue-bgTutors bg-[radial-gradient(#F7F7F710_1px,transparent_1px)] [background-size:16px_16px] gap-24'>
                 <CardIcons
                     color='bg-blue-blueLight bg-opacity-75'
                     src='/icons/download.svg'
