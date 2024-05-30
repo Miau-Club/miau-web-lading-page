@@ -60,7 +60,6 @@ const Partners: React.FC = () => {
             </div>
         )
     }
-
     
     return <div className='bg-gradient-to-b from-blue-bgPartners to-black-bgPartnersEnd flex flex-col items-center'>
         <div className=' h-screen w-full flex justify-center items-center'>

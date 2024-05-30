@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Dialog,
     DialogContent,
@@ -20,9 +20,14 @@ import { twMerge } from 'tailwind-merge';
 const RegisterModal: React.FC<{ children: any, initMail?: string }> = ({ children, initMail }) => {
     const { toast } = useToast();
 
-    const [form, setForm] = useState<{ mail: string, type: string, id: null | number, referral: null | string }>({ mail: initMail ?? '', type: 'tutor', id: null, referral: null });
+    const [form, setForm] = useState<{ mail: string, type: string, id: null | number, referral: null | string }>({ mail: '', type: 'tutor', id: null, referral: null });
     const [loading, setLoading] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+
+
+    useEffect(() => {
+        setForm({ ...form, mail: initMail ?? "" })
+    }, [initMail])
 
     async function handleRegister() {
         if (!form.mail || !form.type || form.mail.trim().localeCompare("", undefined, { sensitivity: "base" }) === 0 || form.type.trim().localeCompare("", undefined, { sensitivity: "base" }) === 0) {
@@ -94,7 +99,7 @@ const RegisterModal: React.FC<{ children: any, initMail?: string }> = ({ childre
                                 onChangeCapture={e => setForm({ ...form, mail: e.currentTarget.value })}
                                 id='mail'
                                 type="email"
-                                value={form.mail}
+                                defaultValue={form.mail}
                                 placeholder="e-mail"
                                 className='bg-white text-miau-black'
                             />
