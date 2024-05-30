@@ -168,7 +168,7 @@ const Home: React.FC = () => {
             </div>
           </BGDots>
         </div>
-        <div className='w-full h-[150vh] flex flex-col sm:flex-row'>
+        <div className='w-full h-[100vh] sm:h-[150vh] flex flex-col sm:flex-row'>
           <div className=' flex  flex-col justify-center items-center sm:items-start sm:pl-[10%] sm:text-start gap-4'>
             <H1 className='text-miau-black text-2xl '>SEJA O PRIMEIRO A TESTAR</H1>
             <p className='text-miau-black/60 font-normal sm:text-base text-sm max-w-[320px]'>o app que irá revolucionar o cuidado com a saúde e o bem-estar pet</p>

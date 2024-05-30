@@ -61,6 +61,7 @@ const Partners: React.FC = () => {
         )
     }
 
+    
     return <div className='bg-gradient-to-b from-blue-bgPartners to-black-bgPartnersEnd flex flex-col items-center'>
         <div className=' h-screen w-full flex justify-center items-center'>
 
@@ -74,7 +75,7 @@ const Partners: React.FC = () => {
                             onChangeCapture={e => setMailPartner(e.currentTarget.value)}
                             placeholder="Quero fazer parte"
                             className='bg-white text-miau-black w-40 sm:w-60' />
-                        <RegisterModal >
+                        <RegisterModal initMail={mailPartner}>
                             <Button text='Inscreva-se' variant='secondary' onClick={() => { }} />
                         </RegisterModal>
                     </div>

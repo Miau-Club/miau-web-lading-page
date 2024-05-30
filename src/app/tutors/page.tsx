@@ -136,7 +136,7 @@ const Tutors: React.FC = () => {
                     />
                 </div>
             </div>
-            <div className='flex flex-col sm:flex-row w-full h-[160vh] sm:h-[90vh] bg-blue-bgTutors bg-[radial-gradient(#F7F7F710_1px,transparent_1px)] [background-size:16px_16px] justify-center items-center gap-24'>
+            <div className='flex flex-col justify-start items-center sm:flex-row w-full h-[150vh] sm:h-[90vh] bg-blue-bgTutors bg-[radial-gradient(#F7F7F710_1px,transparent_1px)] [background-size:16px_16px] gap-24'>
                 <CardIcons
                     color='bg-blue-blueLight bg-opacity-75'
                     src='/icons/download.svg'
@@ -177,7 +177,7 @@ const Tutors: React.FC = () => {
                                     <div className={`transition-colors duration-600 rounded-full flex-shrink-0 w-6 h-6 outline outline-[0.15rem] sm:outline-[0.2rem] outline-miau-white ${selectedItems == index ? 'bg-miau-yellow absolute left-0' : 'bg-miau-blueContrast'}`} />
                                     <h2 className="text-sm sm:text-base text-miau-white font-bold max-w-[22rem]">{item.title}</h2>
                                 </div>
-                                <p className={twMerge('transition-colors duration-700 text-miau-blueContrast text-sm font-normal hidden sm:block max-w-[22rem] ml-10',`${selectedItems == index ? 'text-miau-white' : 'text-miau-blueContrast'}`)}>{item.description}</p>
+                                <p className={twMerge('transition-colors duration-700 text-miau-blueContrast text-sm font-normal hidden sm:block max-w-[22rem] ml-10', `${selectedItems == index ? 'text-miau-white' : 'text-miau-blueContrast'}`)}>{item.description}</p>
                             </div>
                         ))}
                     </div>
@@ -306,12 +306,12 @@ const Tutors: React.FC = () => {
                             title='Adoção pet'
                             text='Apoiamos e acreditamos nessa causa. mesmo que você já tenha seu pet pode ajudar os milhares de pets a encontrar um lar.'
                             bgColor='bg-miau-blueLight'
-                            textColor='text-miau-black/70'
-                            borderColor='border-miau-white/20'
+                            textColor='text-miau-white'
+                            borderColor='border-miau-white/50'
                             className="h-[100%]"
-
+ 
                         >
-                            <SealGridIcon color={'bg-miau-white/20'} iconSrc='/icons/cake.svg' />
+                            <SealGridIcon color={'bg-miau-white/50'} iconSrc='/icons/cake.svg' />
                         </GridItem>
                     </div>
                 </div>
