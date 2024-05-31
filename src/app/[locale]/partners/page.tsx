@@ -83,8 +83,8 @@ const Partners: React.FC = () => {
                     width="16"
                     height="16"
                 />
-                <h3 className='text-miau-white font-bold text-base '>{t(title)}</h3>
-                <p className='text-miau-white/80 font-normal text-base sm:max-w-44'>{t(subtitle)}</p>
+                <h3 className='text-miau-white font-bold text-base '>{t(title as any)}</h3>
+                <p className='text-miau-white/80 font-normal text-base sm:max-w-44'>{t(subtitle as any)}</p>
             </div>
         )
     }
@@ -142,8 +142,8 @@ const Partners: React.FC = () => {
             <div className={twMerge('w-40 text-center flex flex-col gap-4 fixed top-0 transition-all duration-300',
                 visibleIndex == null ? 'translate-y-[-10rem]' : 'translate-y-4'
             )}>
-                <Button text={t(SHOWCASE_PARTNERS[visibleIndex ?? 0].title)} variant='secondary' onClick={() => { }} />
-                <p className='text-miau-white text-base font-light text-shadow-black'>{t(SHOWCASE_PARTNERS[visibleIndex ?? 0].subtitle)}</p>
+                <Button text={t(SHOWCASE_PARTNERS[visibleIndex ?? 0].title as any)} variant='secondary' onClick={() => { }} />
+                <p className='text-miau-white text-base font-light text-shadow-black'>{t(SHOWCASE_PARTNERS[visibleIndex ?? 0].subtitle as any)}</p>
             </div>
 
             {SHOWCASE_PARTNERS.map((items, index) => {
@@ -165,7 +165,7 @@ const Partners: React.FC = () => {
                                             height="16"
                                         />
                                     </div>
-                                    <h3 className='text-miau-white text-base font-bold'>{t(ins)}</h3>
+                                    <h3 className='text-miau-white text-base font-bold'>{t(ins as any)}</h3>
                                 </div>
                             )
                         })}
