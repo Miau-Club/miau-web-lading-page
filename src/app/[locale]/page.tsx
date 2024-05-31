@@ -11,9 +11,11 @@ import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { SelectCustom, SelectCustomItem } from '@/components/select';
 import { cn } from '@/lib/utils';
 import { RegisterModal } from '@/components/register-modal';
-
+import { useTranslations } from 'next-intl';
 
 const Home: React.FC = () => {
+
+  const t = useTranslations('Home');
 
   const [srcOverview, setSrcOverview] = useState('mobile-overview-home')
 
@@ -85,8 +87,8 @@ const Home: React.FC = () => {
       <div className='bg-blue-bg w-full h-[100vh] sm:h-screen pt-56 sm:pt-16 overflow-hidden flex justify-center flex-col items-start gap-10 sm:pl-[20%] px-4 sm:px-0'>
         <div className='grid grid-cols-3 grid-rows-[1fr_1fr_auto_auto_1fr] sm:grid-rows-3 gap-10 z-10 '>
           <div className='row-span-2 col-span-3 sm:row-span-2 sm:col-span-2 flex flex-col justify-end  '>
-            <H1 className='text-xl'>O ecossistema do bem-estar pet, <br /><span className='font-normal'>na palma da sua mão</span></H1>
-            <p className='max-w-[405px] text-miau-white/50 text-base sm:text-lg mt-2'>Nossa tecnologia conecta tutores, veterinários, petshops e profissionais em uma rede de cuidado pet, centralizando o histórico de vida do animal em um único lugar.</p>
+            <H1 className='text-xl'>{t('environment_1')} <br /><span className='font-normal'>{t('environment_2')}</span></H1>
+            <p className='max-w-[405px] text-miau-white/50 text-base sm:text-lg mt-2'>{t("environment_subtitle")}</p>
           </div>
           <div className="h-[35rem] w-[35rem] relative row-span-4 col-span-1 hidden sm:block right-60 z-10 animate-bounce-home">
             <Image
@@ -98,13 +100,13 @@ const Home: React.FC = () => {
           </div>
           <div className='row-span-1 col-span-1 sm:col-span-2   grid-tem flex items-center'>
             <RegisterModal >
-              <Button text='Inscreva-se' onClick={() => { }} />
+              <Button text={t("register_btn")} onClick={() => { }} />
             </RegisterModal>
           </div>
           <div className='row-span-1 col-span-2 flex flex-col justify-center pl-[22%] sm:pl-0'>
-            <h3 className='text-miau-yellow font-bold text-sm sm:text-base'>PETS REGISTRADOS</h3>
+            <h3 className='text-miau-yellow font-bold text-sm sm:text-base'>{t("registered_pets")}</h3>
             <div className='flex flex-row items-center gap-4'>
-              <span><p className='text-miau-white font-normal text-sm sm:text-base'>226 Pets +</p> <p className='text-miau-blueContrast font-light text-sm sm:text-base'>CACHORROS e GATOS</p></span>
+              <span><p className='text-miau-white font-normal text-sm sm:text-base'>226 {t("pets")} +</p> <p className='text-miau-blueContrast font-light text-sm sm:text-base'>{t("cat_dogs")}</p></span>
             </div>
           </div>
           <div className="h-[20rem] w-full relative row-span-1 col-span-3 sm:hidden z-10 animate-bounce-home">
@@ -121,59 +123,56 @@ const Home: React.FC = () => {
         <div className='w-full h-[100%] px-4 '>
           <div className='grid grid-cols-1 grid-rows-5 sm:grid-cols-3 sm:grid-rows-2'>
             <div className='flex justify-center items-center flex-col gap-2 sm:col-span-3'>
-              <H1 className='text-xl'>Tecnologia em prol do bem-estar pet</H1>
-              <h3 className='text-miau-white/50 text-base text-center  sm:text-lg'>todas as funcionalidades pensadas para quem nos dá carinho e amor diariamente.</h3>
+              <H1 className='text-xl'>{t("technology_welfare")}</H1>
+              <h3 className='text-miau-white/50 text-base text-center  sm:text-lg'>{t("technology_welfare_subtitle")}</h3>
             </div>
             <div className='sm:col-span-3 pb-8'>
-              <TechCard title='Pet ID' srcIcon="scan" srcIconMobile='scan'>
-                <p className='font-normal text-miau-white/60 text-base z-10'>Com nossa tecnologia biométrica via fucinho, o PET ID identifica seu pet instantaneamente, centraliza dados vitais e histórico médico, otimizando a segurança e o cuidado.</p>
+              <TechCard title={t('pet_id_title')} srcIcon="scan" srcIconMobile='scan'>
+                <p className='font-normal text-miau-white/60 text-base z-10'>{t('pet_id_description')}</p>
               </TechCard>
-
             </div>
-            <TechCard title='Histórico Conectado' srcIcon="dashboard" srcIconMobile='dashboard'>
-              <p className='font-normal text-miau-white/60 text-base'>Todo histórico de sáude do seu(s) pet(s), como: consultas, laudos, medição, tratamento em um único lugar. Chega de pastas, papeis e arquivos pdf.</p>
+            <TechCard title={t('connected_history_title')} srcIcon="dashboard" srcIconMobile='dashboard'>
+              <p className='font-normal text-miau-white/60 text-base'>{t('connected_history_description')}</p>
             </TechCard>
-            <TechCard title='Muito mais que um app' srcIcon="world" srcIconMobile='world'>
-              <p className='font-normal text-miau-white/60 text-base'>Somos a maneira mais eficiente e integrada de gerenciar a saúde e bem-estar dos pets, com fácil a serviços, produtos, locais, profissionais pet e muito mais. Facilidade para todos, que amam seus pets.</p>
+            <TechCard title={t('more_than_app_title')} srcIcon="world" srcIconMobile='world'>
+              <p className='font-normal text-miau-white/60 text-base'>{t('more_than_app_description')}</p>
             </TechCard>
-
-            <TechCard title='Inovação Contínua' srcIcon="arrow-up" srcIconMobile='ipaas'>
-              <p className='font-normal text-miau-white/60 text-base'>Através da tecnologia, potencializamos todos envolvidos na jornada pet, desde veterinários até prestadores de serviços.</p>
+            <TechCard title={t('continuous_innovation_title')} srcIcon="arrow-up" srcIconMobile='ipaas'>
+              <p className='font-normal text-miau-white/60 text-base'>{t('continuous_innovation_description')}</p>
             </TechCard>
-
           </div>
         </div>
         <div className='w-full h-[130vh] sm:h-[50vh] mt-28'>
           <BGDots className='flex flex-col items-center' color='bg-[radial-gradient(#859AE1_1px,transparent_1px)]'>
-            <H1 className='z-10'>Transformamos o amor em cuidado</H1>
+            <H1 className='z-10'>{t("transform_love_care")}</H1>
             <div className='flex flex-col sm:flex-row gap-4 justify-center z-10 mt-12 sm:gap-8'>
               <TransformCard
                 srcIcons="/imgs/stuffs/icons-card-one-home.png"
                 srcImg='/imgs/pet-dogs/cat-img-home.png'
                 color='bg-blue-blueCardOneHome'
-                title='Explore o ecossistema Miau Club'
-                subtitle='Descubra como nosso ecossistema revoluciona o cuidado com seu pet, integrando todos os aspectos da vida do seu animal em um só lugar' />
+                title={t('explore_ecosystem_title')}  
+                subtitle={t('explore_ecosystem_subtitle')} />
               <TransformCard
                 srcIcons="/imgs/stuffs/icons-card-two-home.png"
                 srcImg='/imgs/pet-dogs/dog-hands-home.png'
                 color='bg-blue-blueCardTwoHome'
-                title='Cuidado total para o seu pet'
-                subtitle='Recursos únicos, que facilitam a gestão da saúde e bem-estar do seu pet, desde lembretes de vacinação até profissionais especializados perto de você.' />
+                title={t('total_care_title')}
+                subtitle={t('total_care_subtitle')} />
               <TransformCard
                 srcIcons="/imgs/stuffs/icons-card-three-home.png"
                 srcImg='/imgs/stuffs/insights-dark-home.png'
                 color='bg-blue-blueCardThreeHome'
-                title='Insights que mudam vidas'
-                subtitle='O MiAu Club pode expandir seu negócio, conectando-o a uma ampla rede de tutores e fornecendo dados e insights valiosos para melhorar seus serviços.' />
+                title={t('insights_life_change_title')}
+                subtitle={t('insights_life_change_subtitle')} />
             </div>
           </BGDots>
         </div>
         <div className='w-full h-[100vh] sm:h-[150vh] flex flex-col sm:flex-row'>
           <div className=' flex  flex-col justify-center items-center sm:items-start sm:pl-[10%] sm:text-start gap-4'>
-            <H1 className='text-miau-black text-2xl '>SEJA O PRIMEIRO A TESTAR</H1>
-            <p className='text-miau-black/60 font-normal sm:text-base text-sm max-w-[320px]'>o app que irá revolucionar o cuidado com a saúde e o bem-estar pet</p>
+            <H1 className='text-miau-black text-2xl '>{t('be_first_test')}</H1>
+            <p className='text-miau-black/60 font-normal sm:text-base text-sm max-w-[320px]'>{t('revolutionize_care')}</p>
             <RegisterModal >
-              <Button text='Inscreva-se' onClick={() => { }} classname='hidden sm:block' />
+              <Button text={t("register_btn")} onClick={() => { }} classname='hidden sm:block' />
             </RegisterModal>
           </div>
           <div className='flex flex-col justify-center mt-20 overflow-hidden sm:flex-1 sm:mt-0 sm:items-center'>
@@ -182,8 +181,8 @@ const Home: React.FC = () => {
                 onChange={(e) => onOverviewChange(e as any)}
                 defaultValue='tutor'
                 className='sm:mr-[10%]'>
-                <SelectCustomItem value='tutor' description='Tutores' />
-                <SelectCustomItem value='partners' description='Parceiros' />
+                <SelectCustomItem value='tutor' description={t("tutors")} />
+                <SelectCustomItem value='partners' description={t("partners")} />
               </SelectCustom>
             </div>
             <div className={cn("transition-height duration-500 h-[35rem] w-[85%] ml-[10%] sm:ml-0 sm:h-[65%] sm:w-[40rem] relative",
@@ -205,5 +204,3 @@ const Home: React.FC = () => {
 }
 
 export default Home
-
-

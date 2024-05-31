@@ -8,38 +8,66 @@ import { useOnViewIndexScreen } from '@/lib/hooks';
 import Image from 'next/image';
 import React, { useRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { useTranslations } from 'next-intl';
 
 
-const SHOWCASE_PARTNERS = [{
-    title: 'Médico Veterinário',
-    subtitle: 'Diagnósticos precisos, cuidado conectado',
-    insights: ['Insigths via inteligencia artificial', 'Prescrições direta no app', 'Recebimento de laudos direto no app', 'Telemedicina e chat com tutor']
-},
-{
-    title: 'Profissionais Pet ',
-    subtitle: 'Amplie seu alcance no universo Pet',
-    insights: ['Chat com tutor', 'Pagamento e cobrança via App', 'Agenda inteligente', 'Divulgação em massa para novos tutores']
-
-},
-{
-    title: 'Lojas online e Petshops',
-    subtitle: 'Aumente suas vendas e atinja um público mais fiel',
-    insights: ['Publicidade para base de tutores ', 'Promoções online e Offline', 'Insigths através de IA', 'Divulgação em massa para novos tutores']
-
-},
-{
-    title: 'Estabelecimentos',
-    subtitle: 'Conectando tutores a uma nova experiência',
-    insights: ['Visibildiade  para o estabelcimento', 'Promoções online e Offline', 'Reservas online', 'Destaque nas buscas dos usuários']
-
-},
-{
-    title: 'Pet Techs',
-    subtitle: 'Revolução técnológica no cuidade Pet',
-    insights: ['Integrações Low-Code', 'Lake de dados já Integrados', 'Mais de 10 SDK`s finalizados', 'LOGs de Ponta a Ponta']
-}]
+const SHOWCASE_PARTNERS = [
+    {
+        "title": "MedicoVeterinario_title",
+        "subtitle": "MedicoVeterinario_subtitle",
+        "insights": [
+            "MedicoVeterinario_insights_0",
+            "MedicoVeterinario_insights_1",
+            "MedicoVeterinario_insights_2",
+            "MedicoVeterinario_insights_3"
+        ]
+    },
+    {
+        "title": "ProfissionaisPet_title",
+        "subtitle": "ProfissionaisPet_subtitle",
+        "insights": [
+            "ProfissionaisPet_insights_0",
+            "ProfissionaisPet_insights_1",
+            "ProfissionaisPet_insights_2",
+            "ProfissionaisPet_insights_3"
+        ]
+    },
+    {
+        "title": "LojasOnlinePetshops_title",
+        "subtitle": "LojasOnlinePetshops_subtitle",
+        "insights": [
+            "LojasOnlinePetshops_insights_0",
+            "LojasOnlinePetshops_insights_1",
+            "LojasOnlinePetshops_insights_2",
+            "LojasOnlinePetshops_insights_3"
+        ]
+    },
+    {
+        "title": "Estabelecimentos_title",
+        "subtitle": "Estabelecimentos_subtitle",
+        "insights": [
+            "Estabelecimentos_insights_0",
+            "Estabelecimentos_insights_1",
+            "Estabelecimentos_insights_2",
+            "Estabelecimentos_insights_3"
+        ]
+    },
+    {
+        "title": "PetTechs_title",
+        "subtitle": "PetTechs_subtitle",
+        "insights": [
+            "PetTechs_insights_0",
+            "PetTechs_insights_1",
+            "PetTechs_insights_2",
+            "PetTechs_insights_3"
+        ]
+    }
+]
 
 const Partners: React.FC = () => {
+    const t = useTranslations('Partners');
+    const t_commons = useTranslations('Commons');
+
 
     const refsArray = Array.from({ length: SHOWCASE_PARTNERS.length }, () => useRef<HTMLDivElement>(null)); // Crie uma matriz de referências
     const visibleIndex = useOnViewIndexScreen(refsArray);
@@ -55,27 +83,27 @@ const Partners: React.FC = () => {
                     width="16"
                     height="16"
                 />
-                <h3 className='text-miau-white font-bold text-base '>{title}</h3>
-                <p className='text-miau-white/80 font-normal text-base sm:max-w-44'>{subtitle}</p>
+                <h3 className='text-miau-white font-bold text-base '>{t(title)}</h3>
+                <p className='text-miau-white/80 font-normal text-base sm:max-w-44'>{t(subtitle)}</p>
             </div>
         )
     }
-    
+
     return <div className='bg-gradient-to-b from-blue-bgPartners to-black-bgPartnersEnd flex flex-col items-center'>
         <div className=' h-screen w-full flex justify-center items-center'>
 
             <div className='overflow-hidden flex flex-col sm:flex-row items-center justify-center pl-4 h-[80vh] w-[90vw] sm:w-[80vw] bg-transparent bg-[linear-gradient(to_right,#F7F7F710,transparent_2px),linear-gradient(to_bottom,#F7F7F710,transparent_2px)] bg-[size:6rem_4rem] rounded-sm'>
                 <div className='gap-4 flex flex-col self-start sm:self-center pt-8 sm:pt-0'>
-                    <H1 className='max-w-[34rem] '>Construa Pet-techs e serviçoes de dados PET , em tempo-real. Rápido.</H1>
-                    <h3 className='text-miau-grayDark font-light text-base sm:max-w-[26rem]'>Configure, integre, use . Uma gama de serviços construídos e feito para os pets.</h3>
+                    <H1 className='max-w-[34rem] '>{t("welcome_pet_tech_title")}</H1>
+                    <h3 className='text-miau-grayDark font-light text-base sm:max-w-[26rem]'>{t("welcome_pet_tech_description")}</h3>
                     <div className='flex flex-row gap-2'>
                         <Input
                             type="email"
                             onChangeCapture={e => setMailPartner(e.currentTarget.value)}
-                            placeholder="Quero fazer parte"
+                            placeholder={t("wanne_be_register")}
                             className='bg-white text-miau-black w-40 sm:w-60' />
                         <RegisterModal initMail={mailPartner}>
-                            <Button text='Inscreva-se' variant='secondary' onClick={() => { }} />
+                            <Button text={t_commons("register")} variant='secondary' onClick={() => { }} />
                         </RegisterModal>
                     </div>
 
@@ -114,8 +142,8 @@ const Partners: React.FC = () => {
             <div className={twMerge('w-40 text-center flex flex-col gap-4 fixed top-0 transition-all duration-300',
                 visibleIndex == null ? 'translate-y-[-10rem]' : 'translate-y-4'
             )}>
-                <Button text={SHOWCASE_PARTNERS[visibleIndex ?? 0].title} variant='secondary' onClick={() => { }} />
-                <p className='text-miau-white text-base font-light text-shadow-black'>{SHOWCASE_PARTNERS[visibleIndex ?? 0].subtitle}</p>
+                <Button text={t(SHOWCASE_PARTNERS[visibleIndex ?? 0].title)} variant='secondary' onClick={() => { }} />
+                <p className='text-miau-white text-base font-light text-shadow-black'>{t(SHOWCASE_PARTNERS[visibleIndex ?? 0].subtitle)}</p>
             </div>
 
             {SHOWCASE_PARTNERS.map((items, index) => {
@@ -137,7 +165,7 @@ const Partners: React.FC = () => {
                                             height="16"
                                         />
                                     </div>
-                                    <h3 className='text-miau-white text-base font-bold'>{ins}</h3>
+                                    <h3 className='text-miau-white text-base font-bold'>{t(ins)}</h3>
                                 </div>
                             )
                         })}
@@ -148,17 +176,17 @@ const Partners: React.FC = () => {
         </div>
 
         <div className='w-[65vw] py-10 sm:py-0 h-full sm:h-screen grid grid-cols-1 grid-rows-6 sm:grid-cols-3 sm:grid-rows-2 items-center '>
-            <GridItem title='Inovação em Integração' src='coffee.svg' subtitle='Acesso gratuito a recursos essenciais para o cuidado diário do seu pet.' />
-            <GridItem title='Maior lake PET' src='database.svg' subtitle='Tornamos mais simples a jornada de todos envolvidos para o cuidado e bem -estar pet.' />
-            <GridItem title='IPaas' src='ipaas.svg' subtitle='Conectamos tutores a uma ampla gama de serviços pet, garantindo conforto e conveniência.' />
-            <GridItem title='IA Personalizada' src='ia.svg' subtitle='Todo o histórico do seu pet seguro e acessível com um toque conectado a um ecossistema único.' />
-            <GridItem title='Segurança de Dados' src='shield-check.svg' subtitle='A confidencialidade e integridade dos dados são a espinha dorsal do nosso ecossistema, de ponta a ponta, de modo totalmente criptografado.' />
-            <GridItem title='Soluções escaláveis' src='code-pen.svg' subtitle='Apoiamos e acreditamos nessa causa. mesmo que você já tenha seu pet pode ajudar os milhares de pets a encontrar um lar.' />
+            <GridItem title='innovation_integration_title' src='coffee.svg' subtitle='innovation_integration_subtitle' />
+            <GridItem title='largest_pet_lake_title' src='database.svg' subtitle='largest_pet_lake_subtitle' />
+            <GridItem title='ipaas_title' src='ipaas.svg' subtitle='ipaas_subtitle' />
+            <GridItem title='personalized_ai_title' src='ia.svg' subtitle='personalized_ai_subtitle' />
+            <GridItem title='data_security_title' src='shield-check.svg' subtitle='data_security_subtitle' />
+            <GridItem title='scalable_solutions_title' src='code-pen.svg' subtitle='scalable_solutions_subtitle' />
         </div>
 
         <div className='flex flex-col gap-8 justify-center items-center w-full h-screen mt-10'>
 
-            <H1 className='text-base'>Feito para os PETS, pensado para os devs</H1>
+            <H1 className='text-base'>{t("created_devs")}</H1>
 
             <div className='w-full h-[50vh] sm:w-[45vw] sm:h-[85vh] bg-miau-white/5 rounded-sm flex justify-center items-center'>
                 <div className='flex items-center w-[90vw] h-[45vh] sm:w-[40vw] sm:h-[75vh] bg-miau-white/5 rounded-sm relative'>
