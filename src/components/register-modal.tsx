@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
     Dialog,
     DialogContent,
@@ -10,22 +10,44 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from './ui/input';
 import { Button } from './button';
+import { Button as ButtonUI } from './ui/button';
+
 import { SelectCustom, SelectCustomItem } from './select';
 import { Label } from './ui/label';
 import Image from 'next/image';
 import { LoadingSpinner } from './loading-spinner';
 import { useToast } from "@/components/ui/use-toast";
 import { twMerge } from 'tailwind-merge';
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
+import { ClipboardCopyIcon } from "@radix-ui/react-icons"
 
 const RegisterModal: React.FC<{ children: any, initMail?: string }> = ({ children, initMail }) => {
     const t = useTranslations("Components.register_modal")
     const { toast } = useToast();
 
+    const locale = useLocale()
 
-    const [form, setForm] = useState<{ mail: string, type: string, id: null | number, referral: null | string }>({ mail: '', type: 'tutor', id: null, referral: null });
+
+    const [form, setForm] = useState<{
+        mail: string,
+        type: string,
+        id: null | number,
+        referral: null | string,
+        name: string,
+        pet: 'dog' | 'cat' | 'both' | 'na',
+        phone: string
+    }>({
+        mail: '',
+        type: 'tutor',
+        id: null,
+        referral: null,
+        name: '',
+        pet: 'na',
+        phone: ''
+    });
     const [loading, setLoading] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const copyRef = useRef(null);
 
 
     useEffect(() => {
@@ -33,13 +55,33 @@ const RegisterModal: React.FC<{ children: any, initMail?: string }> = ({ childre
     }, [initMail])
 
     async function handleRegister() {
-        if (!form.mail || !form.type || form.mail.trim().localeCompare("", undefined, { sensitivity: "base" }) === 0 || form.type.trim().localeCompare("", undefined, { sensitivity: "base" }) === 0) {
+        if (!form.mail || form.mail.trim().localeCompare("", undefined, { sensitivity: "base" }) === 0
+        ) {
             toast({
-                title: "⚠️ e-mail, cadê você?",
-                description: "Seu e-mail escapou da coleira! Pode adicioná-lo?",
+                title: t("mail_toast"),
+                description: t("mail_toast_description"),
             });
             return;
         }
+
+        if (!form.phone || form.phone.length < 5 || form.phone.trim().localeCompare("", undefined, { sensitivity: "base" }) === 0
+        ) {
+            toast({
+                title: t("phone_toast"),
+                description: t("phone_toast_description"),
+            });
+            return;
+        }
+
+        if (!form.name || form?.name.length < 3 || form.name.trim().localeCompare("", undefined, { sensitivity: "base" }) === 0
+        ) {
+            toast({
+                title: t("name_toast"),
+                description: t("name_toast_description"),
+            });
+            return;
+        }
+
 
         try {
             setLoading(true);
@@ -49,30 +91,59 @@ const RegisterModal: React.FC<{ children: any, initMail?: string }> = ({ childre
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ mail: form.mail, type: form.type }),
+                body: JSON.stringify({
+                    mail: form.mail,
+                    type: form.type,
+                    name: form.name,
+                    phone: form.phone,
+                    pet: form.pet,
+                    language: locale === 'br' ? 'BR' : 'US'
+
+                }),
             });
 
             if (response.status > 400) {
-                throw response.status;
+                throw await response.json();
             }
 
             const { referral, id }: { referral: string, id: number } = await response.json();
 
 
             setForm({ ...form, id: id, referral: referral })
-        } catch (error) {
+        } catch (error: any) {
 
-            if (error === 422) {
+            console.log(error)
+
+            const field = error?.error[0]?.field;
+
+            if (field === 'invalid_phone') {
                 toast({
-                    title: "⚠️ e-mail, cadê você?",
-                    description: "Seu e-mail escapou da coleira! Pode adicioná-lo?",
+                    title: t("phone_toast"),
+                    description: t("phone_toast_description"),
                 });
-            } else {
-                toast({
-                    title: "⚡ Problemas no Servidor",
-                    description: "O dog encontrou o fio do servidor. Estamos corrigindo!",
-                });
+                return
             }
+
+            if (field === 'invalid_name') {
+                toast({
+                    title: t("name_toast"),
+                    description: t("name_toast_description"),
+                });
+                return
+            }
+
+            if (field === 'invalid_mail') {
+                toast({
+                    title: t("mail_toast"),
+                    description: t("mail_toast_description"),
+                });
+                return
+            }
+
+            toast({
+                title: t("server_toast"),
+                description: t("server_toast_description"),
+            });
 
         } finally {
             setLoading(false);
@@ -96,17 +167,51 @@ const RegisterModal: React.FC<{ children: any, initMail?: string }> = ({ childre
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4 px-2">
-                        <div className="grid grid-cols-2 items-center justify-start">
-                            <Label className='text-miau-white' htmlFor='mail'>{t("mail_is")}</Label>
+                        <div className="grid grid-cols-2 items-center justify-start gap-2">
+                            <Input
+                                onChangeCapture={e => setForm({ ...form, name: e.currentTarget.value })}
+                                id='name'
+                                type="text"
+                                defaultValue={form.name}
+                                placeholder={t("name")}
+                                className='bg-white text-miau-black'
+                            />
                             <Input
                                 onChangeCapture={e => setForm({ ...form, mail: e.currentTarget.value })}
                                 id='mail'
                                 type="email"
                                 defaultValue={form.mail}
-                                placeholder="e-mail"
+                                placeholder={t("mail_is")}
                                 className='bg-white text-miau-black'
                             />
                         </div>
+                        <div className="grid grid-cols-2 items-center justify-start gap-2">
+                            <Label className='text-miau-white' htmlFor='types'>{t("phone_label")}</Label>
+                            <Input
+                                onChangeCapture={e => setForm({ ...form, phone: e.currentTarget.value })}
+                                id='name'
+                                type="number"
+                                defaultValue={form.phone}
+                                placeholder={t("phone_placeholder")}
+                                className='bg-white text-miau-black'
+                            />
+                        </div>
+                        {
+                            form.type !== 'pet-tech' &&
+                            <div className="grid grid-cols-2 items-center">
+                                <Label className='text-miau-white' htmlFor='types'>{t("pet_label")}</Label>
+                                <SelectCustom
+                                    id={'types'}
+                                    onChange={(e) => setForm({ ...form, pet: e as any })}
+                                    defaultValue='na'
+                                    className='bg-miau-blueLight font-bold sm:mw-60'>
+                                    <SelectCustomItem value='dog' description={t("dog_selector")} />
+                                    <SelectCustomItem value='cat' description={t("cat_selector")} />
+                                    <SelectCustomItem value='both' description={t("both_selector")} />
+                                    <SelectCustomItem value='na' description={t("na_selector")} />
+                                </SelectCustom>
+                            </div>
+                        }
                         <div className="grid grid-cols-2 items-center">
                             <Label className='text-miau-white' htmlFor='types'>{t("am_i")}</Label>
                             <SelectCustom
@@ -156,6 +261,8 @@ const RegisterModal: React.FC<{ children: any, initMail?: string }> = ({ childre
             return
         }
 
+        const htmlUrl = `https://www.miauclub.com.br/?code=${form.referral}`
+
         return (
             <div className='flex flex-col items-center gap-8 sm:gap-4 text-center bg-transparent bg-[linear-gradient(to_right,#F7F7F710,transparent_2px),linear-gradient(to_bottom,#F7F7F710,transparent_2px)] bg-[size:6rem_4rem]'>
                 <h3 className='font-bold text-miau-white max-w-[30rem]'>{t("thankyou_register")}</h3>
@@ -166,9 +273,36 @@ const RegisterModal: React.FC<{ children: any, initMail?: string }> = ({ childre
 
                 <h2 className='text-miau-white/80 font-bold' >{t("early_access")}</h2>
 
-                <div className="rounded-md border border-miau-white/80 px-4 py-2 font-mono text-sm shadow-sm text-miau-white">
-                    https://www.miauclub.com.br/?code={form.referral}
+                <div className=" flex flex-row justify-center items-center rounded-md border border-miau-white/80 px-4 py-2 font-mono text-sm shadow-sm text-miau-white">
+                    <p ref={copyRef} >{htmlUrl}</p>
+
+                    <ButtonUI
+                        onClick={() => {
+                            if (navigator.clipboard) {
+                                navigator.clipboard.writeText(htmlUrl)
+                            } else {
+                                const textElement = copyRef.current;
+
+                                if (textElement) {
+                                    const range = document.createRange();
+                                    range.selectNodeContents(textElement);
+                                    const selection = window.getSelection();
+                                    selection?.removeAllRanges();
+                                    selection?.addRange(range);
+
+                                    document.execCommand('copy');
+
+                                    selection?.removeAllRanges();
+                                }
+                            }
+                        }}
+                        variant="outline"
+                        className='bg-miau-white border-miau-grayDark ml-4 hover:bg-miau-white/80 ' size="icon">
+                        <ClipboardCopyIcon className="h-4 w-4 text-miau-black " />
+                    </ButtonUI>
                 </div>
+                <h2 className='text-miau-white/80 text-sm font-light' >{t("early_access_description")}</h2>
+
             </div>
         )
     }
@@ -181,7 +315,7 @@ const RegisterModal: React.FC<{ children: any, initMail?: string }> = ({ childre
                 </DialogTrigger>
                 <DialogContent className={twMerge(
                     "sm:max-w-[50rem] w-[95vw] justify-center rounded-sm bg-miau-branding border-miau-blueLight z-50",
-                    loading ? '' : 'h-[60vh] sm:h-[34vh]')}
+                    loading ? '' : 'h-[65vh] sm:h-[40vh]')}
                 >
                     {loading && <LoadingSpinner className='text-miau-white' />}
                     {ContentRegister()}

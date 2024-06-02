@@ -110,7 +110,7 @@
     "register_modal": {
       "connected_environment": "Connect to the ultimate Pet ecosystem",
       "connected_environment_subtitle": "Be one of the first to get access to MiAu Club and transform the management of your pet's care and well-being with our innovative ecosystem at your fingertips. 🐶 🐈",
-      "mail_is": "My email is",
+      "mail_is": "Your e-mail",
       "am_i": "I am a",
       "tutor": "Tutor",
       "pet_tech": "Pet-tech",
@@ -120,7 +120,23 @@
       "thankyou_register": "Thank you for wanting to be part of this unique moment in the pet universe, as this world is what we will build from today!",
       "count_one": "You are number",
       "count_two": "on our list 🐶 🐱",
-      "early_access": "Want early access?"
+      "early_access": "Want early access?",
+      "name": "Your name",
+      "pet_label": "My pet is",
+      "dog_selector": "Dog",
+      "cat_selector": "Cat",
+      "both_selector": "Both",
+      "na_selector": "I don`t have pets",
+      "phone_label": "Phone (We promise we won't call you)",
+      "phone_placeholder": "Phone",
+      "phone_toast": "Invalid phone format",
+      "phone_toast_description": "Try changing your language",
+      "name_toast": "\"⚠️ name, where are u?\"",
+      "name_toast_description": "Your name has escaped its leash! Can you add it?",
+      "mail_toast_description": "Your email has escaped its leash! Can you add it?",
+      "server_toast": "\"⚡ Error on server\"",
+      "server_toast_description": "The dog found the server wire. We are correcting it!",
+      "early_access_description": "Advance 5 position every time someone joins the waitlist through your link"
     },
     "navigation_menu": {
       "home": "Home",
