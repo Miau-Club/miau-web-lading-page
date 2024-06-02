@@ -145,6 +145,12 @@
       "register_btn": "Register",
       "pt": "Portuguese",
       "en": "English"
+    },
+    "footer": {
+      "blog": "Blog",
+      "about_us": "About us",
+      "terms": "Terms",
+      "policy": "Privacy Policy"
     }
   },
   "Commons": {

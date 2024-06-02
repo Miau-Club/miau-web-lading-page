@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import localFont from 'next/font/local'
 import "../globals.css";
 import { NavigationMenu } from "@/components/navigationMenu";
-import { BottomMenu } from "@/components/bottom-menu";
 import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from "@/components/ui/toaster";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
+import { Footer } from "@/components/footer";
 
 
 const urbanist = localFont({
@@ -62,7 +62,7 @@ export default async function RootLayout({
           <NavigationMenu />
           {children}
           <Toaster />
-          <BottomMenu />
+          <Footer />
           <Analytics />
         </NextIntlClientProvider>
       </body>

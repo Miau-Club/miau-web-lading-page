@@ -146,6 +146,12 @@
       "register_btn": "Inscreva-se",
       "pt": "Português",
       "en": "Inglês"
+    },
+    "footer": {
+      "blog": "Blog",
+      "about_us": "Sobre nós",
+      "terms": "Termos de uso",
+      "policy": "Políticas de Privacidade"
     }
   },
   "Commons": {
