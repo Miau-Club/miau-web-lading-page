@@ -15,7 +15,7 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-## WILL HELP YOU
+## Will help you
 
 i18n Ally - Translate
 
